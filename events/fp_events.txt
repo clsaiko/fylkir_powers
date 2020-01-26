@@ -1,0 +1,43 @@
+#################################
+#	File:	fp_events.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Events
+#			Various triggered and MTTH events in the Fylkir Powers mod.
+#			None yet written.
+#################################
+
+namespace = fp				#event namespace
+
+#EVENT TESTING - 999
+character_event = {		#event type
+	id = fp.999				#event ID
+	hide_from = yes
+    picture = GFX_evt_battle 	#Needs a default picture, even if it won't actually show up
+	desc = EVTDESCfp.999		#description
+
+	#Fast event triggers
+	is_triggered_only = yes
+	only_playable = yes
+	ai = no
+
+	trigger = {}
+	mean_time_to_happen = {}
+	immediate = {}
+
+	#option A block
+	option = {
+		name = EVTOPTAfp.999
+		trigger = {}
+
+		#Option A command block
+	}
+
+	#option B block, changed mind
+	option = {
+		name = EVTOPTBfp.999
+		trigger = {}
+		#Option B command block
+	}
+
+	after = {}
+}

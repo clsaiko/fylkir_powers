@@ -1,0 +1,43 @@
+#################################
+#	File:   localisation_fylkir_powers.csv
+#	Author: Chris Saiko
+#	Desc:   Fylkir Powers Localisation File
+#################################
+
+
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+#CODE;ENGLISH;;;;;;;;;;;;;x
+
+fp_cure_disease;Cure Disease;;;;;;;;;;;;;x
+fp_cure_disease_desc;Cure any illness or symptom from §Y[Root.GetTitledName]§!. [Root.GetSheHeCap] will be duly grateful (§G+5§! opinion NYI).;;;;;;;;;;;;;x
+
+fp_calm_mind;Calm Mind;;;;;;;;;;;;;x
+fp_calm_mind_desc;Remove an affliction of the mind from §Y[Root.GetTitledName]§!. [Root.GetSheHeCap] will be duly grateful (§G+5§! opinion NYI).;;;;;;;;;;;;;x
+
+fp_heal_body;Heal Body;;;;;;;;;;;;;x
+fp_heal_body_desc;Heal a wound or disfigurement from from §Y[Root.GetTitledName]§!. [Root.GetSheHeCap] will be duly grateful (§G+10§! opinion NYI).;;;;;;;;;;;;;x
+
+fp_heal_defect;Heal Defect;;;;;;;;;;;;;x
+fp_heal_defect_desc;Remove a defect or aberration trait from §Y[Root.GetTitledName]§!. [Root.GetSheHeCap] will be duly grateful (§G+10§! opinion NYI).;;;;;;;;;;;;;x
+
+fp_extend_life;Extend Life;;;;;;;;;;;;;x
+fp_extend_life_desc;Extend the life of §Y[Root.GetTitledName]§! by two years. [Root.GetSheHeCap] will be duly grateful (§G+10§! opinion NYI).;;;;;;;;;;;;;x
+
+fp_inflict_gloom;Inflict Gloom;;;;;;;;;;;;;x
+fp_inflict_gloom_desc;Inflict gloom upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+
+fp_inflict_madness;Inflict Madness;;;;;;;;;;;;;x
+fp_inflict_madness_desc;Inflict madness upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+
+fp_inflict_illness;Inflict Illness;;;;;;;;;;;;;x
+fp_inflict_illness_desc;Inflict a minor disease upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+
+fp_inflict_malady;Inflict Malady;;;;;;;;;;;;;x
+fp_inflict_malady_desc;Inflict a major disease upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+
+fp_inflict_aberration;Inflict Aberration;;;;;;;;;;;;;x
+fp_inflict_aberration_desc;Inflict an aberration or deformity upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+
+EVTDESCfp.999;fylkir_powers Event testing;;;;;;;;;;;;;x
+EVTOPTAfp.999;fylkir_powers Option A;;;;;;;;;;;;;x
+EVTOPTBfp.999;fylkir_powers Option B;;;;;;;;;;;;;x
