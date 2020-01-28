@@ -1,0 +1,15 @@
+#################################
+#	File:	int_decisions_fylkir.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Decisions, Intrigue Panel
+#				Religious Doctrine Changes
+#
+#			Future:
+#
+#################################
+
+decisions = {
+
+
+
+}#end decisions block

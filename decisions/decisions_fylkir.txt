@@ -1,9 +1,21 @@
 #################################
 #	File:	decisions_fylkir.txt
 #	Author:	Chris Saiko
-# 	Desc:	Fylkir Powers Targeted Descisions
+# 	Desc:	Fylkir Powers Targeted Decisions
+#
 #				Grant various Boons
+#					fp_cure_disease
+#					fp_calm_mind
+#					fp_heal_body
+#					fp_heal_defect
+#					fp_extend_life
+#
 #				Inflict various Curses
+#					fp_inflict_gloom
+#					fp_inflict_madness
+#					fp_inflict_illness
+#					fp_inflict_malady
+#					fp_inflict_aberration
 #
 #			Future:
 #				Grant Immortality?
@@ -26,7 +38,7 @@ targeted_decisions = {
 		from_potential = {
 			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
 			has_dlc = "Holy Fury"				#require the holy fury dlc
-			ai = no								#no AI usage
+			ai = no								#no AI usage, yet
 			is_adult = yes						#adult, no child Fylkirs
 			has_game_rule = {
 				name = supernatural_events		#require supernatural events game rule
@@ -302,7 +314,7 @@ targeted_decisions = {
 
 	# CALM MIND - The Fylkir may, at his discretion, cure lunacy, possession,
 	# depression, or stress from a member of the faith, in exchange for 75 piety.
-	# Additionally lisp and stutter are added, as maladies of the mind.
+	# Additionally lisp and stutter may be removed, as maladies of the mind.
 	fp_calm_mind = {
 		filter = all_including_me		#Fylkir, heal thyself
 		ai_target_filter = self
@@ -310,7 +322,7 @@ targeted_decisions = {
 		from_potential = {
 			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
 			has_dlc = "Holy Fury"				#require the holy fury dlc
-			ai = no								#no AI usage
+			ai = no								#no AI usage, yet
 			is_adult = yes						#adult, no child Fylkirs
 			has_game_rule = {
 				name = supernatural_events		#require supernatural events game rule
@@ -787,7 +799,7 @@ targeted_decisions = {
 		from_potential = {
 			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
 			has_dlc = "Holy Fury"				#require the holy fury dlc
-			ai = no								#no AI usage
+			ai = no								#no AI usage, yet
 			OR = {
 				is_adult = yes					#adult, no child Fylkirs
 				trait = lunatic					#not likely, but mad child god can extend life
@@ -1514,6 +1526,17 @@ targeted_decisions = {
 			#these two features together are required to gain such control
 			has_religion_feature = religion_dogmatic		#must have dogmatic
 			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			OR = {
+				#The Fylkir must harness the power of the peoples' worship as high god of the religion
+				has_religion_feature = religion_holy_family
+
+				#Alternatively, the Fylkir may be a rank 4 devil worshiper
+				AND = {
+					society_is_devil_worshiper = yes
+					society_rank >= 4
+				}
+			}
 
 			controls_religion = yes				#only the Fylkir(a) can do this
 		}#end from_potential block
