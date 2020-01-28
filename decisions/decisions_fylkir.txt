@@ -17,8 +17,10 @@
 #					fp_inflict_malady
 #					fp_inflict_aberration
 #
-#			Future:
+#			Future Possibilities:
 #				Grant Immortality?
+#				Crown Rulers?
+#				Sumbel/Blot for Child?
 #				Release Plague?
 #				Curse Title?
 #				Peasant Unrest? Revolt?
