@@ -38,6 +38,9 @@ fp_inflict_malady_desc;Inflict a major disease upon §Y[Root.GetTitledName]§!.;;;
 fp_inflict_aberration;Inflict Aberration;;;;;;;;;;;;;x
 fp_inflict_aberration_desc;Inflict an aberration or deformity upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
 
+change_doctrine;Change Religious Doctrine;;;;;;;;;;;;;x
+change_doctrine_desc;As religious head, you may adjust and change the various doctrines of the faith, according to your will.;;;;;;;;;;;;;x
+
 EVTDESCfp.999;fylkir_powers Event testing;;;;;;;;;;;;;x
 EVTOPTAfp.999;fylkir_powers Option A;;;;;;;;;;;;;x
 EVTOPTBfp.999;fylkir_powers Option B;;;;;;;;;;;;;x
