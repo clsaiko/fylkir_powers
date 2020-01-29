@@ -41,6 +41,18 @@ fp_inflict_aberration_desc;Inflict an aberration or deformity upon §Y[Root.GetTi
 change_doctrine;Change Religious Doctrine;;;;;;;;;;;;;x
 change_doctrine_desc;As religious head, you may adjust and change the various doctrines of the faith, according to your will.;;;;;;;;;;;;;x
 
+EVTDESCfp.101;Change Religious Member Doctrines;;;;;;;;;;;;;x
+EVTOPTAfp.101;Excommunicate;;;;;;;;;;;;;x
+EVTOPTBfp.101;Divorce;;;;;;;;;;;;;x
+EVTOPTCfp.101;Claims;;;;;;;;;;;;;x
+EVTOPTDfp.101;I've changed my mind. The member doctrines are fine as is.;;;;;;;;;;;;;x
+
+EVTDESCfp.102;Change Religious War Doctrines;;;;;;;;;;;;;x
+EVTOPTAfp.102;fylkir_powers Option A;;;;;;;;;;;;;x
+EVTOPTBfp.102;fylkir_powers Option B;;;;;;;;;;;;;x
+EVTOPTCfp.102;fylkir_powers Option C;;;;;;;;;;;;;x
+EVTOPTDfp.102;I've changed my mind. The war doctrines are fine as is.;;;;;;;;;;;;;x
+
 EVTDESCfp.999;fylkir_powers Event testing;;;;;;;;;;;;;x
 EVTOPTAfp.999;fylkir_powers Option A;;;;;;;;;;;;;x
 EVTOPTBfp.999;fylkir_powers Option B;;;;;;;;;;;;;x

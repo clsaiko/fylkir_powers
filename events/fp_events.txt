@@ -3,10 +3,128 @@
 #	Author:	Chris Saiko
 # 	Desc:	Fylkir Powers Events
 #			Various triggered and MTTH events in the Fylkir Powers mod.
-#			None yet written.
+#			fp.101 - Change Member Doctrines
+#			fp.102 - Change War Doctrines
 #################################
 
 namespace = fp				#event namespace
+
+#Change Member Doctrines - 101
+character_event = {
+	id = fp.101		#event ID
+	hide_from = yes
+	picture = GFX_evt_pagan_reformation 	#Needs a default picture, even if it won't actually show up
+	desc = EVTDESCfp.101		#description
+
+	#Fast event triggers
+	is_triggered_only = yes
+	only_playable = yes
+	ai = no
+
+	trigger = {}
+	mean_time_to_happen = {}
+	immediate = {}
+
+	#can excommunicate
+	option = {
+		name = EVTOPTAfp.101
+		trigger = {
+			#norse_pagan_reformed = { can_excommunicate = no }
+		}
+		#excommunicate command block
+		norse_pagan_reformed = { set_can_excommunicate = yes }
+		FROM = {		#Fylkir expends 50 piety to excommunicate
+			piety = -50
+		}
+	}
+
+	#can grant divorce
+	option = {
+		name = EVTOPTBfp.101
+		trigger = {
+			#norse_pagan_reformed = { can_grant_divorce = no }
+		}
+		#religious head command block
+		norse_pagan_reformed = { set_can_grant_divorce = yes }
+		FROM = {		#Fylkir expends 50 piety to change to grant divorce
+			piety = -50
+		}
+	}
+
+	#can grant claims
+	option = {
+		name = EVTOPTCfp.101
+		trigger = {
+			#norse_pagan_reformed = { can_grant_claim = no }
+		}
+		#grant claim command block
+		norse_pagan_reformed = { set_can_grant_claim = yes }
+		FROM = {		#Fylkir expends 50 piety to change to grant claims
+			piety = -50
+		}
+	}
+
+	#changed my mind
+	option = {
+		name = EVTOPTDfp.101
+		trigger = {}
+		#changed my mind block
+		FROM = {		#Fylkir expends 25 piety to change mind
+			piety = -25
+		}
+	}
+
+	after = {}
+}
+
+#Change War Doctrines - 102
+character_event = {
+	id = fp.102		#event ID
+	hide_from = yes
+	picture = GFX_evt_pagan_reformation 	#Needs a default picture, even if it won't actually show up
+	desc = EVTDESCfp.102		#description
+
+	#Fast event triggers
+	is_triggered_only = yes
+	only_playable = yes
+	ai = no
+
+	trigger = {}
+	mean_time_to_happen = {}
+	immediate = {}
+
+	#can excommunicate
+	option = {
+		name = EVTOPTAfp.102
+		trigger = {}
+		#excommunicate command block
+		norse_pagan_reformed = { set_can_excommunicate = yes }
+	}
+
+	#religious head command block
+	option = {
+		name = EVTOPTBfp.102
+		trigger = {}
+		#religious head command block
+		norse_pagan_reformed = { set_rel_head_defense = yes }
+	}
+
+	#option C block
+	option = {
+		name = EVTOPTCfp.101
+		trigger = {}
+		#Option C command block
+	}
+
+	#option D block
+	option = {
+		name = EVTOPTDfp.101
+		trigger = {}
+		#Option D command block
+	}
+
+	after = {}
+}
 
 #EVENT TESTING - 999
 character_event = {		#event type

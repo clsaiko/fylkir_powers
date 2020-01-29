@@ -42,12 +42,15 @@ decisions = {
         }
         allow = {
             #Conditions for the decision to be enabled
-            controls_religion = yes				#redundant, but should be able to change at any time for now
+            controls_religion = yes     #redundant, but should be able to change at any time for now
+            FROM = {
+                piety = 500             #Fylkir must first have at least 500 piety
+            }
             #probably should be a limit on this, changing every 10 years or so
         }
         effect = {
             #Commands executed when taking the decision
-            character_event = { id = fp.999 }   #placeholder test event for now
+            character_event = { id = fp.101 }   #placeholder test event for now
         }
         ai_will_do = {
             #Factors for an AI character to take the decision (1 = 100% chance)
