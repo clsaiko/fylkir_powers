@@ -33,7 +33,7 @@ character_event = {
 		}
 		#excommunicate command block
 		norse_pagan_reformed = { set_can_excommunicate = yes }
-		FROM = {		#Fylkir expends 50 piety to excommunicate
+		FROM = {		#Fylkir expends 50 change doctrine
 			piety = -50
 		}
 	}
@@ -46,7 +46,7 @@ character_event = {
 		}
 		#religious head command block
 		norse_pagan_reformed = { set_can_grant_divorce = yes }
-		FROM = {		#Fylkir expends 50 piety to change to grant divorce
+		FROM = {		#Fylkir expends 50 change doctrine
 			piety = -50
 		}
 	}
@@ -59,7 +59,7 @@ character_event = {
 		}
 		#grant claim command block
 		norse_pagan_reformed = { set_can_grant_claim = yes }
-		FROM = {		#Fylkir expends 50 piety to change to grant claims
+		FROM = {		#Fylkir expends 50 change doctrine
 			piety = -50
 		}
 	}
@@ -97,16 +97,22 @@ character_event = {
 	option = {
 		name = EVTOPTAfp.102
 		trigger = {}
-		#excommunicate command block
-		norse_pagan_reformed = { set_can_excommunicate = yes }
+		#invasion command block
+		norse_pagan_reformed = { set_can_grant_invasion_cb = invasion }
+		FROM = {		#Fylkir expends 50 change doctrine
+			piety = -50
+		}
 	}
 
-	#religious head command block
+	#religious head defended by other members of the faith
 	option = {
 		name = EVTOPTBfp.102
 		trigger = {}
 		#religious head command block
 		norse_pagan_reformed = { set_rel_head_defense = yes }
+		FROM = {		#Fylkir expends 50 change doctrine
+			piety = -50
+		}
 	}
 
 	#option C block
