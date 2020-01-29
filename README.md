@@ -8,14 +8,14 @@ If you answered yes, this Crusader Kings II mod might be for you. After the Germ
 Below are the powers that do not require the Supernatural Events game rule active.  
 
 ### Church Doctrine
-After the Germanic reformation, and intrigue decision will allow the Fylkir to set various church doctrines, via event.
+After the Germanic reformation, an intrigue decision will allow the Fylkir to toggle the various church doctrines, via event.
 
 **Change Member Doctrines** - Excommunication, Claims, and Divorce.
 
 **Change War Doctrines** - Invasions and defensive religious war aid.
 
 ### Fylkir Self Decisions
-**Excommunicate** - At the Fylkir's discretion, followers of the Germanic religion may be excommunicated from the faith.
+**Excommunicate** - At the Fylkir's discretion, a follower of the Germanic religion may be excommunicated from the faith.
 
 ### Fylkir Requests by members of the faith
 **Request Divorce** - Followers of the Germanic religion may request a divorce be granted from the Fylkir.
