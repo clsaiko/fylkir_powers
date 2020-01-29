@@ -9,7 +9,9 @@ Below are the powers that do not require the Supernatural Events game rule activ
 
 ### Church Doctrine
 After the Germanic reformation, and intrigue decision will allow the Fylkir to set various church doctrines, via event.
+
 **Change Member Doctrines** - Excommunication, Claims, and Divorce.
+
 **Change War Doctrines** - Invasions and defensive religious war aid.
 
 ### Fylkir Self Decisions
@@ -17,8 +19,11 @@ After the Germanic reformation, and intrigue decision will allow the Fylkir to s
 
 ### Fylkir Requests by members of the faith
 **Request Divorce** - Followers of the Germanic religion may request a divorce be granted from the Fylkir.
+
 **Request Claim** - Followers of the Germanic religion may request a claim be granted from the Fylkir.
+
 **Request Excommunication** - A member of the Germanic faith may request the excommunication of another member of the Germanic faith.
+
 **Request Invasion** - Followers of the Germanic religion may request from the Fylkir that an invasion be permitted on another member of the faith.
 
 **Request Money** (NYI) - A member of the Germanic faith may request money from the Fylkirate, in exchange for piety.
@@ -40,22 +45,33 @@ Below are the powers that require the Supernatural Events game rule to be active
 
 ### Fylkir Self Decisions
 **Cure Illness** - Removes an illness or disease from a member of the faith, in exchange for 75 piety.  
+
 **Calm Mind** - Remove lunacy, possession, depression, or stress from a member of the faith, in exchange for 75 piety. Additionally lisp and stutter are added, as maladies of the mind.   
+
 **Heal Body** - Heal a wound or disfigurement from a member of the faith, in exchange for 100 piety.  
+
 **Heal Defect** - Remove a defect or aberration trait from a member of the faith, in exchange for 200 piety.  
+
 **Extend Life** - Extend the life of a member of the faith by two years, in exchange for 250 piety, and a year of the Fylkir's own life.  
+
 **Inflict Gloom** - Inflict stressed or depression upon a member of the faith, in exchange for 75 piety.  
+
 **Inflict Madness** - Inflict lunatic or possession upon a member of the faith, in exchange for 100 piety.  
+
 **Inflict Illness** - Inflict a minor disease (-2 or -3 health) upon a member of the faith, in exchange for 100 piety.  
+
 **Inflict Malady** - Inflict a major disease (-4 health and above) upon a member of the faith, in exchange for 200 piety.  
+
 **Inflict Aberration** - Inflict an aberration or deformity upon a member of the faith, in exchange for 300 piety.  
 
 **Pass Godhood** (NYI) - Pass a trait to the current heir to the Fylkirate.
 
 ### Startable Event Chains by the Fylkir
 **Forge Magical Weapon** (NYI)  
+
 **Forge Magical Item** (NYI)  
 
 ### Fylkir Requests by members of the faith
 **Request Healing** (NYI)  
+
 **Request Life** (NYI)  
