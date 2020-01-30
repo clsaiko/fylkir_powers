@@ -19,30 +19,3 @@
 
 # obedient = yes # The AI will accept all diplomatic interactions from the other character. Also makes the trigger with the same name return true
 # non_interference = yes # The AI will not take hostile action against the other character. Also makes the trigger with the same name return true. Non-interference is considered a subset of "obedient", so any obedient character is automatically non-interfering as well
-
-#Fylkir excommunicated me
-fp_excomm_me = {
-	opinion = -10
-	months = 120
-}
-
-#Fylkir excommunicated a close relative
-#Fire on spouse, parents, siblings, children
-fp_excomm_rel = {
-	opinion = -5
-	months = 60
-}
-
-
-# Excommunication lifted - located in main game files
-#opinion_repented_sins = {
-#	opinion = 10
-#	months = 240
-#}
-
-#opinion_excom_lifted = {
-#	opinion = 15
-#	months = 72
-#}
-
-

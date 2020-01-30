@@ -1,0 +1,11 @@
+#################################
+#	File:	fp_religion_modifiers.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Religion Moral Authority Modifiers
+#           Various modifiers to make changes to Germanic religion moral authority.
+#################################
+
+fp_change_doctrine = {
+	authority = -1
+	years = 2
+}

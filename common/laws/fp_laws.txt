@@ -1,0 +1,118 @@
+#################################
+#	File:	fp_laws.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Laws
+#           Enables doctrine changes in the form of realm laws.
+#################################
+
+law_groups = {
+	fp_excomm_law = {
+		law_type = realm
+	}
+}
+
+laws = {
+
+    fp_excomm_law_0 = {
+		group = fp_excomm_law
+		default = yes 			#start game with no excommunication
+		allow = {
+			NOT = { has_law = fp_excomm_law_0 }
+			holder_scope = {
+				OR = {
+					is_adult = yes					#adult, no child Fylkirs
+					AND = {
+						trait = lunatic				#mad child Fylkir can change doctrine
+						has_game_rule = {           # if there are no regencies
+							name = regencies
+							value = off
+						}
+					}
+				}#end OR block
+			}
+        }
+		potential = {
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+
+			holder_scope = {
+				controls_religion = yes				#only the Fylkir(a) can do this
+				OR = {
+					religion = norse_pagan_reformed	#norse pagan reformed
+					#religion = zun_pagan_reformed	#zunist pagan reformed
+													#other religions?
+				}
+				#these two features together are required to gain such control
+				has_religion_feature = religion_dogmatic		#must have dogmatic
+				has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+            norse_pagan_reformed = {
+                set_can_excommunicate = no
+                religion_authority = {
+					modifier = fp_change_doctrine
+                    years = 2
+                }
+            }
+            FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
+			hidden_tooltip = { revoke_law = fp_excomm_law_1	}
+		}
+	}
+
+    fp_excomm_law_1 = {
+		group = fp_excomm_law
+		allow = {
+			has_law = fp_excomm_law_0
+			holder_scope = {
+				OR = {
+					is_adult = yes					#adult, no child Fylkirs
+					AND = {
+						trait = lunatic				#mad child Fylkir can change doctrine
+						has_game_rule = {           # if there are no regencies
+							name = regencies
+							value = off
+						}
+					}
+				}#end OR block
+			}
+        }
+		potential = {
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+
+			holder_scope = {
+				controls_religion = yes				#only the Fylkir(a) can do this
+				OR = {
+					religion = norse_pagan_reformed	#norse pagan reformed
+					#religion = zun_pagan_reformed	#zunist pagan reformed
+													#other religions?
+				}
+				#these two features together are required to gain such control
+				has_religion_feature = religion_dogmatic		#must have dogmatic
+				has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+            norse_pagan_reformed = {
+                set_can_excommunicate = yes
+                religion_authority = {
+					modifier = fp_change_doctrine
+                    years = 2
+                }
+            }
+            FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
+			hidden_tooltip = { revoke_law = fp_excomm_law_0 }
+
+		}
+	}
+
+}

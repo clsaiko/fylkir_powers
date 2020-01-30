@@ -38,16 +38,34 @@ fp_inflict_malady_desc;Inflict a major disease upon §Y[Root.GetTitledName]§!.;;;
 fp_inflict_aberration;Inflict Aberration;;;;;;;;;;;;;x
 fp_inflict_aberration_desc;Inflict an aberration or deformity upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
 
-change_doctrine;Change Religious Doctrine;;;;;;;;;;;;;x
-change_doctrine_desc;As religious head, you may adjust and change the various doctrines of the faith, according to your will.;;;;;;;;;;;;;x
+change_memb_doctrine;Change Religious Member Doctrine;;;;;;;;;;;;;x
+change_memb_doctrine_desc;As religious head, you may adjust and change the various doctrines of the faith pertaining to the faithful, according to your will.;;;;;;;;;;;;;x
+
+change_war_doctrine;Change Religious War Doctrine;;;;;;;;;;;;;x
+change_war_doctrine_desc;As religious head, you may adjust and change the various doctrines of the faith pertaining to war, according to your will.;;;;;;;;;;;;;x
+
+fp_change_doctrine;Changed Religious Doctrine;;;;;;;;;;;;;x
+fp_change_doctrine_desc;A religious doctrine of the faith has been changed, giving a minor decrease to moral authority.;;;;;;;;;;;;;x
+
+fp_excomm_law;Excommunication Law;;;;;;;;;;;;;x
+fp_excomm_law_desc;At the Fylkir's discretion, a follower of the Germanic religion may be excommunicated from the faith.;;;;;;;;;;;;;x
+
+fp_excomm_law_0;Excommunication Not Allowed;;;;;;;;;;;;;x
+fp_excomm_law_0_option;Disallowed;;;;;;;;;;;;;x
+fp_excomm_law_0_desc;The Fylkir may not excommunicate members of the Germanic faith.;;;;;;;;;;;;;x
+
+fp_excomm_law_1;Excommunication Allowed;;;;;;;;;;;;;x
+fp_excomm_law_1_option;Allowed;;;;;;;;;;;;;x
+fp_excomm_law_1_desc;The Fylkir may excommunicate members of the Germanic faith.;;;;;;;;;;;;;x
 
 EVTDESCfp.101;Change Religious Member Doctrines;;;;;;;;;;;;;x
-EVTOPTAfp.101;Excommunicate;;;;;;;;;;;;;x
+EVTOPTAfp.101;Excommunication toggle;;;;;;;;;;;;;x
 EVTOPTBfp.101;Divorce;;;;;;;;;;;;;x
 EVTOPTCfp.101;Claims;;;;;;;;;;;;;x
 EVTOPTDfp.101;I've changed my mind. The member doctrines are fine as is.;;;;;;;;;;;;;x
 
 EVTDESCfp.102;Change Religious War Doctrines;;;;;;;;;;;;;x
+EVTOPTAfp.102;fylkir_powers Option A;;;;;;;;;;;;;x
 EVTOPTAfp.102;fylkir_powers Option A;;;;;;;;;;;;;x
 EVTOPTBfp.102;fylkir_powers Option B;;;;;;;;;;;;;x
 EVTOPTCfp.102;fylkir_powers Option C;;;;;;;;;;;;;x
