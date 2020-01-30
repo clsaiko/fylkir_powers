@@ -19,13 +19,12 @@ law_groups = {
 	}
 
 	#Invasion and Religion Head Defense
-	fp_invasion_law = {
+	# Similar to excommunication and divorce, invasion law and religion head Defense
+	# are linked
+	fp_inv_def_law = {
 		law_type = realm
 	}
 
-	fp_rel_head_law = {
-		law_type = realm
-	}
 }
 
 laws = {
