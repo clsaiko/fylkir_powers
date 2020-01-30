@@ -6,7 +6,24 @@
 #################################
 
 law_groups = {
+
+	#Excommunication and divorce are the same: The Fylkir may first separate
+	# members of the faith from each other, and then separate members from the faith itself.
+	# No divorce, No excomm -> divorce, no excomm, -> divorce, excomm
 	fp_excomm_law = {
+		law_type = realm
+	}
+
+	fp_claims_law = {
+		law_type = realm
+	}
+
+	#Invasion and 
+	fp_invasion_law = {
+		law_type = realm
+	}
+
+	fp_rel_head_law = {
 		law_type = realm
 	}
 }

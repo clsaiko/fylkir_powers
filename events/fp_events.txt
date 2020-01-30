@@ -3,14 +3,15 @@
 #	Author:	Chris Saiko
 # 	Desc:	Fylkir Powers Events
 #			Various triggered and MTTH events in the Fylkir Powers mod.
-#			fp.101 - Change Doctrines Menu
-#			fp.102 - Change Member Doctrines
-#			fp.103 - Change War Doctrines
+#			fp.101 - Unused
+#			fp.102 - Unused
+#			fp.103 - Unused
+#			fp.999 - Event testing
 #################################
 
 namespace = fp				#event namespace
 
-#Change Doctrines Top - 101
+#Unused - 101
 character_event = {
 	id = fp.101		#event ID
 	hide_from = yes
@@ -82,7 +83,7 @@ character_event = {
 	after = {}
 }
 
-#Change War Doctrines - 102
+#Unused - 102
 character_event = {
 	id = fp.102		#event ID
 	hide_from = yes
@@ -122,14 +123,69 @@ character_event = {
 
 	#option C block
 	option = {
-		name = EVTOPTCfp.101
+		name = EVTOPTCfp.102
 		trigger = {}
 		#Option C command block
 	}
 
 	#option D block
 	option = {
-		name = EVTOPTDfp.101
+		name = EVTOPTDfp.102
+		trigger = {}
+		#Option D command block
+	}
+
+	after = {}
+}
+
+#Unused - 103
+character_event = {
+	id = fp.103		#event ID
+	hide_from = yes
+	picture = GFX_evt_pagan_reformation 	#Needs a default picture, even if it won't actually show up
+	desc = EVTDESCfp.103		#description
+
+	#Fast event triggers
+	ai = no
+	only_playable = yes
+	is_triggered_only = yes
+
+	trigger = {}
+	mean_time_to_happen = {}
+	immediate = {}
+
+	#can excommunicate
+	option = {
+		name = EVTOPTAfp.103
+		trigger = {}
+		#invasion command block
+		norse_pagan_reformed = { set_can_grant_invasion_cb = invasion }
+		FROM = {		#Fylkir expends 50 change doctrine
+			piety = -50
+		}
+	}
+
+	#religious head defended by other members of the faith
+	option = {
+		name = EVTOPTBfp.103
+		trigger = {}
+		#religious head command block
+		norse_pagan_reformed = { set_rel_head_defense = yes }
+		FROM = {		#Fylkir expends 50 change doctrine
+			piety = -50
+		}
+	}
+
+	#option C block
+	option = {
+		name = EVTOPTCfp.103
+		trigger = {}
+		#Option C command block
+	}
+
+	#option D block
+	option = {
+		name = EVTOPTDfp.103
 		trigger = {}
 		#Option D command block
 	}
