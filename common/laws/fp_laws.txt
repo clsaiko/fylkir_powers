@@ -18,7 +18,7 @@ law_groups = {
 		law_type = realm
 	}
 
-	#Invasion and 
+	#Invasion and Religion Head Defense
 	fp_invasion_law = {
 		law_type = realm
 	}
