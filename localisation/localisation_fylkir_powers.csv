@@ -9,34 +9,34 @@
 #CODE;ENGLISH;;;;;;;;;;;;;x
 
 fp_cure_disease;Cure Disease;;;;;;;;;;;;;x
-fp_cure_disease_desc;Cure any illness or symptom from §Y[Root.GetTitledName]§!. [Root.GetSheHeCap] will be duly grateful (§G+5§! opinion NYI).;;;;;;;;;;;;;x
+fp_cure_disease_desc;Cure any illness or symptom from ï¿½Y[Root.GetTitledName]ï¿½!. [Root.GetSheHeCap] will be duly grateful (ï¿½G+5ï¿½! opinion NYI).;;;;;;;;;;;;;x
 
 fp_calm_mind;Calm Mind;;;;;;;;;;;;;x
-fp_calm_mind_desc;Remove an affliction of the mind from §Y[Root.GetTitledName]§!. [Root.GetSheHeCap] will be duly grateful (§G+5§! opinion NYI).;;;;;;;;;;;;;x
+fp_calm_mind_desc;Remove an affliction of the mind from ï¿½Y[Root.GetTitledName]ï¿½!. [Root.GetSheHeCap] will be duly grateful (ï¿½G+5ï¿½! opinion NYI).;;;;;;;;;;;;;x
 
 fp_heal_body;Heal Body;;;;;;;;;;;;;x
-fp_heal_body_desc;Heal a wound or disfigurement from from §Y[Root.GetTitledName]§!. [Root.GetSheHeCap] will be duly grateful (§G+10§! opinion NYI).;;;;;;;;;;;;;x
+fp_heal_body_desc;Heal a wound or disfigurement from from ï¿½Y[Root.GetTitledName]ï¿½!. [Root.GetSheHeCap] will be duly grateful (ï¿½G+10ï¿½! opinion NYI).;;;;;;;;;;;;;x
 
 fp_heal_defect;Heal Defect;;;;;;;;;;;;;x
-fp_heal_defect_desc;Remove a defect or aberration trait from §Y[Root.GetTitledName]§!. [Root.GetSheHeCap] will be duly grateful (§G+10§! opinion NYI).;;;;;;;;;;;;;x
+fp_heal_defect_desc;Remove a defect or aberration trait from ï¿½Y[Root.GetTitledName]ï¿½!. [Root.GetSheHeCap] will be duly grateful (ï¿½G+10ï¿½! opinion NYI).;;;;;;;;;;;;;x
 
 fp_extend_life;Extend Life;;;;;;;;;;;;;x
-fp_extend_life_desc;Extend the life of §Y[Root.GetTitledName]§! by two years. [Root.GetSheHeCap] will be duly grateful (§G+10§! opinion NYI).;;;;;;;;;;;;;x
+fp_extend_life_desc;Extend the life of ï¿½Y[Root.GetTitledName]ï¿½! by two years. [Root.GetSheHeCap] will be duly grateful (ï¿½G+10ï¿½! opinion NYI).;;;;;;;;;;;;;x
 
 fp_inflict_gloom;Inflict Gloom;;;;;;;;;;;;;x
-fp_inflict_gloom_desc;Inflict gloom upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+fp_inflict_gloom_desc;Inflict gloom upon ï¿½Y[Root.GetTitledName]ï¿½!.;;;;;;;;;;;;;x
 
 fp_inflict_madness;Inflict Madness;;;;;;;;;;;;;x
-fp_inflict_madness_desc;Inflict madness upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+fp_inflict_madness_desc;Inflict madness upon ï¿½Y[Root.GetTitledName]ï¿½!.;;;;;;;;;;;;;x
 
 fp_inflict_illness;Inflict Illness;;;;;;;;;;;;;x
-fp_inflict_illness_desc;Inflict a minor disease upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+fp_inflict_illness_desc;Inflict a minor disease upon ï¿½Y[Root.GetTitledName]ï¿½!.;;;;;;;;;;;;;x
 
 fp_inflict_malady;Inflict Malady;;;;;;;;;;;;;x
-fp_inflict_malady_desc;Inflict a major disease upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+fp_inflict_malady_desc;Inflict a major disease upon ï¿½Y[Root.GetTitledName]ï¿½!.;;;;;;;;;;;;;x
 
 fp_inflict_aberration;Inflict Aberration;;;;;;;;;;;;;x
-fp_inflict_aberration_desc;Inflict an aberration or deformity upon §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+fp_inflict_aberration_desc;Inflict an aberration or deformity upon ï¿½Y[Root.GetTitledName]ï¿½!.;;;;;;;;;;;;;x
 
 change_memb_doctrine;Change Religious Member Doctrine;;;;;;;;;;;;;x
 change_memb_doctrine_desc;As religious head, you may adjust and change the various doctrines of the faith pertaining to the faithful, according to your will.;;;;;;;;;;;;;x
@@ -47,16 +47,47 @@ change_war_doctrine_desc;As religious head, you may adjust and change the variou
 fp_change_doctrine;Changed Religious Doctrine;;;;;;;;;;;;;x
 fp_change_doctrine_desc;A religious doctrine of the faith has been changed, giving a minor decrease to moral authority.;;;;;;;;;;;;;x
 
-fp_excomm_law;Excommunication Law;;;;;;;;;;;;;x
-fp_excomm_law_desc;At the Fylkir's discretion, a follower of the Germanic religion may be excommunicated from the faith.;;;;;;;;;;;;;x
+fp_excomm_law;Divorce and Excommunication;;;;;;;;;;;;;x
+fp_excomm_law_desc;Controls whether the Fylkir has the power to grant divorces between members of the Germanic faith or excommunicate members from the faith.;;;;;;;;;;;;;x
 
-fp_excomm_law_0;Excommunication Not Allowed;;;;;;;;;;;;;x
-fp_excomm_law_0_option;Disallowed;;;;;;;;;;;;;x
-fp_excomm_law_0_desc;The Fylkir may not excommunicate members of the Germanic faith.;;;;;;;;;;;;;x
+fp_excomm_law_0;Grant Divorce and Excommunication Disallowed;;;;;;;;;;;;;x
+fp_excomm_law_0_option;None;;;;;;;;;;;;;x
+fp_excomm_law_0_desc;The Fylkir may neither grant divorces, nor excommunicate members of the Germanic faith.;;;;;;;;;;;;;x
 
 fp_excomm_law_1;Excommunication Allowed;;;;;;;;;;;;;x
-fp_excomm_law_1_option;Allowed;;;;;;;;;;;;;x
-fp_excomm_law_1_desc;The Fylkir may excommunicate members of the Germanic faith.;;;;;;;;;;;;;x
+fp_excomm_law_1_option;Excommu;;;;;;;;;;;;;x
+fp_excomm_law_1_desc;The Fylkir may now excommunicate members from the Germanic faith.;;;;;;;;;;;;;x
+
+fp_excomm_law_2;Grant Divorce Allowed;;;;;;;;;;;;;x
+fp_excomm_law_2_option;Divorce;;;;;;;;;;;;;x
+fp_excomm_law_2_desc;The Fylkir may now grant divorces to members the Germanic faith.;;;;;;;;;;;;;x
+
+fp_claims_law;Claims;;;;;;;;;;;;;x
+fp_claims_law_desc;Controls whether the Fylkir has the power to grant claims to members of the Germanic faith.;;;;;;;;;;;;;x
+
+fp_claims_law_0;Grant Claims Disallowed;;;;;;;;;;;;;x
+fp_claims_law_0_option;None;;;;;;;;;;;;;x
+fp_claims_law_0_desc;The Fylkir may not grant claims on titles to members of the Germanic faith.;;;;;;;;;;;;;x
+
+fp_claims_law_1;May Grant Claims;;;;;;;;;;;;;x
+fp_claims_law_1_option;Claims;;;;;;;;;;;;;x
+fp_claims_law_1_desc;The Fylkir may grant claims on titles to members of the Germanic faith.;;;;;;;;;;;;;x
+
+fp_inv_def_law;Invasion and Religious Head Defense;;;;;;;;;;;;;x
+fp_inv_def_law_desc;Controls whether the Fylkir has the power to grant the invasion Casus Belli to members of the Germanic faith and whether members of the faith are likely to come to the Fylkir's aid in defensive religious wars.;;;;;;;;;;;;;x
+
+fp_inv_def_law_0;Grant Invasion Disallowed and No Religious Head Defense;;;;;;;;;;;;;x
+fp_inv_def_law_0_option;None;;;;;;;;;;;;;x
+fp_inv_def_law_0_desc;The Fylkir may not sanction invasions, and members of the faith are not likely to come to the Fylkir's aid in defensive religious wars.;;;;;;;;;;;;;x
+
+fp_inv_def_law_1;Grant Invasion Allowed;;;;;;;;;;;;;x
+fp_inv_def_law_1_option;Invasion;;;;;;;;;;;;;x
+fp_inv_def_law_1_desc;The Fylkir may sanction invasions to members of the Germanic faith.;;;;;;;;;;;;;x
+
+fp_inv_def_law_2;Religious Head Defense;;;;;;;;;;;;;x
+fp_inv_def_law_2_option;Defense;;;;;;;;;;;;;x
+fp_inv_def_law_2_desc;Members of the Germanic faith are likely to come to the Fylkir's aid in defensive religious wars.;;;;;;;;;;;;;x
+
 
 EVTDESCfp.101;Change Religious Member Doctrines;;;;;;;;;;;;;x
 EVTOPTAfp.101;Excommunication toggle;;;;;;;;;;;;;x
