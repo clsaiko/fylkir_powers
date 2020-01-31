@@ -6,6 +6,6 @@
 #################################
 
 fp_change_doctrine = {
-	authority = -1
-	years = 2
+	authority = -2
+	years = 5
 }
