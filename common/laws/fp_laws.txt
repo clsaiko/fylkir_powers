@@ -15,6 +15,7 @@ law_groups = {
 	}
 
 	#Claims, according to some sites, do not work, but here they are anyways
+	#Request money is also included here, but it may need to be implemented via targeted_decisions
 	fp_claims_law = {
 		law_type = realm
 	}
@@ -31,6 +32,7 @@ law_groups = {
 
 laws = {
 
+	# EXCOMMUNICATION AND DIVORCE
 	# No divorce, No excommunication
     fp_excomm_law_0 = {
 		group = fp_excomm_law
@@ -201,6 +203,7 @@ laws = {
 		}
 	}
 
+	#INVASION AND DEFENSE
 	# No sanction invasion, No religious head defense
     fp_inv_def_law_0 = {
 		group = fp_inv_def_law
@@ -370,5 +373,182 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
+	}#end fp_inv_def_law_2
+
+
+	#CLAIMS AND MONEY
+	# No request money, no request claims
+    fp_claims_law_0 = {
+		group = fp_claims_law
+		default = yes 			#start game with no money
+		allow = {
+			NOT = { has_law = fp_claims_law_0 }	#can always return to both off
+			holder_scope = {
+				OR = {
+					is_adult = yes					#adult, no child Fylkirs
+					AND = {
+						trait = lunatic				#mad child Fylkir can change doctrine
+						has_game_rule = {           # if there are no regencies
+							name = regencies
+							value = off
+						}
+					}
+				}#end OR block
+			}
+        }
+		potential = {
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+
+			holder_scope = {
+				controls_religion = yes				#only the Fylkir(a) can do this
+				OR = {
+					religion = norse_pagan_reformed	#norse pagan reformed
+					#religion = zun_pagan_reformed	#zunist pagan reformed
+													#other religions?
+				}
+				#these two features together are required to gain such control
+				has_religion_feature = religion_dogmatic		#must have dogmatic
+				has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = fp_claims_law_1	#revoke other two
+				revoke_law = fp_claims_law_2
+			}
+            norse_pagan_reformed = {
+				#there's no "set_can_grant_money = no", implement in decisions by law check
+				set_can_grant_money = no
+				set_can_grant_claim = no
+                religion_authority = {
+					modifier = fp_change_doctrine
+                    years = 2
+                }
+            }
+            FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
+
+		}
+	}#end fp_claims_law_0
+
+	# Can request money, no request claims
+    fp_claims_law_1 = {
+		group = fp_claims_law
+		allow = {
+			OR = {
+				has_law = fp_claims_law_0
+				has_law = fp_claims_law_2
+			}
+			holder_scope = {
+				OR = {
+					is_adult = yes					#adult, no child Fylkirs
+					AND = {
+						trait = lunatic				#mad child Fylkir can change doctrine
+						has_game_rule = {           # if there are no regencies
+							name = regencies
+							value = off
+						}
+					}
+				}#end OR block
+			}
+        }
+		potential = {
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+
+			holder_scope = {
+				controls_religion = yes				#only the Fylkir(a) can do this
+				OR = {
+					religion = norse_pagan_reformed	#norse pagan reformed
+					#religion = zun_pagan_reformed	#zunist pagan reformed
+													#other religions?
+				}
+				#these two features together are required to gain such control
+				has_religion_feature = religion_dogmatic		#must have dogmatic
+				has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = fp_claims_law_0
+				revoke_law = fp_claims_law_2
+			}
+            norse_pagan_reformed = {
+				#there's no "set_can_grant_money = yes", implement in decisions by law check
+				set_can_grant_money = yes
+				set_can_grant_claim = no
+                religion_authority = {
+					modifier = fp_change_doctrine
+                    years = 2
+                }
+            }
+            FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
+		}
 	}
+
+	# Can request money, can request claims
+	fp_claims_law_2 = {
+		group = fp_claims_law
+		default = yes 			#start game with no excommunication
+		allow = {
+			has_law = fp_claims_law_1
+			holder_scope = {
+				OR = {
+					is_adult = yes					#adult, no child Fylkirs
+					AND = {
+						trait = lunatic				#mad child Fylkir can change doctrine
+						has_game_rule = {           # if there are no regencies
+							name = regencies
+							value = off
+						}
+					}
+				}#end OR block
+			}
+        }
+		potential = {
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+
+			holder_scope = {
+				controls_religion = yes				#only the Fylkir(a) can do this
+				OR = {
+					religion = norse_pagan_reformed	#norse pagan reformed
+					#religion = zun_pagan_reformed	#zunist pagan reformed
+													#other religions?
+				}
+				#these two features together are required to gain such control
+				has_religion_feature = religion_dogmatic		#must have dogmatic
+				has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = fp_claims_law_0
+				revoke_law = fp_claims_law_1
+			}
+            norse_pagan_reformed = {
+				#there's no "set_can_grant_money = yes", implement in decisions by law check
+				set_can_grant_money = yes
+				set_can_grant_claim = yes
+                religion_authority = {
+					modifier = fp_change_doctrine
+                    years = 2
+                }
+            }
+            FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
+		}
+	}#end fp_inv_def_law_2
+
 }

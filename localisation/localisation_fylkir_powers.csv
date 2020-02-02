@@ -63,16 +63,20 @@ fp_excomm_law_2;Grant Divorce Allowed;;;;;;;;;;;;;x
 fp_excomm_law_2_option;Divorce;;;;;;;;;;;;;x
 fp_excomm_law_2_desc;The Fylkir may now grant divorces to members the Germanic faith.;;;;;;;;;;;;;x
 
-fp_claims_law;Claims;;;;;;;;;;;;;x
-fp_claims_law_desc;Controls whether the Fylkir has the power to grant claims to members of the Germanic faith.;;;;;;;;;;;;;x
+fp_claims_law;Money and Claims;;;;;;;;;;;;;x
+fp_claims_law_desc;Controls whether the Fylkir has the power to grant claims and money to members of the Germanic faith.;;;;;;;;;;;;;x
 
-fp_claims_law_0;Grant Claims Disallowed;;;;;;;;;;;;;x
+fp_claims_law_0;Grant Claims Disallowed and Money Requests Disallowed;;;;;;;;;;;;;x
 fp_claims_law_0_option;None;;;;;;;;;;;;;x
-fp_claims_law_0_desc;The Fylkir may not grant claims on titles to members of the Germanic faith.;;;;;;;;;;;;;x
+fp_claims_law_0_desc;The Fylkir may not grant claims on titles to members of the Germanic faith, nor may they request money of the Fylkir.;;;;;;;;;;;;;x
 
-fp_claims_law_1;May Grant Claims;;;;;;;;;;;;;x
-fp_claims_law_1_option;Claims;;;;;;;;;;;;;x
-fp_claims_law_1_desc;The Fylkir may grant claims on titles to members of the Germanic faith.;;;;;;;;;;;;;x
+fp_claims_law_1;Money Requests Allowed;;;;;;;;;;;;;x
+fp_claims_law_1_option;Money;;;;;;;;;;;;;x
+fp_claims_law_1_desc;Members of the Germanic faith may request money from the Fylkir.;;;;;;;;;;;;;x
+
+fp_claims_law_2;May Grant Claims;;;;;;;;;;;;;x
+fp_claims_law_2_option;Claims;;;;;;;;;;;;;x
+fp_claims_law_2_desc;The Fylkir may grant claims on titles to members of the Germanic faith.;;;;;;;;;;;;;x
 
 fp_inv_def_law;Invasion and Religious Head Defense;;;;;;;;;;;;;x
 fp_inv_def_law_desc;Controls whether the Fylkir has the power to grant the invasion Casus Belli to members of the Germanic faith and whether members of the faith are likely to come to the Fylkir's aid in defensive religious wars.;;;;;;;;;;;;;x
