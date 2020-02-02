@@ -8,9 +8,9 @@ If you answered yes, this Crusader Kings II mod might be for you. After the Germ
 Below are the powers that do not require the Supernatural Events game rule active.  
 
 ### Church Doctrine
-After the Germanic reformation, an the law panel will allow the Fylkir to implement various church doctrines.
+After the Germanic reformation, the law panel will allow the Fylkir to implement various church doctrines.
 
-**Change Member Doctrines** - Excommunication, Claims, and Divorce.
+**Change Member Doctrines** - Excommunication and Divorce. Claims and Money.
 
 **Change War Doctrines** - Invasions and defensive religious war aid.
 
