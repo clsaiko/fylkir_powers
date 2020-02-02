@@ -211,47 +211,49 @@ character_event = {
 
 	immediate = {
 
-		#Excommunication and Divorce
-		if = {
-			limit = {
-				FROM = { has_law = fp_excomm_law_1 }
-			}
-			norse_pagan_reformed = {
-				set_can_excommunicate = yes
-				set_can_grant_divorce = no
-			}
-		}#end if
-		else_if = {
-			limit = {
-				FROM = { has_law = fp_excomm_law_2 }
-			}
-			norse_pagan_reformed = {
-				set_can_excommunicate = yes
-				set_can_grant_divorce = yes
-			}
-		}#end else_if
+		# #Implement via decisions
+		# #Excommunication and Divorce
+		# if = {
+		# 	limit = {
+		# 		FROM = { has_law = fp_excomm_law_1 }
+		# 	}
+		# 	norse_pagan_reformed = {
+		# 		set_can_excommunicate = yes
+		# 		set_can_grant_divorce = no
+		# 	}
+		# }#end if
+		# else_if = {
+		# 	limit = {
+		# 		FROM = { has_law = fp_excomm_law_2 }
+		# 	}
+		# 	norse_pagan_reformed = {
+		# 		set_can_excommunicate = yes
+		# 		set_can_grant_divorce = yes
+		# 	}
+		# }#end else_if
 
-		#Invasion and religious head defense
-		if = {
-			limit = {
-				FROM = { has_law = fp_inv_def_law_1 }
-			}
-			norse_pagan_reformed = {
-				set_can_grant_invasion_cb = invasion
-				set_rel_head_defense = no
-			}
-		}#end if
-		else_if = {
-			limit = {
-				FROM = { has_law = fp_inv_def_law_2 }
-			}
-			norse_pagan_reformed = {
-				set_can_grant_invasion_cb = invasion
-				set_rel_head_defense = yes
-			}
-		}#end else_if
+		# #Implement via decisions
+		# #Invasion and religious head defense
+		# if = {
+		# 	limit = {
+		# 		FROM = { has_law = fp_inv_def_law_1 }
+		# 	}
+		# 	norse_pagan_reformed = {
+		# 		set_can_grant_invasion_cb = invasion
+		# 		set_rel_head_defense = no
+		# 	}
+		# }#end if
+		# else_if = {
+		# 	limit = {
+		# 		FROM = { has_law = fp_inv_def_law_2 }
+		# 	}
+		# 	norse_pagan_reformed = {
+		# 		set_can_grant_invasion_cb = invasion
+		# 		set_rel_head_defense = yes
+		# 	}
+		# }#end else_if
 
-		
+
 	}#end immediate block
 
 	after = {}

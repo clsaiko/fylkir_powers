@@ -40,17 +40,12 @@ laws = {
 		allow = {
 			NOT = { has_law = fp_excomm_law_0 }	#can always return to both off
 			holder_scope = {
+				has_regent = no				#not under a regency
 				OR = {
-					is_adult = yes					#adult, no child Fylkirs
-					AND = {
-						trait = lunatic				#mad child Fylkir can change doctrine
-						has_game_rule = {           # if there are no regencies
-							name = regencies
-							value = off
-						}
-					}
+					is_adult = yes			#adult, no child Fylkirs
+					trait = lunatic			#mad child Fylkir can change doctrine
 				}#end OR block
-			}
+			}#end holder_scope
         }
 		potential = {
 			has_dlc = "Holy Fury"				#require the holy fury dlc
@@ -78,8 +73,8 @@ laws = {
 				revoke_law = fp_excomm_law_2
 			}
             norse_pagan_reformed = {
-                set_can_excommunicate = no
-				set_can_grant_divorce = no
+                # set_can_excommunicate = no	# AI won't utilize, use decisions instead
+				# set_can_grant_divorce = no	# AI won't utilize, use decisions instead
                 religion_authority = {
 					modifier = fp_change_doctrine
                     years = 2
@@ -87,7 +82,7 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
-	}
+	}#end fp_excomm_law_0
 
 	# Excommunication, no Divorce allowed
     fp_excomm_law_1 = {
@@ -98,17 +93,12 @@ laws = {
 				has_law = fp_excomm_law_2
 			}
 			holder_scope = {
+				has_regent = no				#not under a regency
 				OR = {
-					is_adult = yes					#adult, no child Fylkirs
-					AND = {
-						trait = lunatic				#mad child Fylkir can change doctrine
-						has_game_rule = {           # if there are no regencies
-							name = regencies
-							value = off
-						}
-					}
+					is_adult = yes			#adult, no child Fylkirs
+					trait = lunatic			#mad child Fylkir can change doctrine
 				}#end OR block
-			}
+			}#end holder_scope
         }
 		potential = {
 			has_dlc = "Holy Fury"				#require the holy fury dlc
@@ -136,8 +126,8 @@ laws = {
 				revoke_law = fp_excomm_law_2
 			}
             norse_pagan_reformed = {
-				set_can_excommunicate = yes
-				set_can_grant_divorce = no
+				#set_can_excommunicate = yes	# AI won't utilize, use decisions instead
+				#set_can_grant_divorce = no		# AI won't utilize, use decisions instead
                 religion_authority = {
 					modifier = fp_change_doctrine
                     years = 2
@@ -145,7 +135,7 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
 		}
-	}
+	}#end fp_excomm_law_1
 
 	# Divorce allowed, excommunication allowed
 	fp_excomm_law_2 = {
@@ -154,17 +144,12 @@ laws = {
 		allow = {
 			has_law = fp_excomm_law_1
 			holder_scope = {
+				has_regent = no				#not under a regency
 				OR = {
-					is_adult = yes					#adult, no child Fylkirs
-					AND = {
-						trait = lunatic				#mad child Fylkir can change doctrine
-						has_game_rule = {           # if there are no regencies
-							name = regencies
-							value = off
-						}
-					}
+					is_adult = yes			#adult, no child Fylkirs
+					trait = lunatic			#mad child Fylkir can change doctrine
 				}#end OR block
-			}
+			}#end holder_scope
         }
 		potential = {
 			has_dlc = "Holy Fury"				#require the holy fury dlc
@@ -192,8 +177,8 @@ laws = {
 				revoke_law = fp_excomm_law_1
 			}
             norse_pagan_reformed = {
-				set_can_grant_divorce = yes
-				set_can_excommunicate = yes
+				#set_can_grant_divorce = yes # AI won't utilize, use decisions instead
+				#set_can_excommunicate = yes # AI won't utilize, use decisions instead
                 religion_authority = {
 					modifier = fp_change_doctrine
                     years = 2
@@ -201,7 +186,7 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
-	}
+	}#end fp_excomm_law_2
 
 	#INVASION AND DEFENSE
 	# No sanction invasion, No religious head defense
@@ -211,17 +196,12 @@ laws = {
 		allow = {
 			NOT = { has_law = fp_inv_def_law_0 }	#can always return to both off
 			holder_scope = {
+				has_regent = no				#not under a regency
 				OR = {
-					is_adult = yes					#adult, no child Fylkirs
-					AND = {
-						trait = lunatic				#mad child Fylkir can change doctrine
-						has_game_rule = {           # if there are no regencies
-							name = regencies
-							value = off
-						}
-					}
+					is_adult = yes			#adult, no child Fylkirs
+					trait = lunatic			#mad child Fylkir can change doctrine
 				}#end OR block
-			}
+			}#end holder_scope
         }
 		potential = {
 			has_dlc = "Holy Fury"				#require the holy fury dlc
@@ -249,8 +229,8 @@ laws = {
 				revoke_law = fp_inv_def_law_2
 			}
             norse_pagan_reformed = {
-                set_can_grant_invasion_cb = "no"
-				set_rel_head_defense = no
+                #set_can_grant_invasion_cb = "no"	# AI won't utilize, use decisions instead
+				#set_rel_head_defense = no 			# AI won't utilize, use decisions instead
                 religion_authority = {
 					modifier = fp_change_doctrine
                     years = 2
@@ -259,7 +239,7 @@ laws = {
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 
 		}
-	}
+	}#end fp_inv_def_law_0
 
 	# sanction invasion, No religious head defense
     fp_inv_def_law_1 = {
@@ -270,17 +250,12 @@ laws = {
 				has_law = fp_inv_def_law_2
 			}
 			holder_scope = {
+				has_regent = no				#not under a regency
 				OR = {
-					is_adult = yes					#adult, no child Fylkirs
-					AND = {
-						trait = lunatic				#mad child Fylkir can change doctrine
-						has_game_rule = {           # if there are no regencies
-							name = regencies
-							value = off
-						}
-					}
+					is_adult = yes			#adult, no child Fylkirs
+					trait = lunatic			#mad child Fylkir can change doctrine
 				}#end OR block
-			}
+			}#end holder_scope
         }
 		potential = {
 			has_dlc = "Holy Fury"				#require the holy fury dlc
@@ -308,8 +283,8 @@ laws = {
 				revoke_law = fp_inv_def_law_2
 			}
             norse_pagan_reformed = {
-				set_can_grant_invasion_cb = invasion
-				set_rel_head_defense = no
+				#set_can_grant_invasion_cb = invasion	# AI won't utilize, use decisions instead
+				#set_rel_head_defense = no				# AI won't utilize, use decisions instead
                 religion_authority = {
 					modifier = fp_change_doctrine
                     years = 2
@@ -317,7 +292,7 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
 		}
-	}
+	}#end fp_inv_def_law_1
 
 	# sanction invasion, religious Head defense
 	fp_inv_def_law_2 = {
@@ -326,17 +301,12 @@ laws = {
 		allow = {
 			has_law = fp_inv_def_law_1
 			holder_scope = {
+				has_regent = no				#not under a regency
 				OR = {
-					is_adult = yes					#adult, no child Fylkirs
-					AND = {
-						trait = lunatic				#mad child Fylkir can change doctrine
-						has_game_rule = {           # if there are no regencies
-							name = regencies
-							value = off
-						}
-					}
+					is_adult = yes			#adult, no child Fylkirs
+					trait = lunatic			#mad child Fylkir can change doctrine
 				}#end OR block
-			}
+			}#end holder_scope
         }
 		potential = {
 			has_dlc = "Holy Fury"				#require the holy fury dlc
@@ -364,8 +334,8 @@ laws = {
 				revoke_law = fp_inv_def_law_1
 			}
             norse_pagan_reformed = {
-				set_can_grant_invasion_cb = invasion
-				set_rel_head_defense = yes
+				#set_can_grant_invasion_cb = invasion	# AI won't utilize, use decisions instead
+				#set_rel_head_defense = yes				# AI won't utilize, use decisions instead
                 religion_authority = {
 					modifier = fp_change_doctrine
                     years = 2
@@ -384,17 +354,12 @@ laws = {
 		allow = {
 			NOT = { has_law = fp_claims_law_0 }	#can always return to both off
 			holder_scope = {
+				has_regent = no				#not under a regency
 				OR = {
-					is_adult = yes					#adult, no child Fylkirs
-					AND = {
-						trait = lunatic				#mad child Fylkir can change doctrine
-						has_game_rule = {           # if there are no regencies
-							name = regencies
-							value = off
-						}
-					}
+					is_adult = yes			#adult, no child Fylkirs
+					trait = lunatic			#mad child Fylkir can change doctrine
 				}#end OR block
-			}
+			}#end holder_scope
         }
 		potential = {
 			has_dlc = "Holy Fury"				#require the holy fury dlc
@@ -423,8 +388,7 @@ laws = {
 			}
             norse_pagan_reformed = {
 				#there's no "set_can_grant_money = no", implement in decisions by law check
-				set_can_grant_money = no
-				set_can_grant_claim = no
+				#set_can_grant_claim = no		# AI won't utilize, use decisions instead
                 religion_authority = {
 					modifier = fp_change_doctrine
                     years = 2
@@ -444,17 +408,12 @@ laws = {
 				has_law = fp_claims_law_2
 			}
 			holder_scope = {
+				has_regent = no				#not under a regency
 				OR = {
-					is_adult = yes					#adult, no child Fylkirs
-					AND = {
-						trait = lunatic				#mad child Fylkir can change doctrine
-						has_game_rule = {           # if there are no regencies
-							name = regencies
-							value = off
-						}
-					}
+					is_adult = yes			#adult, no child Fylkirs
+					trait = lunatic			#mad child Fylkir can change doctrine
 				}#end OR block
-			}
+			}#end holder_scope
         }
 		potential = {
 			has_dlc = "Holy Fury"				#require the holy fury dlc
@@ -483,8 +442,7 @@ laws = {
 			}
             norse_pagan_reformed = {
 				#there's no "set_can_grant_money = yes", implement in decisions by law check
-				set_can_grant_money = yes
-				set_can_grant_claim = no
+				#set_can_grant_claim = no		# AI won't utilize, use decisions instead
                 religion_authority = {
 					modifier = fp_change_doctrine
                     years = 2
@@ -492,7 +450,7 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
 		}
-	}
+	}#end fp_claims_law_1
 
 	# Can request money, can request claims
 	fp_claims_law_2 = {
@@ -501,17 +459,12 @@ laws = {
 		allow = {
 			has_law = fp_claims_law_1
 			holder_scope = {
+				has_regent = no				#not under a regency
 				OR = {
-					is_adult = yes					#adult, no child Fylkirs
-					AND = {
-						trait = lunatic				#mad child Fylkir can change doctrine
-						has_game_rule = {           # if there are no regencies
-							name = regencies
-							value = off
-						}
-					}
+					is_adult = yes			#adult, no child Fylkirs
+					trait = lunatic			#mad child Fylkir can change doctrine
 				}#end OR block
-			}
+			}#end holder_scope
         }
 		potential = {
 			has_dlc = "Holy Fury"				#require the holy fury dlc
@@ -540,8 +493,7 @@ laws = {
 			}
             norse_pagan_reformed = {
 				#there's no "set_can_grant_money = yes", implement in decisions by law check
-				set_can_grant_money = yes
-				set_can_grant_claim = yes
+				#set_can_grant_claim = yes	# AI won't utilize, use decisions instead
                 religion_authority = {
 					modifier = fp_change_doctrine
                     years = 2
@@ -549,6 +501,6 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
-	}#end fp_inv_def_law_2
+	}#end fp_claims_law_2
 
 }
