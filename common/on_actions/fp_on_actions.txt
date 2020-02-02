@@ -1,0 +1,21 @@
+#################################
+#	File:	fp_on_actions.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers On Actions file
+#           Events and random events to trigger when specific actions occur
+#
+#################################
+
+# From = Attacker, Root = Defender
+on_war_ended_victory = {
+	events = {
+	}
+    random_events = { # Events where one valid event is selected at random
+        # On winning a holy war, norse_pagan_reformed religion resets things like excommunication,
+        #   granting divorces, religious head defense, etc.
+        fix_norse_laws = { # might be able to put this in random_events instead of a list? check later
+			delay = 1 # Delay one day so whatever is messing with religions can fire
+			1000 = fp.200
+		}
+	}
+}
