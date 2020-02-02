@@ -1,0 +1,1699 @@
+#################################
+#	File:	decisions_fylkir.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Targeted Decisions
+#
+#			Grant various Boons
+#				fp_cure_disease
+#				fp_calm_mind
+#				fp_heal_body
+#				fp_heal_defect
+#				fp_extend_life
+#
+#			Inflict various Curses
+#				fp_inflict_gloom
+#				fp_inflict_madness
+#				fp_inflict_illness
+#				fp_inflict_malady
+#				fp_inflict_aberration
+#
+#			Future Possibilities:
+#				Grant Immortality?
+#				Crown Rulers?
+#				Sumbel/Blot for Child?
+#				Release Plague?
+#				Curse Title?
+#				Peasant Unrest? Revolt?
+#				Death?
+#################################
+
+targeted_decisions = {
+
+
+
+
+
+	### BOONS GRANTED BY FYLKIR ###
+
+	# CURE DISEASE - The Fylkir may, at his discretion, cure an illness or disease
+	# from a member of the faith, in exchange for 75 piety.
+	fp_cure_disease = {
+		filter = all_including_me		#Fylkir, heal thyself
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage, yet
+			is_adult = yes						#adult, no child Fylkirs
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			#The Fylkir must harness the power of the peoples' worship as high god of the religion
+			has_religion_feature = religion_holy_family
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+			NOT = { trait = excommunicated }	#must not be excommunicated
+			OR = {								#must have at least one disease to cure
+				trait = has_aztec_disease
+				trait = has_typhus				#aka camp fever
+				trait = cancer
+				trait = has_tuberculosis		#aka consumption
+				trait = dancing_plague
+				trait = dysentery
+				trait = flu
+				trait = food_poisoning
+				trait = gout
+				trait = syphilitic				#aka great pox
+				trait = has_typhoid_fever		#aka slow fever
+				trait = ill						#for reaper's due dlc
+				trait = leper
+				trait = has_measles
+				trait = pneumonic
+				trait = rabies
+				trait = scurvy
+				trait = sickly
+				trait = has_small_pox
+				trait = has_bubonic_plague		#aka The Plague
+				trait = infection				#similar to a wound, but put here
+				trait = lovers_pox				#the herp
+			}
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 300			#Fylkir must first have at least 300 piety
+			}
+
+			OR = {
+				FROM = {
+					opinion = {
+						who = ROOT		#Fylkir opinion of target at least 0...
+						value = 0
+						}
+				}
+
+				AND = {					#OR...
+					FROM = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target above -25...
+						value = -25
+						}
+					}
+					OR = {				#AND target must be some sort of virtuous
+						trait = chaste
+						trait = temperate
+						trait = charitable
+						trait = diligent
+						trait = patient
+						trait = kind
+						trait = humble
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+			#remove illness
+			#minor diseases are more likely to be removed
+			random_list = {
+				4 = {
+					modifier = {
+						factor = 0			#skip if no cancer (-3)
+						NOT = { trait = cancer }
+					}
+					#remove_trait = cancer
+					character_event = { id = RIP.11020 }	#recover from cancer
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if no aztec disease (-4)
+						NOT = { trait = has_aztec_disease }
+					}
+					remove_trait = has_aztec_disease
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if no camp fever (-4)
+						NOT = { trait = has_typhus }
+					}
+					remove_trait = has_typhus
+				}
+				5 = {
+					modifier = {
+						factor = 0			#skip if no consumption (-2)
+						NOT = { trait = has_tuberculosis }
+					}
+					remove_trait = has_tuberculosis
+				}
+				5 = {
+					modifier = {
+						factor = 0			#skip if no dancing plague (-2)
+						NOT = { trait = dancing_plague }
+					}
+					remove_trait = dancing_plague
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if no dysentery (-4)
+						NOT = { trait = dysentery }
+					}
+					remove_trait = dysentery
+				}
+				5 = {
+					modifier = {
+						factor = 0			#skip if no flu (-2)
+						NOT = { trait = flu }
+					}
+					remove_trait = flu
+				}
+				4 = {
+					modifier = {
+						factor = 0			#skip if no food_poisoning (-3)
+						NOT = { trait = food_poisoning }
+					}
+					remove_trait = food_poisoning
+				}
+				5 = {
+					modifier = {
+						factor = 0			#skip if no gout (-2)
+						NOT = { trait = gout }
+					}
+					remove_trait = gout
+				}
+				5 = {
+					modifier = {
+						factor = 0			#skip if no great pox (-2)
+						NOT = { trait = syphilitic }
+					}
+					remove_trait = syphilitic
+				}
+				4 = {
+					modifier = {
+						factor = 0			#skip if no slow fever (-3)
+						NOT = { trait = has_typhoid_fever }
+					}
+					remove_trait = has_typhoid_fever
+				}
+				5 = {
+					modifier = {
+						factor = 0				#skip if no ill (-1)
+						NOT = { trait = ill	}	#for no reaper's due dlc
+					}
+					remove_trait = ill
+				}
+				5 = {
+					modifier = {
+						factor = 0			#skip if no leper (-1.5)
+						NOT = { trait = leper }
+					}
+					remove_trait = leper
+				}
+				5 = {
+					modifier = {
+						factor = 0			#skip if no measles (-2)
+						NOT = { trait = has_measles }
+					}
+					remove_trait = has_measles
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if no pneumonic (-4)
+						NOT = { trait = pneumonic }
+					}
+					remove_trait = pneumonic
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if no rabies (-7)
+						NOT = { trait = rabies }
+					}
+					remove_trait = rabies
+				}
+				4 = {
+					modifier = {
+						factor = 0			#skip if no scurvy (-3)
+						NOT = { trait = scurvy }
+					}
+					remove_trait = scurvy
+				}
+				5 = {
+					modifier = {
+						factor = 0			#skip if no sickly (-2.5)
+						NOT = { trait = sickly }
+					}
+					remove_trait = sickly
+				}
+				4 = {
+					modifier = {
+						factor = 0			#skip if no small pox (-3)
+						NOT = { trait = has_small_pox }
+					}
+					remove_trait = has_small_pox
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if no The Plague (-7)
+						NOT = { trait = has_bubonic_plague }
+					}
+					remove_trait = has_bubonic_plague
+				}
+				5 = {
+					modifier = {
+						factor = 0			#skip if no infection (-2)
+						NOT = { trait = infection }
+					}
+					remove_trait = infection
+				}
+				6 = {
+					modifier = {
+						factor = 0			#skip if no lovers pox (-N/A)
+						NOT = { trait = lovers_pox }
+					}
+					remove_trait = lovers_pox
+				}
+			}#end random_list
+
+			#if bedridden illness modifier exists, remove that
+			remove_character_modifier = bedridden_illness
+
+			#for now, keep physician treatment modifiers
+
+			#remove any symptoms, although these should be gone if illness has manifested
+			# remove_trait = abdominal_pain
+			# remove_trait = chest_pain
+			# remove_trait = cough
+			# remove_trait = cramps
+			# remove_trait = diarrhea
+			# remove_trait = fatigue
+			# remove_trait = fever
+			# remove_trait = headache
+			# remove_trait = infection
+			# remove_trait = malaise
+			# remove_trait = rash
+			# remove_trait = vomiting
+
+			FROM = {		#Fylkir expends 75 piety to cure diseases and symptoms
+				piety = -75
+			}
+		}#end effect block
+	}#end fp_cure_disease
+
+	# CALM MIND - The Fylkir may, at his discretion, cure lunacy, possession,
+	# depression, or stress from a member of the faith, in exchange for 75 piety.
+	# Additionally lisp and stutter may be removed, as maladies of the mind.
+	fp_calm_mind = {
+		filter = all_including_me		#Fylkir, heal thyself
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage, yet
+			is_adult = yes						#adult, no child Fylkirs
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			#The Fylkir must harness the power of the peoples' worship as high god of the religion
+			has_religion_feature = religion_holy_family
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+			NOT = { trait = excommunicated }	#must not be excommunicated
+			OR = {								#must have at least mental problem to cure
+				trait = lunatic
+				trait = depressed
+				trait = stressed
+				trait = possessed
+				trait = lisp
+				trait = stutter
+			}
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 300			#Fylkir must first have at least 300 piety
+			}
+
+			OR = {
+				FROM = {
+					opinion = {
+						who = ROOT		#Fylkir opinion of target at least 0...
+						value = 0
+						}
+				}
+
+				AND = {					#OR...
+					FROM = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target above -25...
+						value = -25
+						}
+					}
+					OR = {				#AND target must be some sort of virtuous
+						trait = chaste
+						trait = temperate
+						trait = charitable
+						trait = diligent
+						trait = patient
+						trait = kind
+						trait = humble
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+			#remove mental afflictions
+			#stress and depressed are more likely with weight 3
+			#lunatic and possessed are less likely with weight 2
+			#lisp and stutter are the least likely with weight 1
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0			#skip if no lisp
+						NOT = { trait = lisp }
+					}
+					remove_trait = lisp
+				}
+				1 = {
+					modifier = {
+						factor = 0			#skip if no stutter
+						NOT = { trait = stutter }
+					}
+					remove_trait = stutter
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if no lunatic
+						NOT = { trait = lunatic }
+					}
+					remove_trait = lunatic
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if not possessed
+						NOT = { trait = possessed }
+					}
+					remove_trait = possessed
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if not stressed
+						NOT = { trait = stressed }
+					}
+					remove_trait = stressed
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if not depressed
+						NOT = { trait = depressed }
+					}
+					remove_trait = depressed
+				}
+			}#end random_list
+
+			FROM = {		#Fylkir expends 75 piety to cure mental problems
+				piety = -75
+			}
+		}#end effect block
+	}#end fp_calm_mind
+
+	# HEAL BODY - The Fylkir may, at his discretion, heal a wound or disfigurement
+	# from a member of the faith, in exchange for 100 piety.
+	fp_heal_body = {
+		filter = all_including_me		#Fylkir, heal thyself
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage
+			is_adult = yes						#adult, no child Fylkirs
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			#The Fylkir must harness the power of the peoples' worship as high god of the religion
+			has_religion_feature = religion_holy_family
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+			NOT = { trait = excommunicated }	#must not be excommunicated
+			OR = {								#must have a disfigurement or wound to cure
+				trait = disfigured
+				trait = mangled
+				trait = one_eyed
+				trait = one_handed
+				trait = one_legged
+				trait = severely_injured
+				trait = infirm
+				trait = maimed
+				trait = wounded
+			}
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 400			#Fylkir must first have at least 400 piety
+			}
+
+			OR = {
+				FROM = {
+					opinion = {
+						who = ROOT		#Fylkir opinion of target at least 0...
+						value = 0
+						}
+				}
+
+				AND = {					#OR...
+					FROM = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target above -25...
+						value = -25
+						}
+					}
+					OR = {				#AND target must be some sort of virtuous
+						trait = chaste
+						trait = temperate
+						trait = charitable
+						trait = diligent
+						trait = patient
+						trait = kind
+						trait = humble
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+			#remove mental afflictions
+			#one eyed/hand/leg and wound are more likely with weight 3
+			#disfigured, mangled, maimed, severely_injured, and infirm are less likely with weight 2
+
+			random_list = {
+				2 = {
+					modifier = {
+						factor = 0			#skip if not disfigured
+						NOT = { trait = disfigured }
+					}
+					remove_trait = disfigured
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if not mangled
+						NOT = { trait = mangled }
+					}
+					remove_trait = mangled
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if not maimed
+						NOT = { trait = maimed }
+					}
+					remove_trait = maimed
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if not severely_injured
+						NOT = { trait = severely_injured }
+					}
+					remove_trait = severely_injured
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if not infirm
+						NOT = { trait = infirm }
+					}
+					remove_trait = infirm
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if not one_eyed
+						NOT = { trait = one_eyed }
+					}
+					remove_trait = one_eyed
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if not one_handed
+						NOT = { trait = one_handed }
+					}
+					remove_trait = one_handed
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if not one_legged
+						NOT = { trait = one_legged }
+					}
+					remove_trait = one_legged
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if not wounded
+						NOT = { trait = wounded }
+					}
+					remove_trait = wounded
+				}
+			}#end random_list
+
+			FROM = {		#Fylkir expends 100 piety to cure disfigurement
+				piety = -100
+			}
+		}#end effect block
+	}#end fp_heal_body
+
+	# HEAL DEFECT - The Fylkir may, at his discretion, remove a defect or
+	# aberration trait from a member of the faith, in exchange for 200 piety.
+	fp_heal_defect = {
+		filter = all_including_me		#Fylkir, heal thyself
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage
+			is_adult = yes						#adult, no child Fylkirs
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			#The Fylkir must harness the power of the peoples' worship as high god of the religion
+			has_religion_feature = religion_holy_family
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+			NOT = { trait = excommunicated }	#must not be excommunicated
+			OR = {								#must have an aberration to cure
+				trait = clubfooted	#these can be rectified at any time
+				trait = harelip
+				trait = hunchback
+
+				AND = {
+					NOT = { age = 6 }
+					OR = {
+						trait = dwarf	#these can only be rectified at an age under 6
+						trait = giant
+						trait = slow
+						trait = ugly
+						trait = weak
+					}
+				}
+			}
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 800			#Fylkir must first have at least 800 piety
+			}
+
+			OR = {
+				FROM = {
+					opinion = {
+						who = ROOT		#Fylkir opinion of target at least 0...
+						value = 0
+						}
+				}
+
+				AND = {					#OR...
+					FROM = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target above -25...
+						value = -25
+						}
+					}
+					OR = {				#AND target must be some sort of virtuous
+						trait = chaste
+						trait = temperate
+						trait = charitable
+						trait = diligent
+						trait = patient
+						trait = kind
+						trait = humble
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+			#remove mental afflictions
+			#clubfooted, harelip, and hunchback are more likely with weight 3
+			#dwarf, giant, slow, ugly, and weak are less likely with weight 2
+
+			random_list = {
+				2 = {
+					modifier = {
+						factor = 0		#skip if not dwarf
+						NOT = { trait = dwarf }
+					}
+					modifier = {
+						factor = 0		#skip if age over 5
+						age = 6
+					}
+					remove_trait = dwarf
+				}
+				2 = {
+					modifier = {
+						factor = 0		#skip if not giant
+						NOT = { trait = giant }
+					}
+					modifier = {
+						factor = 0		#skip if age over 5
+						age = 6
+					}
+					remove_trait = giant
+				}
+				2 = {
+					modifier = {
+						factor = 0		#skip if not slow
+						NOT = { trait = slow }
+					}
+					modifier = {
+						factor = 0		#skip if age over 5
+						age = 6
+					}
+					remove_trait = slow
+				}
+				2 = {
+					modifier = {
+						factor = 0		#skip if not ugly
+						NOT = { trait = ugly }
+					}
+					modifier = {
+						factor = 0		#skip if age over 5
+						age = 6
+					}
+					remove_trait = ugly
+				}
+				2 = {
+					modifier = {
+						factor = 0		#skip if not weak
+						NOT = { trait = weak }
+					}
+					modifier = {
+						factor = 0		#skip if age over 5
+						age = 6
+					}
+					remove_trait = weak
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if not hunchback
+						NOT = { trait = hunchback }
+					}
+					remove_trait = hunchback
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if not harelip
+						NOT = { trait = harelip }
+					}
+					remove_trait = harelip
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if not clubfooted
+						NOT = { trait = clubfooted }
+					}
+					remove_trait = clubfooted
+				}
+			}#end random_list
+
+			FROM = {		#Fylkir expends 100 piety to cure disfigurement
+				piety = -100
+			}
+		}#end effect block
+	}#end fp_heal_defect
+
+	# EXTEND LIFE - The Fylkir may, at his discretion, extend the life of a member
+	# of the faith by two years, in exchange for 250 piety, and a year of his own life.
+	fp_extend_life = {
+		filter = all_including_me		#Fylkir can extend own life by one year
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage, yet
+			OR = {
+				is_adult = yes					#adult, no child Fylkirs
+				trait = lunatic					#not likely, but mad child god can extend life
+			}
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			#The Fylkir must harness the power of the peoples' worship as high god of the religion
+			has_religion_feature = religion_holy_family
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+			NOT = { trait = excommunicated }	#must not be excommunicated
+			OR = {
+				AND = {
+					controls_religion = yes		#if proud, the Fylkir can game it to extend his own life
+					trait = proud
+				}
+				controls_religion = no			#everyone else
+			}
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 1000			#Fylkir must first have at least 1000 piety
+			}
+
+			OR = {
+				FROM = {
+					opinion = {
+						who = ROOT		#Fylkir opinion of target at least 0...
+						value = 0
+						}
+				}
+
+				AND = {					#OR...
+					FROM = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target above -25...
+						value = -25
+						}
+					}
+					OR = {				#AND target must be some sort of virtuous
+						trait = chaste
+						trait = temperate
+						trait = charitable
+						trait = diligent
+						trait = patient
+						trait = kind
+						trait = humble
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+			add_age = -2	#age target by -2 years
+
+			FROM = {
+				piety = -200	#Fylkir expends 200 piety to extend life
+				add_age = 1		#age self by one year
+			}
+		}#end effect block
+	}#end fp_extend_life
+
+
+	### CURSES INFLICTED BY FYLKIR ###
+
+	# INFLICT GLOOM - The Fylkir may, at his discretion, inflict stressed or depression
+	# upon a member of the faith, in exchange for 75 piety.
+	fp_inflict_gloom = {
+		filter = all
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage
+			OR = {
+				is_adult = yes					#adult, no child Fylkirs
+				trait = lunatic					#mad child god can inflict
+			}
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			OR = {					#must have one of these traits to inflict stuff
+				trait = cruel
+				trait = wroth
+				trait = arbitrary
+				trait = lunatic
+				trait = possessed
+			}
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			OR = {
+				#The Fylkir must harness the power of the peoples' worship as high god of the religion
+				has_religion_feature = religion_holy_family
+
+				#Alternatively, the Fylkir may be a rank 1 devil worshiper
+				AND = {
+					society_is_devil_worshiper = yes
+					society_rank >= 1
+				}
+			}
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 300			#Fylkir must first have at least 300 piety
+			}
+
+			OR = {
+				FROM = {
+					NOT = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target below 0...
+						value = 0		#if yes, we don't care if they are a sinner
+						}
+					}
+				}
+				AND = {					#OR...
+					FROM = {
+						NOT = {
+							opinion = {
+							who = ROOT	#Fylkir opinion of target below 25...
+							value = 25
+							}
+						}
+					}
+					OR = {				#AND target must be some sort of sinner
+						trait = gluttonous
+						trait = proud
+						trait = envious
+						trait = lustful
+						trait = greedy
+						trait = slothful
+						trait = envious
+						trait = lovers_pox	#adultery!
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+
+			#chance to add one of either trait to the target
+			random_list = {
+				50 = {
+					modifier = {
+						factor = 0			#if already have depressed, skip
+						trait = depressed
+					}
+					add_trait = depressed		#50% chance to add the depressed trait to the target
+				}
+				50 = {
+					modifier = {
+						factor = 0			#if already have stressed, skip
+						trait = stressed
+					}
+					add_trait = stressed	#50% chance to add the stressed trait to the target
+				}
+			}
+
+			FROM = {
+				piety = -75		#Fylkir expends 75 piety to inflict gloom
+			}
+		}#end effect block
+	}#end fp_inflict_gloom
+
+	# INFLICT MADNESS - The Fylkir may, at his discretion, inflict lunacy or possession
+	# upon a member of the faith, in exchange for 100 piety.
+	fp_inflict_madness = {
+		filter = all
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage
+			OR = {
+				is_adult = yes					#adult, no child Fylkirs
+				trait = lunatic					#mad child god can inflict
+			}
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			OR = {					#must have one of these traits to inflict stuff
+				trait = cruel
+				trait = wroth
+				trait = arbitrary
+				trait = lunatic
+				trait = possessed
+			}
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			OR = {
+				#The Fylkir must harness the power of the peoples' worship as high god of the religion
+				has_religion_feature = religion_holy_family
+
+				#Alternatively, the Fylkir may be a rank 2 devil worshiper
+				AND = {
+					society_is_devil_worshiper = yes
+					society_rank >= 2
+				}
+			}
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 400			#Fylkir must first have at least 400 piety
+			}
+
+			OR = {
+				FROM = {
+					NOT = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target below 0...
+						value = 0		#if yes, we don't care if they are a sinner
+						}
+					}
+				}
+				AND = {					#OR...
+					FROM = {
+						NOT = {
+							opinion = {
+							who = ROOT	#Fylkir opinion of target below 25...
+							value = 25
+							}
+						}
+					}
+					OR = {				#AND target must be some sort of sinner
+						trait = gluttonous
+						trait = proud
+						trait = envious
+						trait = lustful
+						trait = greedy
+						trait = slothful
+						trait = envious
+						trait = lovers_pox	#adultery!
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+
+			#chance to add one of either trait to the target
+			random_list = {
+				50 = {
+					modifier = {
+						factor = 0			#if already have lunatic, skip
+						trait = lunatic
+					}
+					add_trait = lunatic		#50% chance to add the lunatic trait to the target
+				}
+				50 = {
+					modifier = {
+						factor = 0			#if already have possessed, skip
+						trait = possessed
+					}
+					add_trait = possessed	#50% chance to add the possessed trait to the target
+				}
+			}
+
+			FROM = {
+				piety = -100		#Fylkir expends 100 piety to inflict madness
+			}
+		}#end effect block
+	}#end fp_inflict_illness
+
+	# INFLICT ILLNESS - The Fylkir may, at his discretion, inflict a minor disease
+	# (-2 or -3 health) upon a member of the faith, in exchange for 100 piety.
+	fp_inflict_illness = {
+		filter = all
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage
+			OR = {
+				is_adult = yes					#adult, no child Fylkirs
+				trait = lunatic					#mad child god can inflict
+			}
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			OR = {					#must have one of these traits to inflict stuff
+				trait = cruel
+				trait = wroth
+				trait = arbitrary
+				trait = lunatic
+				trait = possessed
+			}
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			OR = {
+				#The Fylkir must harness the power of the peoples' worship as high god of the religion
+				has_religion_feature = religion_holy_family
+
+				#Alternatively, the Fylkir may be a rank 3 devil worshiper
+				AND = {
+					society_is_devil_worshiper = yes
+					society_rank >= 3
+				}
+			}
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 400			#Fylkir must first have at least 400 piety
+			}
+
+			OR = {
+				FROM = {
+					NOT = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target below 0...
+						value = 0		#if yes, we don't care if they are a sinner
+						}
+					}
+				}
+				AND = {					#OR...
+					FROM = {
+						NOT = {
+							opinion = {
+							who = ROOT	#Fylkir opinion of target below 25...
+							value = 25
+							}
+						}
+					}
+					OR = {				#AND target must be some sort of sinner
+						trait = gluttonous
+						trait = proud
+						trait = envious
+						trait = lustful
+						trait = greedy
+						trait = slothful
+						trait = envious
+						trait = lovers_pox	#adultery!
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+
+			# adds a minor disease (-2 and -3 health) to the target from a random list
+			# -2 health diseases are slightly more likely, weighted with 3
+			# -3 health diseases are slightly less likely, weighted with 2
+			random_list = {
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have consumption (-2)
+						trait = has_tuberculosis
+					}
+					add_trait = has_tuberculosis
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have dancing plague (-2)
+						trait = dancing_plague
+					}
+					add_trait = dancing_plague
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have flu (-2)
+						trait = flu
+					}
+					add_trait = flu
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if already have cancer (-3)
+						trait = cancer
+					}
+					add_trait = cancer
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if already have food poisoning (-3)
+						trait = food_poisoning
+					}
+					add_trait = food_poisoning
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have gout (-2)
+						trait = gout
+					}
+					add_trait = gout
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have great pox (-2)
+						trait = syphilitic
+					}
+					add_trait = syphilitic
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if already have slow fever (-3)
+						trait = has_typhoid_fever
+					}
+					add_trait = has_typhoid_fever
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have measles (-2)
+						trait = has_measles
+					}
+					add_trait = has_measles
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if already have scurvy (-3)
+						trait = scurvy
+					}
+					add_trait = scurvy
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if already have small pox (-3)
+						trait = has_small_pox
+					}
+					add_trait = has_small_pox
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have leper (-1.5)
+						trait = leper		#treat like (-2)
+					}
+					add_trait = leper
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have infection (-2)
+						trait = infection
+					}
+					add_trait = infection
+				}
+				1 = {
+					modifier = {
+						factor = 0			#skip if already have lovers_pox (N/A)
+						trait = lovers_pox	#treat not very likely, since this counts as a "sin"
+					}
+					add_trait = lovers_pox
+				}
+			}
+			FROM = {
+				piety = -100		#Fylkir expends 100 piety to inflict an illness
+			}
+		}#end effect block
+	}#end fp_inflict_illness
+
+	# INFLICT MALADY - The Fylkir may, at his discretion, inflict a major disease
+	# (-4 health and above) upon a member of the faith, in exchange for 200 piety.
+	fp_inflict_malady = {
+		filter = all
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage
+			OR = {
+				is_adult = yes					#adult, no child Fylkirs
+				trait = lunatic					#mad child god can inflict
+			}
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			OR = {					#must have one of these traits to inflict stuff
+				trait = cruel
+				trait = wroth
+				trait = arbitrary
+				trait = lunatic
+				trait = possessed
+			}
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			OR = {
+				#The Fylkir must harness the power of the peoples' worship as high god of the religion
+				has_religion_feature = religion_holy_family
+
+				#Alternatively, the Fylkir may be a rank 4 devil worshiper
+				AND = {
+					society_is_devil_worshiper = yes
+					society_rank >= 4
+				}
+			}
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 800			#Fylkir must first have at least 800 piety
+			}
+
+			OR = {
+				FROM = {
+					NOT = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target below 0...
+						value = 0		#if yes, we don't care if they are a sinner
+						}
+					}
+				}
+				AND = {					#OR...
+					FROM = {
+						NOT = {
+							opinion = {
+							who = ROOT	#Fylkir opinion of target below 25...
+							value = 25
+							}
+						}
+					}
+					OR = {				#AND target must be some sort of sinner
+						trait = gluttonous
+						trait = proud
+						trait = envious
+						trait = lustful
+						trait = greedy
+						trait = slothful
+						trait = envious
+						trait = lovers_pox	#adultery!
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+
+			# adds a minor disease (-2 and -3 health) to the target from a random list
+			# -4 health diseases are slightly more likely, weighted with 3
+			# -7 health diseases are slightly less likely, weighted with 2
+			random_list = {
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have aztec disease (-4)
+						trait = has_aztec_disease
+					}
+					modifier = {
+						factor = 0					#skip if aztec dlc is off
+						has_dlc = "Sunset Invasion"	#require the sunset invasion dlc
+					}
+					modifier = {
+						factor = 0			#skip if aztec invasion is off
+						has_game_rule = {
+							name = aztec_invasion
+							value = off
+						}
+					}
+					add_trait = has_aztec_disease
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have camp fever (-4)
+						trait = has_typhus
+					}
+					add_trait = has_typhus
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already pneumonic (-4)
+						trait = pneumonic
+					}
+					add_trait = pneumonic
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have dysentery (-4)
+						trait = dysentery
+					}
+					add_trait = dysentery
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if already have rabies (-7)
+						trait = rabies
+					}
+					add_trait = rabies
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if already have the plague (-7)
+						trait = has_bubonic_plague
+					}
+					add_trait = has_bubonic_plague
+				}
+			}#end random_list
+
+			FROM = {
+				piety = -200		#Fylkir expends 200 piety to inflict a major disease
+			}
+		}#end effect block
+	}#end fp_inflict_malady
+
+	# INFLICT ABERRATION - The Fylkir may, at his discretion, inflict an aberration
+	# or deformity upon a member of the faith, in exchange for 300 piety.
+	fp_inflict_aberration = {
+		filter = all
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage
+			OR = {
+				is_adult = yes					#adult, no child Fylkirs
+				trait = lunatic					#mad child god can inflict
+			}
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			OR = {					#must have one of these traits to inflict stuff
+				trait = cruel
+				trait = wroth
+				trait = arbitrary
+				trait = lunatic
+				trait = possessed
+			}
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			OR = {
+				#The Fylkir must harness the power of the peoples' worship as high god of the religion
+				has_religion_feature = religion_holy_family
+
+				#Alternatively, the Fylkir may be a rank 4 devil worshiper
+				AND = {
+					society_is_devil_worshiper = yes
+					society_rank >= 4
+				}
+			}
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 1200			#Fylkir must first have at least 1200 piety
+			}
+
+			OR = {
+				FROM = {
+					NOT = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target below 0...
+						value = 0		#if yes, we don't care if they are a sinner
+						}
+					}
+				}
+				AND = {					#OR...
+					FROM = {
+						NOT = {
+							opinion = {
+							who = ROOT	#Fylkir opinion of target below 25...
+							value = 25
+							}
+						}
+					}
+					OR = {				#AND target must be some sort of sinner
+						trait = gluttonous
+						trait = proud
+						trait = envious
+						trait = lustful
+						trait = greedy
+						trait = slothful
+						trait = envious
+						trait = lovers_pox	#adultery!
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+
+			# adds a defect or aberration to the target from a random_list
+			# clubfooted, harelip, hunchback, stutter, and lisp are more likely, weighted with 3
+			# ugly, dwarf, giant are less likely, weighted with 2 (under age 6 only)
+			# imbecile, weak, and slow are unlikely, weighted with 1
+			random_list = {
+				3 = {
+					modifier = {
+						factor = 0			#skip if already clubfooted
+						trait = clubfooted
+					}
+					add_trait = clubfooted
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have a harelip
+						trait = harelip
+					}
+					add_trait = harelip
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already a hunchback
+						trait = hunchback
+					}
+					add_trait = hunchback
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have a stutter
+						trait = stutter
+					}
+					add_trait = stutter
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if already have a lisp
+						trait = lisp
+					}
+					add_trait = lisp
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if already ugly
+						trait = ugly
+					}
+					modifier = {
+						factor = 0			#skip if already age 6
+						age = 6
+					}
+					add_trait = ugly
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if already dwarf
+						trait = dwarf
+					}
+					modifier = {
+						factor = 0			#skip if already age 6
+						age = 6
+					}
+					add_trait = dwarf
+				}
+				2 = {
+					modifier = {
+						factor = 0			#skip if already giant
+						trait = giant
+					}
+					modifier = {
+						factor = 0			#skip if already age 6
+						age = 6
+					}
+					add_trait = giant
+				}
+				1 = {
+					modifier = {
+						factor = 0			#skip if already an imbecile
+						trait = imbecile
+					}
+					add_trait = imbecile
+				}
+				1 = {
+					modifier = {
+						factor = 0			#skip if already weak
+						trait = weak
+					}
+					add_trait = weak
+				}
+				1 = {
+					modifier = {
+						factor = 0			#skip if already slow
+						trait = slow
+					}
+					add_trait = slow
+				}
+			}#end random_list
+
+			FROM = {
+				piety = -300		#Fylkir expends 300 piety to inflict a defect
+			}
+		}#end effect block
+	}#end fp_inflict_aberration
+
+}#end targeted_decisions
