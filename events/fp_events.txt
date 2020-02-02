@@ -6,6 +6,7 @@
 #			fp.101 - Unused
 #			fp.102 - Unused
 #			fp.103 - Unused
+#			fp.200 - Fix norse laws
 #			fp.999 - Event testing
 #################################
 
@@ -189,6 +190,69 @@ character_event = {
 		trigger = {}
 		#Option D command block
 	}
+
+	after = {}
+}
+
+#on_war_ended_victory: Fix norse laws on winning holy war
+# From = Attacker, Root = Defender
+character_event = {
+	id = fp.200		#event ID
+	hide_window = yes
+
+	trigger = {
+		FROM = {
+			religion = norse_pagan_reformed	#norse pagan reformed
+			controls_religion = yes			#only the Fylkir(a) can do this
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+
+		#Excommunication and Divorce
+		if = {
+			limit = {
+				FROM = { has_law = fp_excomm_law_1 }
+			}
+			norse_pagan_reformed = {
+				set_can_excommunicate = yes
+				set_can_grant_divorce = no
+			}
+		}#end if
+		else_if = {
+			limit = {
+				FROM = { has_law = fp_excomm_law_2 }
+			}
+			norse_pagan_reformed = {
+				set_can_excommunicate = yes
+				set_can_grant_divorce = yes
+			}
+		}#end else_if
+
+		#Invasion and religious head defense
+		if = {
+			limit = {
+				FROM = { has_law = fp_inv_def_law_1 }
+			}
+			norse_pagan_reformed = {
+				set_can_grant_invasion_cb = invasion
+				set_rel_head_defense = no
+			}
+		}#end if
+		else_if = {
+			limit = {
+				FROM = { has_law = fp_inv_def_law_2 }
+			}
+			norse_pagan_reformed = {
+				set_can_grant_invasion_cb = invasion
+				set_rel_head_defense = yes
+			}
+		}#end else_if
+
+		
+	}#end immediate block
 
 	after = {}
 }
