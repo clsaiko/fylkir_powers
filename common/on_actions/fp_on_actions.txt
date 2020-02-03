@@ -11,8 +11,9 @@ on_war_ended_victory = {
 	events = {
 	}
     random_events = { # Events where one valid event is selected at random
-        # On winning a holy war, norse_pagan_reformed religion resets things like excommunication,
-        #   granting divorces, religious head defense, etc.
+        # On winning a holy war, something in the base game resets (to off) norse_pagan_reformed
+		#	religion things like excommunication, granting divorces, religious head defense, etc.
+		#	It won't do so if the religion is reformed with hierocratic, only temporal.
         fix_norse_laws = { # might be able to put this in random_events instead of a list? check later
 			delay = 1 # Delay one day so whatever is messing with religions can fire
 			1000 = fp.200

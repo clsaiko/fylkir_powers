@@ -40,11 +40,11 @@ laws = {
 		allow = {
 			NOT = { has_law = fp_excomm_law_0 }	#can always return to both off
 			holder_scope = {
-				has_regent = no				#not under a regency
-				OR = {
-					is_adult = yes			#adult, no child Fylkirs
-					trait = lunatic			#mad child Fylkir can change doctrine
-				}#end OR block
+				# has_regent = no				#alllow under a regency
+				# OR = {
+				# 	is_adult = yes			#adult, no child Fylkirs
+				# 	trait = lunatic			#mad child Fylkir can change doctrine
+				# }#end OR block
 			}#end holder_scope
         }
 		potential = {
@@ -73,12 +73,8 @@ laws = {
 				revoke_law = fp_excomm_law_2
 			}
             norse_pagan_reformed = {
-                # set_can_excommunicate = no	# AI won't utilize, use decisions instead
-				# set_can_grant_divorce = no	# AI won't utilize, use decisions instead
-                religion_authority = {
-					modifier = fp_change_doctrine
-                    years = 2
-                }
+                set_can_excommunicate = no
+				set_can_grant_divorce = no
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
@@ -93,7 +89,7 @@ laws = {
 				has_law = fp_excomm_law_2
 			}
 			holder_scope = {
-				has_regent = no				#not under a regency
+				has_regent = no				#alllow under a regency
 				OR = {
 					is_adult = yes			#adult, no child Fylkirs
 					trait = lunatic			#mad child Fylkir can change doctrine
@@ -126,12 +122,8 @@ laws = {
 				revoke_law = fp_excomm_law_2
 			}
             norse_pagan_reformed = {
-				#set_can_excommunicate = yes	# AI won't utilize, use decisions instead
-				#set_can_grant_divorce = no		# AI won't utilize, use decisions instead
-                religion_authority = {
-					modifier = fp_change_doctrine
-                    years = 2
-                }
+				set_can_excommunicate = yes
+				set_can_grant_divorce = no
             }
             FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
 		}
@@ -144,7 +136,7 @@ laws = {
 		allow = {
 			has_law = fp_excomm_law_1
 			holder_scope = {
-				has_regent = no				#not under a regency
+				has_regent = no				#alllow under a regency
 				OR = {
 					is_adult = yes			#adult, no child Fylkirs
 					trait = lunatic			#mad child Fylkir can change doctrine
@@ -177,12 +169,8 @@ laws = {
 				revoke_law = fp_excomm_law_1
 			}
             norse_pagan_reformed = {
-				#set_can_grant_divorce = yes # AI won't utilize, use decisions instead
-				#set_can_excommunicate = yes # AI won't utilize, use decisions instead
-                religion_authority = {
-					modifier = fp_change_doctrine
-                    years = 2
-                }
+				set_can_grant_divorce = yes
+				set_can_excommunicate = yes
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
@@ -229,12 +217,8 @@ laws = {
 				revoke_law = fp_inv_def_law_2
 			}
             norse_pagan_reformed = {
-                #set_can_grant_invasion_cb = "no"	# AI won't utilize, use decisions instead
-				#set_rel_head_defense = no 			# AI won't utilize, use decisions instead
-                religion_authority = {
-					modifier = fp_change_doctrine
-                    years = 2
-                }
+                set_can_grant_invasion_cb = "no"
+				set_rel_head_defense = no
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 
@@ -283,12 +267,8 @@ laws = {
 				revoke_law = fp_inv_def_law_2
 			}
             norse_pagan_reformed = {
-				#set_can_grant_invasion_cb = invasion	# AI won't utilize, use decisions instead
-				#set_rel_head_defense = no				# AI won't utilize, use decisions instead
-                religion_authority = {
-					modifier = fp_change_doctrine
-                    years = 2
-                }
+				set_can_grant_invasion_cb = invasion
+				set_rel_head_defense = no
             }
             FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
 		}
@@ -334,12 +314,8 @@ laws = {
 				revoke_law = fp_inv_def_law_1
 			}
             norse_pagan_reformed = {
-				#set_can_grant_invasion_cb = invasion	# AI won't utilize, use decisions instead
-				#set_rel_head_defense = yes				# AI won't utilize, use decisions instead
-                religion_authority = {
-					modifier = fp_change_doctrine
-                    years = 2
-                }
+				set_can_grant_invasion_cb = invasion
+				set_rel_head_defense = yes
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
@@ -388,11 +364,7 @@ laws = {
 			}
             norse_pagan_reformed = {
 				#there's no "set_can_grant_money = no", implement in decisions by law check
-				#set_can_grant_claim = no		# AI won't utilize, use decisions instead
-                religion_authority = {
-					modifier = fp_change_doctrine
-                    years = 2
-                }
+				set_can_grant_claim = no
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 
@@ -442,11 +414,7 @@ laws = {
 			}
             norse_pagan_reformed = {
 				#there's no "set_can_grant_money = yes", implement in decisions by law check
-				#set_can_grant_claim = no		# AI won't utilize, use decisions instead
-                religion_authority = {
-					modifier = fp_change_doctrine
-                    years = 2
-                }
+				set_can_grant_claim = no
             }
             FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
 		}
@@ -493,11 +461,7 @@ laws = {
 			}
             norse_pagan_reformed = {
 				#there's no "set_can_grant_money = yes", implement in decisions by law check
-				#set_can_grant_claim = yes	# AI won't utilize, use decisions instead
-                religion_authority = {
-					modifier = fp_change_doctrine
-                    years = 2
-                }
+				set_can_grant_claim = yes
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
