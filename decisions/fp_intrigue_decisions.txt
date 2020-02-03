@@ -8,54 +8,77 @@
 #
 #################################
 
-# decisions = {
-#
-#     change_memb_doctrine = {
-#         is_high_prio = yes # Will show an alert once decision is enabled
-#         ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
-#         potential = {
-#             #Conditions for the decision to appear
-# 			has_dlc = "Holy Fury"				#require the holy fury dlc
-# 			ai = no								#no AI usage
-# 			OR = {
-# 				is_adult = yes					#adult, no child Fylkirs
-#                 AND = {
-#                     trait = lunatic				#mad child Fylkir can change doctrine
-#                     has_game_rule = {           # if there are no regencies
-#                         name = regencies
-#                         value = off
-#                     }
-#                 }
-# 			}
-#
-# 			OR = {
-# 				religion = norse_pagan_reformed	#norse pagan reformed
-# 				#religion = zun_pagan_reformed	#zunist pagan reformed
-# 												#other reformed religions?
-# 			}
-#
-# 			#these two features together are required to gain such control
-# 			has_religion_feature = religion_dogmatic		#must have dogmatic
-# 			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
-#
-# 			controls_religion = yes				#only the Fylkir(a) can do this
-#         }
-#         allow = {
-#             #Conditions for the decision to be enabled
-#             controls_religion = yes     #redundant, but should be able to change at any time for now
-#             FROM = {
-#                 piety = 500             #Fylkir must first have at least 500 piety
-#             }
-#             #could be a time limit on this, changing every 10 years or so?
-#         }
-#         effect = {
-#             #Commands executed when taking the decision
-#             character_event = { id = fp.101 }   #change member doctrine
-#         }
-#         ai_will_do = {
-#             #Factors for an AI character to take the decision (1 = 100% chance)
-#             factor = 0      #redundant, but AI should not do this yet
-#         }
-#     }
-#
-# }#end decisions block
+decisions = {
+
+    fp_restore_doctrines = {       # Intrigue window decision for fixing religion laws after a holy war
+        is_high_prio = no       # Will not show an alert once decision is enabled
+        ai_check_interval = 12  # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+        potential = {
+            #Conditions for the decision to appear
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage
+			controls_religion = yes				#only the Fylkir(a) can do this
+            #these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other reformed religions?
+			}
+
+        }
+        allow = {
+            #Conditions for the decision to be enabled
+            controls_religion = yes     #redundant, but should be able to change at any time for now
+
+        }
+        effect = {
+            #Commands executed when taking the decision
+            #Excommunication and Divorce
+    		if = {
+    			limit = {
+    				has_law = fp_excomm_law_1
+    			}
+    			norse_pagan_reformed = {
+    				set_can_excommunicate = yes
+    				set_can_grant_divorce = no
+    			}
+    		}#end if
+    		else_if = {
+    			limit = {
+    				has_law = fp_excomm_law_2
+    			}
+    			norse_pagan_reformed = {
+    				set_can_excommunicate = yes
+    				set_can_grant_divorce = yes
+    			}
+    		}#end else_if
+
+    		#Invasion and religious head defense
+    		if = {
+    			limit = {
+    				has_law = fp_inv_def_law_1
+    			}
+    			norse_pagan_reformed = {
+    				set_can_grant_invasion_cb = invasion
+    				set_rel_head_defense = no
+    			}
+    		}#end if
+    		else_if = {
+    			limit = {
+    				has_law = fp_inv_def_law_2
+    			}
+    			norse_pagan_reformed = {
+    				set_can_grant_invasion_cb = invasion
+    				set_rel_head_defense = yes
+    			}
+    		}#end else_if
+        }
+        ai_will_do = {
+            #Factors for an AI character to take the decision (1 = 100% chance)
+            factor = 0      #redundant, but AI should not do this yet
+        }
+    }
+
+}#end decisions block
