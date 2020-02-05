@@ -40,7 +40,7 @@ laws = {
 
 	# EXCOMMUNICATION AND DIVORCE
 	# No divorce, No excommunication
-    fp_excomm_law_0 = {
+	fp_excomm_law_0 = {
 		group = fp_excomm_law
 		default = yes 			#start game with no excommunication
 		allow = {
@@ -87,7 +87,7 @@ laws = {
 	}#end fp_excomm_law_0
 
 	# Excommunication, no Divorce allowed
-    fp_excomm_law_1 = {
+	fp_excomm_law_1 = {
 		group = fp_excomm_law
 		allow = {
 			OR = {
@@ -182,9 +182,10 @@ laws = {
 		}
 	}#end fp_excomm_law_2
 
+
 	#INVASION AND DEFENSE
 	# No sanction invasion, No religious head defense
-    fp_inv_def_law_0 = {
+	fp_inv_def_law_0 = {
 		group = fp_inv_def_law
 		default = yes 			#start game with no sanction
 		allow = {
@@ -232,7 +233,7 @@ laws = {
 	}#end fp_inv_def_law_0
 
 	# sanction invasion, No religious head defense
-    fp_inv_def_law_1 = {
+	fp_inv_def_law_1 = {
 		group = fp_inv_def_law
 		allow = {
 			OR = {
@@ -283,7 +284,6 @@ laws = {
 	# sanction invasion, religious Head defense
 	fp_inv_def_law_2 = {
 		group = fp_inv_def_law
-		default = yes 			#start game with no excommunication
 		allow = {
 			has_law = fp_inv_def_law_1
 			holder_scope = {
@@ -330,7 +330,7 @@ laws = {
 
 	#CLAIMS AND MONEY
 	# No request money, no request claims
-    fp_claims_law_0 = {
+	fp_claims_law_0 = {
 		group = fp_claims_law
 		default = yes 			#start game with no money
 		allow = {
@@ -378,7 +378,7 @@ laws = {
 	}#end fp_claims_law_0
 
 	# Can request money, no request claims
-    fp_claims_law_1 = {
+	fp_claims_law_1 = {
 		group = fp_claims_law
 		allow = {
 			OR = {
@@ -429,7 +429,6 @@ laws = {
 	# Can request money, can request claims
 	fp_claims_law_2 = {
 		group = fp_claims_law
-		default = yes 			#start game with no excommunication
 		allow = {
 			has_law = fp_claims_law_1
 			holder_scope = {
@@ -473,11 +472,12 @@ laws = {
 		}
 	}#end fp_claims_law_2
 
+
 	#BLINDING AND CASTRATION
 	# No blinding, no castration
 	fp_crime_punish_law_0 = {
 		group = fp_crime_punish_law
-		default = yes 			#start game with no excommunication
+		default = yes 			#start game no blinding, no castration
 		allow = {
 			NOT = { has_law = fp_crime_punish_law_0 }	#can always return to both off
 			holder_scope = {
@@ -520,7 +520,6 @@ laws = {
 	# Has blinding, no castration
 	fp_crime_punish_law_1 = {
 		group = fp_crime_punish_law
-		default = yes 			#start game with no excommunication
 		allow = {
 			OR = {
 				has_law = fp_crime_punish_law_0
@@ -566,7 +565,6 @@ laws = {
 	# Has blinding, no castration
 	fp_crime_punish_law_2 = {
 		group = fp_crime_punish_law
-		default = yes 			#start game with no excommunication
 		allow = {
 			has_law = fp_crime_punish_law_1
 			holder_scope = {
