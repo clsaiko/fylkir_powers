@@ -28,6 +28,12 @@ law_groups = {
 		law_type = realm
 	}
 
+	#Crime and Punishment
+	# Enable blinding and castration as acceptable punishments for prisoners.
+	fp_crime_punish_law = {
+		law_type = realm
+	}
+
 }
 
 laws = {
@@ -467,4 +473,136 @@ laws = {
 		}
 	}#end fp_claims_law_2
 
+	#BLINDING AND CASTRATION
+	# No blinding, no castration
+	fp_crime_punish_law_0 = {
+		group = fp_crime_punish_law
+		default = yes 			#start game with no excommunication
+		allow = {
+			NOT = { has_law = fp_crime_punish_law_0 }	#can always return to both off
+			holder_scope = {
+				# has_regent = no				#alllow under a regency
+				# OR = {
+				# 	is_adult = yes			#adult, no child Fylkirs
+				# 	trait = lunatic			#mad child Fylkir can change doctrine
+				# }#end OR block
+			}#end holder_scope
+        }
+		potential = {
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+
+			holder_scope = {
+				controls_religion = yes				#only the Fylkir(a) can do this
+				OR = {
+					religion = norse_pagan_reformed	#norse pagan reformed
+					#religion = zun_pagan_reformed	#zunist pagan reformed
+													#other religions?
+				}
+				#these two features together are required to gain such control
+				has_religion_feature = religion_dogmatic		#must have dogmatic
+				has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = fp_crime_punish_law_1	# revoke other two laws
+				revoke_law = fp_crime_punish_law_2
+			}
+            FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
+		}
+	}#end fp_crime_punish_law_0
+
+	# Has blinding, no castration
+	fp_crime_punish_law_1 = {
+		group = fp_crime_punish_law
+		default = yes 			#start game with no excommunication
+		allow = {
+			OR = {
+				has_law = fp_crime_punish_law_0
+				has_law = fp_crime_punish_law_2
+			}
+			holder_scope = {
+				# has_regent = no				#alllow under a regency
+				# OR = {
+				# 	is_adult = yes			#adult, no child Fylkirs
+				# 	trait = lunatic			#mad child Fylkir can change doctrine
+				# }#end OR block
+			}#end holder_scope
+		}
+		potential = {
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+
+			holder_scope = {
+				controls_religion = yes				#only the Fylkir(a) can do this
+				OR = {
+					religion = norse_pagan_reformed	#norse pagan reformed
+					#religion = zun_pagan_reformed	#zunist pagan reformed
+													#other religions?
+				}
+				#these two features together are required to gain such control
+				has_religion_feature = religion_dogmatic		#must have dogmatic
+				has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = fp_crime_punish_law_0	# revoke other two laws
+				revoke_law = fp_crime_punish_law_2
+			}
+			FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
+		}
+	}#end fp_crime_punish_law_1
+
+	# Has blinding, no castration
+	fp_crime_punish_law_2 = {
+		group = fp_crime_punish_law
+		default = yes 			#start game with no excommunication
+		allow = {
+			has_law = fp_crime_punish_law_1
+			holder_scope = {
+				# has_regent = no				#alllow under a regency
+				# OR = {
+				# 	is_adult = yes			#adult, no child Fylkirs
+				# 	trait = lunatic			#mad child Fylkir can change doctrine
+				# }#end OR block
+			}#end holder_scope
+		}
+		potential = {
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+
+			holder_scope = {
+				controls_religion = yes				#only the Fylkir(a) can do this
+				OR = {
+					religion = norse_pagan_reformed	#norse pagan reformed
+					#religion = zun_pagan_reformed	#zunist pagan reformed
+													#other religions?
+				}
+				#these two features together are required to gain such control
+				has_religion_feature = religion_dogmatic		#must have dogmatic
+				has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = fp_crime_punish_law_1	# revoke other two laws
+				revoke_law = fp_crime_punish_law_2
+			}
+			FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
+		}
+	}#end fp_crime_punish_law_2
 }
