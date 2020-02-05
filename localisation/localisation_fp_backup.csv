@@ -2,12 +2,13 @@
 #	File:   localisation_fp_backup.csv
 #	Author: Chris Saiko
 #	Desc:   Fylkir Powers Localisation Backup File
-#         Backup for ISO 8859-15 encoding
+#         Backup for Windows 1252 encoding
+#         Backup for example text
 #################################
 
 
 #CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 #CODE;ENGLISH;;;;;;;;;;;;;x
 
-fp_cure_disease;Cure Disease;;;;;;;;;;;;;x
-fp_cure_disease_desc;Cure any illness or symptom from §Y[Root.GetTitledName]§!. [Root.GetSheHeCap] will be duly grateful (§G+5§! opinion NYI).;;;;;;;;;;;;;x
+#fp_cure_disease;Cure Disease;;;;;;;;;;;;;x
+#fp_cure_disease_desc;Cure any illness or symptom from §Y[Root.GetTitledName]§!. [Root.GetSheHeCap] will be duly grateful (§G+5§! opinion NYI).;;;;;;;;;;;;;x
