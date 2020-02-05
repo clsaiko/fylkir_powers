@@ -10,9 +10,9 @@ Below are the powers that do not require the Supernatural Events game rule activ
 ### Church Doctrine
 After the Germanic reformation, the law panel will allow the Fylkir to implement various church doctrines.
 
-**Change Member Doctrines** - Excommunication and Divorce. Claims and Money.
+Excommunication and Divorce. Claims and Money.
 
-**Change War Doctrines** - Invasions and defensive religious war aid.
+Invasions and defensive religious war aid. Crime and Punishment.
 
 ### Fylkir Self Decisions
 **Excommunicate** - At the Fylkir's discretion, a follower of the Germanic religion may be excommunicated from the faith.
@@ -46,7 +46,7 @@ Below are the powers that require the Supernatural Events game rule to be active
 ### Fylkir Self Decisions
 **Cure Illness** - Removes an illness or disease from a member of the faith, in exchange for 75 piety.  
 
-**Calm Mind** - Remove lunacy, possession, depression, or stress from a member of the faith, in exchange for 75 piety. Additionally lisp and stutter are added, as maladies of the mind.   
+**Calm Mind** - Remove lunacy, possession, depression, or stressed from a member of the faith, in exchange for 75 piety. Additionally lisp and stutter are added, as maladies of the mind.   
 
 **Heal Body** - Heal a wound or disfigurement from a member of the faith, in exchange for 100 piety.  
 
