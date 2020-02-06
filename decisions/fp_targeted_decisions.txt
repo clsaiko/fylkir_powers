@@ -89,6 +89,7 @@ targeted_decisions = {
 			FROM = {
 				piety = 105
 			}
+
 			# Fylkir must have (yearly income)x1.25 wealth
 			# need to figure out how to reference the asker's scaled wealth
 			# for now, just make sure the Fylkir has enough for a chunk of cash
@@ -96,6 +97,10 @@ targeted_decisions = {
 				scaled_wealth = 1.25
 			}
 
+			#Fylkir must at least tolerate you to ask
+			ROOT = {
+				opinion = { who = FROM value = 10 }
+			}
 		}#end allow block
 
 		effect = {
@@ -125,7 +130,7 @@ targeted_decisions = {
 			}
 
 			modifier = {		#wealthy characters will not ask
-				factor = 0.01
+				factor = 0
 				scaled_wealth = 1.5
 			}
 
@@ -191,7 +196,7 @@ targeted_decisions = {
 	### BOONS GRANTED BY FYLKIR ###
 
 	# CURE DISEASE - The Fylkir may, at his discretion, cure an illness or disease
-	# from a member of the faith, in exchange for 75 piety.
+	# from a member of the faith, in exchange for 50 piety.
 	fp_cure_disease = {
 		filter = all_including_me		#Fylkir, heal thyself
 		ai_target_filter = self
@@ -467,8 +472,8 @@ targeted_decisions = {
 			# remove_trait = rash
 			# remove_trait = vomiting
 
-			FROM = {		#Fylkir expends 75 piety to cure diseases and symptoms
-				piety = -75
+			FROM = {		#Fylkir expends 50 piety to cure diseases and symptoms
+				piety = -50
 			}
 
 			opinion = {
@@ -480,7 +485,7 @@ targeted_decisions = {
 	}#end fp_cure_disease
 
 	# CALM MIND - The Fylkir may, at his discretion, cure lunacy, possession,
-	# depression, or stress from a member of the faith, in exchange for 75 piety.
+	# depression, or stress from a member of the faith, in exchange for 50 piety.
 	# Additionally lisp and stutter may be removed, as maladies of the mind.
 	fp_calm_mind = {
 		filter = all_including_me		#Fylkir, heal thyself
@@ -611,8 +616,8 @@ targeted_decisions = {
 				}
 			}#end random_list
 
-			FROM = {		#Fylkir expends 75 piety to cure mental problems
-				piety = -75
+			FROM = {		#Fylkir expends 50 piety to cure mental problems
+				piety = -50
 			}
 			opinion = {
 				modifier = fp_calmed_me
@@ -623,7 +628,7 @@ targeted_decisions = {
 	}#end fp_calm_mind
 
 	# HEAL BODY - The Fylkir may, at his discretion, heal a wound or disfigurement
-	# from a member of the faith, in exchange for 100 piety.
+	# from a member of the faith, in exchange for 75 piety.
 	fp_heal_body = {
 		filter = all_including_me		#Fylkir, heal thyself
 		ai_target_filter = self
@@ -777,8 +782,8 @@ targeted_decisions = {
 				}
 			}#end random_list
 
-			FROM = {		#Fylkir expends 100 piety to cure disfigurement
-				piety = -100
+			FROM = {		#Fylkir expends 75 piety to cure disfigurement
+				piety = -75
 			}
 			opinion = {
 				modifier = fp_healed_me_body
@@ -851,7 +856,7 @@ targeted_decisions = {
 			#Conditions for the decision to be enabled
 
 			FROM = {
-				piety = 800			#Fylkir must first have at least 800 piety
+				piety = 500			#Fylkir must first have at least 500 piety
 			}
 
 			OR = {
@@ -1029,8 +1034,8 @@ targeted_decisions = {
 			NOT = { trait = excommunicated }	#must not be excommunicated
 			OR = {
 				AND = {
-					controls_religion = yes		#if proud, the Fylkir can game it to extend his own life
-					trait = proud
+					controls_religion = yes		#if proud, the Fylkir can game it to extend his own life,
+					trait = proud				# effectively being immortal
 				}
 				controls_religion = no			#everyone else
 			}
@@ -1040,7 +1045,7 @@ targeted_decisions = {
 			#Conditions for the decision to be enabled
 
 			FROM = {
-				piety = 1000			#Fylkir must first have at least 1000 piety
+				piety = 800			#Fylkir must first have at least 800 piety
 			}
 
 			OR = {
@@ -1086,6 +1091,104 @@ targeted_decisions = {
 			}
 		}#end effect block
 	}#end fp_extend_life
+
+	# EXTEND LIFE - The Fylkir may, at his discretion, extend the life of a member
+	# of the faith by two years, in exchange for 100 piety, and a year of his own life.
+	fp_pass_trait = {
+		filter = all_including_me		#Fylkir can extend own life by one year
+		ai_target_filter = self
+		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+		from_potential = {
+			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage, yet
+			OR = {
+				is_adult = yes					#adult, no child Fylkirs
+				trait = lunatic					#not likely, but mad child god can extend life
+			}
+			has_game_rule = {
+				name = supernatural_events		#require supernatural events game rule
+				value = unrestricted
+			}
+			OR = {
+				religion = norse_pagan_reformed	#norse pagan reformed
+				#religion = zun_pagan_reformed	#zunist pagan reformed
+												#other religions?
+			}
+
+			#these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+			#The Fylkir must harness the power of the peoples' worship as high god of the religion
+			has_religion_feature = religion_holy_family
+
+			controls_religion = yes				#only the Fylkir(a) can do this
+		}#end from_potential block
+
+		potential = {
+			#Conditions on the targeted character for the decision to appear
+			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
+			NOT = { trait = excommunicated }	#must not be excommunicated
+			OR = {
+				AND = {
+					controls_religion = yes		#if proud, the Fylkir can game it to extend his own life,
+					trait = proud				# effectively being immortal
+				}
+				controls_religion = no			#everyone else
+			}
+		}#end potential block
+
+		allow = {
+			#Conditions for the decision to be enabled
+
+			FROM = {
+				piety = 800			#Fylkir must first have at least 800 piety
+			}
+
+			OR = {
+				FROM = {
+					opinion = {
+						who = ROOT		#Fylkir opinion of target at least 0...
+						value = 0
+						}
+				}
+
+				AND = {					#OR...
+					FROM = {
+						opinion = {
+						who = ROOT		#Fylkir opinion of target above -25...
+						value = -25
+						}
+					}
+					OR = {				#AND target must be some sort of virtuous
+						trait = chaste
+						trait = temperate
+						trait = charitable
+						trait = diligent
+						trait = patient
+						trait = kind
+						trait = humble
+					}
+				}
+			}
+		}#end allow block
+
+		effect = {
+			#Commands executed when taking the decision
+			add_age = -2	#age target by -2 years
+
+			FROM = {
+				piety = -100	#Fylkir expends 200 piety to extend life
+				add_age = 1		#age self by one year
+			}
+			opinion = {
+				modifier = fp_gave_life
+				who = FROM
+				months = 60
+			}
+		}#end effect block
+	}#end fp_pass_trait
 
 
 	### CURSES INFLICTED BY FYLKIR ###
@@ -1211,7 +1314,7 @@ targeted_decisions = {
 	}#end fp_inflict_gloom
 
 	# INFLICT MADNESS - The Fylkir may, at his discretion, inflict lunacy or possession
-	# upon a member of the faith, in exchange for 100 piety.
+	# upon a member of the faith, in exchange for 75 piety.
 	fp_inflict_madness = {
 		filter = all
 		ai_target_filter = self
@@ -1268,7 +1371,7 @@ targeted_decisions = {
 			#Conditions for the decision to be enabled
 
 			FROM = {
-				piety = 400			#Fylkir must first have at least 400 piety
+				piety = 300			#Fylkir must first have at least 300 piety
 			}
 
 			OR = {
@@ -1325,13 +1428,13 @@ targeted_decisions = {
 			}
 
 			FROM = {
-				piety = -100		#Fylkir expends 100 piety to inflict madness
+				piety = -75		#Fylkir expends 75 piety to inflict madness
 			}
 		}#end effect block
 	}#end fp_inflict_illness
 
 	# INFLICT ILLNESS - The Fylkir may, at his discretion, inflict a minor disease
-	# (-2 or -3 health) upon a member of the faith, in exchange for 100 piety.
+	# (-2 or -3 health) upon a member of the faith, in exchange for 75 piety.
 	fp_inflict_illness = {
 		filter = all
 		ai_target_filter = self
@@ -1388,7 +1491,7 @@ targeted_decisions = {
 			#Conditions for the decision to be enabled
 
 			FROM = {
-				piety = 400			#Fylkir must first have at least 400 piety
+				piety = 300			#Fylkir must first have at least 300 piety
 			}
 
 			OR = {
@@ -1530,13 +1633,13 @@ targeted_decisions = {
 				}
 			}
 			FROM = {
-				piety = -100		#Fylkir expends 100 piety to inflict an illness
+				piety = -75		#Fylkir expends 75 piety to inflict an illness
 			}
 		}#end effect block
 	}#end fp_inflict_illness
 
 	# INFLICT MALADY - The Fylkir may, at his discretion, inflict a major disease
-	# (-4 health and above) upon a member of the faith, in exchange for 200 piety.
+	# (-4 health and above) upon a member of the faith, in exchange for 100 piety.
 	fp_inflict_malady = {
 		filter = all
 		ai_target_filter = self
@@ -1593,7 +1696,7 @@ targeted_decisions = {
 			#Conditions for the decision to be enabled
 
 			FROM = {
-				piety = 800			#Fylkir must first have at least 800 piety
+				piety = 400			#Fylkir must first have at least 400 piety
 			}
 
 			OR = {
@@ -1691,13 +1794,13 @@ targeted_decisions = {
 			}#end random_list
 
 			FROM = {
-				piety = -200		#Fylkir expends 200 piety to inflict a major disease
+				piety = -100		#Fylkir expends 100 piety to inflict a major disease
 			}
 		}#end effect block
 	}#end fp_inflict_malady
 
 	# INFLICT ABERRATION - The Fylkir may, at his discretion, inflict an aberration
-	# or deformity upon a member of the faith, in exchange for 300 piety.
+	# or deformity upon a member of the faith, in exchange for 200 piety.
 	fp_inflict_aberration = {
 		filter = all
 		ai_target_filter = self
@@ -1754,7 +1857,7 @@ targeted_decisions = {
 			#Conditions for the decision to be enabled
 
 			FROM = {
-				piety = 1200			#Fylkir must first have at least 1200 piety
+				piety = 500			#Fylkir must first have at least 500 piety
 			}
 
 			OR = {
@@ -1889,7 +1992,7 @@ targeted_decisions = {
 			}#end random_list
 
 			FROM = {
-				piety = -300		#Fylkir expends 300 piety to inflict a defect
+				piety = -200		#Fylkir expends 200 piety to inflict a defect
 			}
 		}#end effect block
 	}#end fp_inflict_aberration
