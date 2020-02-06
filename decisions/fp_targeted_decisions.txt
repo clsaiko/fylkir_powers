@@ -72,6 +72,8 @@ targeted_decisions = {
 			#Conditions on the targeted character for the decision to appear
 			controls_religion = yes				#only the Fylkir(a) can grant money
 			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option
+			NOT = {trait = incapable}
+			is_adult = yes
 
 		}#end potential block
 
@@ -79,43 +81,14 @@ targeted_decisions = {
 			#Conditions for the decision to be enabled
 
 			# asker must have at least 100 + realm size piety
-			piety = 100
+			FROM = { piety = 100 } 	#figure out how to add realm_size to this
 
-			FROM = {
-				piety = 100	#figure out how to add realm_size to this
-			}
 
 			# Fylkir must have (yearly income)x1.25 wealth, scaled to the asker
 			ROOT = {
 				scaled_wealth = 1.25	#need to figure out how to reference the asker's scaled wealth
 			}
-			#
-			# OR = {
-			# 	FROM = {
-			# 		opinion = {
-			# 			who = ROOT		#Fylkir opinion of target at least 0...
-			# 			value = 0
-			# 			}
-			# 	}
-			#
-			# 	AND = {					#OR...
-			# 		FROM = {
-			# 			opinion = {
-			# 			who = ROOT		#Fylkir opinion of target above -25...
-			# 			value = -25
-			# 			}
-			# 		}
-			# 		OR = {				#AND target must be some sort of virtuous
-			# 			trait = chaste
-			# 			trait = temperate
-			# 			trait = charitable
-			# 			trait = diligent
-			# 			trait = patient
-			# 			trait = kind
-			# 			trait = humble
-			# 		}
-			# 	}
-			# }
+
 		}#end allow block
 
 		effect = {
@@ -123,9 +96,8 @@ targeted_decisions = {
 			#remove mental afflictions
 			random_list = {}
 
-			# FROM = {		#Fylkir expends 75 piety to cure mental problems
-			# 	piety = -75
-			# }
+
+
 			opinion = {
 				modifier = asked_for_money
 				who = FROM
