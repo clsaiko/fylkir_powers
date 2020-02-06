@@ -104,7 +104,7 @@ fp_healed_me_defect_desc;Defect Healed by Fylkir;;;;;;;;;;;;;x
 fp_gave_life;Extended Life;;;;;;;;;;;;;x
 fp_gave_life_desc;Life Extended by Fylkir;;;;;;;;;;;;;x
 
-
+#EVENTS
 EVTDESCfp.101;Change Religious Member Doctrines;;;;;;;;;;;;;x
 EVTOPTAfp.101;Excommunication toggle;;;;;;;;;;;;;x
 EVTOPTBfp.101;Divorce;;;;;;;;;;;;;x
@@ -113,10 +113,15 @@ EVTOPTDfp.101;I've changed my mind. The member doctrines are fine as is.;;;;;;;;
 
 EVTDESCfp.102;Change Religious War Doctrines;;;;;;;;;;;;;x
 EVTOPTAfp.102;fylkir_powers Option A;;;;;;;;;;;;;x
-EVTOPTAfp.102;fylkir_powers Option A;;;;;;;;;;;;;x
 EVTOPTBfp.102;fylkir_powers Option B;;;;;;;;;;;;;x
 EVTOPTCfp.102;fylkir_powers Option C;;;;;;;;;;;;;x
 EVTOPTDfp.102;I've changed my mind. The war doctrines are fine as is.;;;;;;;;;;;;;x
+
+EVTDESCfp.300;I want gold.;;;;;;;;;;;;;x
+EVTOPTAfp.300;Yes Gold;;;;;;;;;;;;;x
+EVTOPTA_TTfp.300;Yes give Gold;;;;;;;;;;;;;x
+EVTOPTBfp.300;No Gold;;;;;;;;;;;;;x
+EVTOPTB_TTfp.300;No Gold for you;;;;;;;;;;;;;x
 
 EVTDESCfp.999;fylkir_powers Event testing;;;;;;;;;;;;;x
 EVTOPTAfp.999;fylkir_powers Option A;;;;;;;;;;;;;x

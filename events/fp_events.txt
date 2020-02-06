@@ -7,6 +7,7 @@
 #			fp.102 - Unused
 #			fp.103 - Unused
 #			fp.200 - Fix norse laws
+#			fp.300 - Ask Fylkir for money
 #			fp.999 - Event testing
 #################################
 
@@ -256,6 +257,56 @@ character_event = {
 
 	after = {}
 }
+
+#Ask Fylkir for Money
+letter_event = {
+	id = fp.300
+	desc = EVTDESCfp.300
+	border = GFX_event_letter_frame_religion
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = transfer_money value = 0 }
+			change_variable = { which = transfer_money which = price which = event_target:selling_province }
+
+			event_target:raiding_adventurer = {
+				set_variable = { which = transfer_money value = 0 }
+				change_variable = { which = transfer_money which = price which = event_target:selling_province }
+				multiply_variable = { which = transfer_money value = -1 }
+			}
+		}
+	}
+
+	# Give Gold
+    option = {
+        name = EVTOPTAfp.300
+        custom_tooltip = { text = EVTOPTA_TTfp.300 }
+
+        hidden_effect = {}
+
+        ai_chance = {}
+
+		#command block opt A
+		#letter_event = { id = fp.301 }
+
+	}
+
+	# No Gold
+    option = {
+        name = EVTOPTBfp.300
+        custom_tooltip = { text = EVTOPTB_TTfp.300 }
+
+        hidden_effect = {}
+
+        ai_chance = {}
+
+		#command block opt B
+		#letter_event = { id = fp.302 }
+	}
+
+}#end fp.300
 
 #EVENT TESTING - 999
 character_event = {		#event type
