@@ -43,19 +43,18 @@ targeted_decisions = {
 			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
 			has_dlc = "Holy Fury"	#require the holy fury dlc
 			is_playable = yes		#playable characters only
-			religion_head = {		#fylkir has the appropriate laws
+			religion_head = {		#fylkir (or whoever?) has the appropriate laws
 				OR = {
 					has_law = fp_claims_law_1
 					has_law = fp_claims_law_2
 				}
 			}
-			OR = {
-				is_adult = yes			#adult, child can never ask for money
-				AND = {
-					NOT = { age = 16 }	#unless a child genius
-					trait = genius
-				}
-			}
+			NOT = { trait = excommunicated }
+			has_regent = no
+			is_adult = yes			#adult, child can never ask for money
+
+			#has not recently asked for money
+			NOT = { has_character_modifier = ask_money_timer }
 
 			#these below could be redundant if the religious laws are implemented
 
@@ -77,6 +76,7 @@ targeted_decisions = {
 			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option
 			NOT = {trait = incapable}
 			is_adult = yes
+			has_regent = no
 
 		}#end potential block
 
@@ -99,7 +99,7 @@ targeted_decisions = {
 
 			#Fylkir must at least tolerate you to ask
 			ROOT = {
-				opinion = { who = FROM value = 10 }
+				opinion = { who = FROM value = 0 }
 			}
 		}#end allow block
 
@@ -110,6 +110,11 @@ targeted_decisions = {
 			ROOT = {
 				letter_event = { id = fp.300 }
 			}
+			add_character_modifier = {	#two year cooldown
+				name = ask_money_timer
+				months = 24
+				hidden = yes
+			}
 			opinion = {
 				modifier = asked_for_money
 				who = FROM
@@ -119,32 +124,48 @@ targeted_decisions = {
 
 		ai_will_do = {
 			#Factors for an AI character to take the decision (1 = 100% chance every month - for each allowed target!)
-			factor = 0.2	#default to definitely ask the Fylkir for money if I can get away with it
+			factor = 0.5	#default to definitely ask the Fylkir for money if I can get away with it
 
-			modifier = {		#shy and content less likely
-				factor = 0.2
-				OR = {
-					trait = shy
-					trait = content
-				}
-			}
-
-			modifier = {		#wealthy characters will not ask
+			#wealthy characters will not ask
+			modifier = {
 				factor = 0
 				scaled_wealth = 1.5
 			}
 
-			modifier = {		#characters with low piety less likely
+			#Fylkir has a poor opinion of this character, not likely
+			modifier = {
 				factor = 0.1
-				NOT = { piety = 130 }
+				ROOT = {
+					NOT = { opinion = { who = FROM value = 20 } }
+				}
 			}
 
-			modifier = {		#proud characters less likely
+			#shy, content, or proud less likely
+			modifier = {
 				factor = 0.2
-				trait = proud
+				OR = {
+					trait = shy
+					trait = content
+					trait = proud
+				}
 			}
 
-			modifier = {		#greedy and ambitious characters more likely
+			#characters with low piety less likely
+			modifier = {
+				factor = 0.2
+				NOT = { piety = 120 }
+			}
+
+			#Fylkir has a good opinion of this character
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = { who = FROM value = 90 }
+				}
+			}
+
+			#greedy or ambitious characters more likely
+			modifier = {
 				factor = 1.2
 				OR = {
 					trait = greedy
@@ -152,9 +173,19 @@ targeted_decisions = {
 				}
 			}
 
-			modifier = {		#poor characters more likely
+			#poor characters more likely
+			modifier = {
 				factor = 1.2
 				NOT = { scaled_wealth = 1.0 }
+			}
+
+			#bankrupt and in a war more likely
+			modifier = {
+				factor = 1.5
+				AND = {
+					NOT = { wealth = 0 }
+					war = yes
+				}
 			}
 
 		}#end ai_will_do block
@@ -188,7 +219,6 @@ targeted_decisions = {
 				FROM = { opinion = 25 }
 			}
 		}#end ai_acceptance block
-
 	}#end fp_ask_for_money
 
 

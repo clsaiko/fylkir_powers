@@ -308,7 +308,7 @@ letter_event = {
 
 }#end fp.300
 
-#EVENT TESTING - 999
+#EVENTS TESTING - 900
 character_event = {		#event type
 	id = fp.999				#event ID
 	hide_from = yes

@@ -1,8 +1,8 @@
 # Fylkir Powers
 
-As the one true head of the Germanic religion, do you wish to exert your will upon the followers of the faith? Do you yearn to reward the righteous and faithful, while punishing the wicked, unworthy, and disobedient? Does the resulting tedium from answering countless requests for claims, excommunications, and money put your heart aflutter?
+As the head of the Germanic religion, do you wish to exert your will upon the followers of the faith? Do you yearn to reward the righteous and faithful, while punishing the wicked, unworthy, and disobedient? Does the resulting tedium from answering requests for excommunications and money put your heart aflutter?
 
-If you answered yes, this Crusader Kings II mod might be for you. After the Germanic faith has been reformed, the Fylkir (or Fylkira) will have expanded powers, similar to the Catholic pope. With Supernatural Events set to On, the Fylkir has even more possibilities. Some powers require the Fylkir to be the head god of the religion. Some of these have drawn inspiration from real world Norse mythology, and some is fiction. See below for details.
+If so, this Crusader Kings II mod might be for you. After the Germanic faith has been reformed, the Fylkir (or Fylkira) will have expanded powers, similar to the Catholic pope. With Supernatural Events set to On, the Fylkir has even more possibilities. Some powers require the Fylkir to be the head god of the religion. Some of these have drawn inspiration from real world Norse mythology, and some is fiction. See below for details.
 
 ## Non-supernatural powers
 Below are the powers that do not require the Supernatural Events game rule active.  
@@ -37,7 +37,7 @@ Invasions and defensive religious war aid. Crime and Punishment.
 
 If tribal: 800 heavy infantry, 400 archers  
 If feudal: 600 heavy infantry, 400 archers, 200 heavy cavalry  
-If merchant republic: 400 heavy infantry, 400 archers, 400 light infantry   
+If merchant republic: 400 heavy infantry, 400 archers, 400 light infantry
 
 
 ## Supernatural Powers

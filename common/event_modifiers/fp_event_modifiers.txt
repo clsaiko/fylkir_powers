@@ -10,3 +10,8 @@
 pass_trait_timer = {
     icon = 1
 }
+
+#character asked for money
+ask_money_timer = {
+    icon = 1
+}
