@@ -258,7 +258,7 @@ character_event = {
 	after = {}
 }
 
-#Ask Fylkir for Money
+#Ask Fylkir for Money - 300
 letter_event = {
 	id = fp.300
 	desc = EVTDESCfp.300
@@ -307,6 +307,23 @@ letter_event = {
 	}
 
 }#end fp.300
+
+#Found the Jarnhendur - 400
+narrative_event = {
+	id = fp.400
+	title = EVTNAMEfp.400
+	desc = EVTDESCfp.400
+	picture = GFX_evt_viking_battle_oldgods
+	border = GFX_event_narrative_frame_war
+
+	is_triggered_only = yes
+
+	hide_from = yes
+
+	option = {
+		name = EVTOPTAfp.400
+	}
+}
 
 #EVENTS TESTING - 900
 character_event = {		#event type

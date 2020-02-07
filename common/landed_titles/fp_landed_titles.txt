@@ -1,0 +1,46 @@
+#################################
+#	File:	fp_landed_titles.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Landed Titles file
+#           also includes landless titles
+#
+#################################
+
+d_jarnhendur = {
+	color={ 50 50 160 }
+	color2={ 255 255 255 }
+
+	graphical_culture = norseholygfx
+
+	#capital = 290 # Uppland
+    capital = 272 #Akershus
+
+	# Parent Religion
+	religion = norse_pagan_reformed
+
+    pagan_coa = {
+        data=
+        {
+            0 0 0 25 5 1 0
+        }
+        religion="norse_pagan_reformed"
+    }
+
+	culture = norse
+
+	mercenary = yes
+
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+	title_female = "CAPTAIN_FEMALE"
+
+	# Always exists
+	landless = yes
+
+	# Cannot be held as a secondary title
+	primary = yes
+
+	strength_growth_per_century = 0.8
+
+	mercenary_type = varangian_guard_composition
+}

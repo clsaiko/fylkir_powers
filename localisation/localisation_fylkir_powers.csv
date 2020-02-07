@@ -42,8 +42,16 @@ fp_inflict_aberration_desc;Inflict an aberration or deformity upon §Y[Root.GetTi
 #INTRIGUE EVENTS
 fp_restore_doctrines;Restore Religious Doctrines;;;;;;;;;;;;;x
 fp_restore_doctrines_desc;Restore the various doctrines of the Germanic faith, according to the chosen laws of the realm.;;;;;;;;;;;;;x
+fp_restore_doctrines_tooltip;Doctrine is restored according to set laws.;;;;;;;;;;;;;x
 fp_change_doctrine;Changed Religious Doctrine;;;;;;;;;;;;;x
 fp_change_doctrine_desc;A religious doctrine of the faith has been changed, giving a minor decrease to moral authority.;;;;;;;;;;;;;x
+fp_codify_sagas;Codify the Sagas;;;;;;;;;;;;;x
+fp_codify_sagas_desc;The Fylkir gathers vassal priests to create a grand book, which contains all scripture and knowledge within the Germanic religion.;;;;;;;;;;;;;x
+fp_vassal_vg;Vassalize the Varangian Guard;;;;;;;;;;;;;x
+fp_vassal_vg_desc;Under certain conditions, the Fylkir may vassalize the Varangian Guard.;;;;;;;;;;;;;x
+fp_found_jarnhendur;Found the Jarnhendur;;;;;;;;;;;;;x
+fp_found_jarnhendur_desc;Found the Jarnhendur, the Fylkir's personal bodyguard and army.;;;;;;;;;;;;;x
+#fp_found_jarnhendur_tooltip;The Jarnhendur are founded.;;;;;;;;;;;;;x
 
 #LAWS
 fp_excomm_law;Divorce and Excommunication;;;;;;;;;;;;;x
@@ -127,6 +135,14 @@ EVTOPTA_TTfp.300;Request for gold is granted.;;;;;;;;;;;;;x
 EVTOPTBfp.300;I am unable to fulfill your request for gold.;;;;;;;;;;;;;x
 EVTOPTB_TTfp.300;Request for gold is not granted.;;;;;;;;;;;;;x
 
+EVTNAMEfp.400;The Jarnhendur;;;;;;;;;;;;;x
+EVTDESCfp.400;As the leader of the many Germanic faithful, it has become apparent that the Fylkirate requires a force to protect itself from enemies both within and without the realm. Wavering neither in the sight of the heathen, nor in the face of [Root.Religion.GetRandomEvilGodName] or any other evil, the Jarnhendur will be the iron hand of the [Root.GetTitle], carrying out [Root.GetHerHis] and [Root.Religion.GetHighGodName]'s will until the end of time.;;;;;;;;;;;;;x
+EVTOPTAfp.400;They shall serve me with honor.;;;;;;;;;;;;;x
+
 EVTDESCfp.999;fylkir_powers Event testing;;;;;;;;;;;;;x
 EVTOPTAfp.999;fylkir_powers Option A;;;;;;;;;;;;;x
 EVTOPTBfp.999;fylkir_powers Option B;;;;;;;;;;;;;x
+
+#TITLES
+d_jarnhendur;Jarnhendur;;;;;;;;;;;;;x
+d_jarnhendur_adj;Handhæg;;;;;;;;;;;;;x
