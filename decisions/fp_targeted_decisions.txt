@@ -1034,8 +1034,12 @@ targeted_decisions = {
 			NOT = { trait = excommunicated }	#must not be excommunicated
 			OR = {
 				AND = {
-					controls_religion = yes		#if proud, the Fylkir can game it to extend his own life,
-					trait = proud				# effectively being immortal
+					controls_religion = yes		#if proud, ambitious, or greedy, the Fylkir can
+					OR = {						#  game it to extend his own life, effectively being immortal
+						trait = proud
+						trait = ambitious
+						trait = greedy
+					}
 				}
 				controls_religion = no			#everyone else
 			}
