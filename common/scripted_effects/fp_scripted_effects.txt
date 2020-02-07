@@ -1,0 +1,6 @@
+#################################
+#	File:	fp_scripted_effects.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers scripted effects
+#
+#################################
