@@ -1132,7 +1132,7 @@ targeted_decisions = {
 			NOT = { trait = excommunicated }	#must not be excommunicated
 			is_heir = yes
 			#has not recently been passed a trait
-			#NOT = { has_character_modifier = pass_trait_timer }
+			NOT = { has_character_modifier = pass_trait_timer }
 			#Fylkir has a trait to pass
 			OR = {
 				FROM = { trait = sturdy }
