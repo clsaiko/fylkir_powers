@@ -215,13 +215,22 @@ character_event = {
 		#Excommunication and Divorce
 		if = {
 			limit = {
+				FROM = { has_law = fp_excomm_law_0 }
+			}
+			norse_pagan_reformed = {
+				set_can_excommunicate = no
+				set_can_grant_divorce = no
+			}
+		}#end if
+		else_if = {
+			limit = {
 				FROM = { has_law = fp_excomm_law_1 }
 			}
 			norse_pagan_reformed = {
 				set_can_excommunicate = yes
 				set_can_grant_divorce = no
 			}
-		}#end if
+		}#end else_if
 		else_if = {
 			limit = {
 				FROM = { has_law = fp_excomm_law_2 }
@@ -235,13 +244,22 @@ character_event = {
 		#Invasion and religious head defense
 		if = {
 			limit = {
+				FROM = { has_law = fp_inv_def_law_0 }
+			}
+			norse_pagan_reformed = {
+				set_can_grant_invasion_cb = no
+				set_rel_head_defense = no
+			}
+		}#end if
+		else_if = {
+			limit = {
 				FROM = { has_law = fp_inv_def_law_1 }
 			}
 			norse_pagan_reformed = {
 				set_can_grant_invasion_cb = invasion
 				set_rel_head_defense = no
 			}
-		}#end if
+		}#end else_if
 		else_if = {
 			limit = {
 				FROM = { has_law = fp_inv_def_law_2 }
@@ -252,13 +270,151 @@ character_event = {
 			}
 		}#end else_if
 
+		#Claims and money
+		if = {
+			limit = {
+				FROM = { has_law = fp_claims_law_0 }
+			}
+			norse_pagan_reformed = {
+				set_can_grant_claim = no
+			}
+		}#end if
+		else_if = {
+			limit = {
+				FROM = { has_law = fp_claims_law_1 }
+			}
+			norse_pagan_reformed = {
+				set_can_grant_claim = no
+			}
+		}#end else_if
+		else_if = {
+			limit = {
+				FROM = { has_law = fp_claims_law_2 }
+			}
+			norse_pagan_reformed = {
+				set_can_grant_claim = yes
+			}
+		}#end else_if
+
 
 	}#end immediate block
 
 	after = {}
-}
+}#end fp.200
 
-#Ask Fylkir for Money - 300
+#MTTH version of fp.200 - Fix norse laws on winning holy war
+#  in case the player "forgets"
+character_event = {
+	id = fp.201		#event ID
+	hide_window = yes
+
+	#pre-triggers
+	only_playable = yes
+	religion = norse_pagan_reformed	#norse pagan reformed
+
+	trigger = {
+		controls_religion = yes			#only the Fylkir(a) can do this
+	}
+
+	is_triggered_only = no
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+
+		#Excommunication and Divorce
+		if = {
+			limit = {
+				has_law = fp_excomm_law_0
+			}
+			norse_pagan_reformed = {
+				set_can_excommunicate = no
+				set_can_grant_divorce = no
+			}
+		}#end if
+		else_if = {
+			limit = {
+				has_law = fp_excomm_law_1
+			}
+			norse_pagan_reformed = {
+				set_can_excommunicate = yes
+				set_can_grant_divorce = no
+			}
+		}#end else_if
+		else_if = {
+			limit = {
+				has_law = fp_excomm_law_2
+			}
+			norse_pagan_reformed = {
+				set_can_excommunicate = yes
+				set_can_grant_divorce = yes
+			}
+		}#end else_if
+
+		#Invasion and religious head defense
+		if = {
+			limit = {
+				has_law = fp_inv_def_law_0
+			}
+			norse_pagan_reformed = {
+				set_can_grant_invasion_cb = no
+				set_rel_head_defense = no
+			}
+		}#end if
+		else_if = {
+			limit = {
+				has_law = fp_inv_def_law_1
+			}
+			norse_pagan_reformed = {
+				set_can_grant_invasion_cb = invasion
+				set_rel_head_defense = no
+			}
+		}#end else_if
+		else_if = {
+			limit = {
+				has_law = fp_inv_def_law_2
+			}
+			norse_pagan_reformed = {
+				set_can_grant_invasion_cb = invasion
+				set_rel_head_defense = yes
+			}
+		}#end else_if
+
+		#Claims and money
+		if = {
+			limit = {
+				has_law = fp_claims_law_0
+			}
+			norse_pagan_reformed = {
+				set_can_grant_claim = no
+			}
+		}#end if
+		else_if = {
+			limit = {
+				has_law = fp_claims_law_1
+			}
+			norse_pagan_reformed = {
+				set_can_grant_claim = no
+			}
+		}#end else_if
+		else_if = {
+			limit = {
+				has_law = fp_claims_law_2
+			}
+			norse_pagan_reformed = {
+				set_can_grant_claim = yes
+			}
+		}#end else_if
+
+
+	}#end immediate block
+
+	after = {}
+}#end fp.201
+
+#Ask Fylkir for Money - fp.300
 letter_event = {
 	id = fp.300
 	desc = EVTDESCfp.300
@@ -305,10 +461,9 @@ letter_event = {
 		#command block opt B
 		#letter_event = { id = fp.302 }
 	}
-
 }#end fp.300
 
-#Found the Jarnhendur - 400
+#Found the Jarnhendur - fp.400
 narrative_event = {
 	id = fp.400
 	title = EVTNAMEfp.400
@@ -323,7 +478,7 @@ narrative_event = {
 	option = {
 		name = EVTOPTAfp.400
 	}
-}
+}#end fp.400
 
 #EVENTS TESTING - 900
 character_event = {		#event type
@@ -357,4 +512,4 @@ character_event = {		#event type
 	}
 
 	after = {}
-}
+}#end fp.900
