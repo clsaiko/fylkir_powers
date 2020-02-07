@@ -11,7 +11,7 @@
 
 #REQUESTS
 fp_ask_for_money;Request Money;;;;;;;;;;;;;x
-fp_ask_for_money_desc;Request (some amt) gold from §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
+fp_ask_for_money_desc;Request gold from §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
 
 #BOONS
 fp_cure_disease;Cure Disease;;;;;;;;;;;;;x
@@ -24,6 +24,8 @@ fp_heal_defect;Heal Defect;;;;;;;;;;;;;x
 fp_heal_defect_desc;Remove a defect or aberration trait from §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
 fp_extend_life;Extend Life;;;;;;;;;;;;;x
 fp_extend_life_desc;Extend the life of §Y[Root.GetTitledName]§! by two years.;;;;;;;;;;;;;x
+fp_pass_trait;Pass Trait;;;;;;;;;;;;;x
+fp_pass_trait_desc;Pass a trait to §Y[Root.GetTitledName]§!.;;;;;;;;;;;;;x
 
 #CURSES
 fp_inflict_gloom;Inflict Gloom;;;;;;;;;;;;;x
@@ -103,6 +105,8 @@ fp_healed_me_defect;Healed Me;;;;;;;;;;;;;x
 fp_healed_me_defect_desc;Defect Healed by Fylkir;;;;;;;;;;;;;x
 fp_gave_life;Extended Life;;;;;;;;;;;;;x
 fp_gave_life_desc;Life Extended by Fylkir;;;;;;;;;;;;;x
+fp_gave_trait;Passed Trait;;;;;;;;;;;;;x
+fp_gave_trait_desc;Trait Passed from Fylkir;;;;;;;;;;;;;x
 
 #EVENTS
 EVTDESCfp.101;Change Religious Member Doctrines;;;;;;;;;;;;;x
@@ -117,11 +121,11 @@ EVTOPTBfp.102;fylkir_powers Option B;;;;;;;;;;;;;x
 EVTOPTCfp.102;fylkir_powers Option C;;;;;;;;;;;;;x
 EVTOPTDfp.102;I've changed my mind. The war doctrines are fine as is.;;;;;;;;;;;;;x
 
-EVTDESCfp.300;I want gold.;;;;;;;;;;;;;x
-EVTOPTAfp.300;Yes Gold;;;;;;;;;;;;;x
-EVTOPTA_TTfp.300;Yes give Gold;;;;;;;;;;;;;x
-EVTOPTBfp.300;No Gold;;;;;;;;;;;;;x
-EVTOPTB_TTfp.300;No Gold for you;;;;;;;;;;;;;x
+EVTDESCfp.300;Great §Y[Root.GetTitledName]§!, I am in need of gold in my struggles to manage the realm. Perhaps in your wisdom, you might see fit to aid me?;;;;;;;;;;;;;x
+EVTOPTAfp.300;Your request for gold is granted.;;;;;;;;;;;;;x
+EVTOPTA_TTfp.300;Request for gold is granted.;;;;;;;;;;;;;x
+EVTOPTBfp.300;I am unable to fulfill your request for gold.;;;;;;;;;;;;;x
+EVTOPTB_TTfp.300;Request for gold is not granted.;;;;;;;;;;;;;x
 
 EVTDESCfp.999;fylkir_powers Event testing;;;;;;;;;;;;;x
 EVTOPTAfp.999;fylkir_powers Option A;;;;;;;;;;;;;x

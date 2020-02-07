@@ -55,3 +55,9 @@ fp_gave_life = {
     opinion = 15
     years = 5
 }
+
+#Fylkir passed a trait
+fp_gave_trait = {
+    opinion = 15
+    years = 5
+}

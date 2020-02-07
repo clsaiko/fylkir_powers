@@ -1,0 +1,12 @@
+#################################
+#	File:	fp_event_modifiers.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Event Modifiers file
+#           character and event modifiers
+#
+#################################
+
+#Fylkir passed a trait to heir
+pass_trait_timer = {
+    icon = 1
+}

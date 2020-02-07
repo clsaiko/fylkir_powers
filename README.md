@@ -44,27 +44,27 @@ If merchant republic: 400 heavy infantry, 400 archers, 400 light infantry
 Below are the powers that require the Supernatural Events game rule to be active.  
 
 ### Fylkir Self Decisions
-**Cure Illness** - Removes an illness or disease from a member of the faith, in exchange for 75 piety.  
+**Cure Illness** - Removes an illness or disease from a member of the faith, in exchange for 50 piety.  
 
-**Calm Mind** - Remove lunacy, possession, depression, or stressed from a member of the faith, in exchange for 75 piety. Additionally lisp and stutter are added, as maladies of the mind.   
+**Calm Mind** - Remove lunacy, possession, depression, or stressed from a member of the faith, in exchange for 50 piety. Lisp and stutter are included, as well, as maladies of the mind.   
 
-**Heal Body** - Heal a wound or disfigurement from a member of the faith, in exchange for 100 piety.  
+**Heal Body** - Heal a wound or disfigurement from a member of the faith, in exchange for 75 piety.
 
-**Heal Defect** - Remove a defect or aberration trait from a member of the faith, in exchange for 200 piety.  
+**Heal Defect** - Remove a defect or aberration trait from a member of the faith, in exchange for 100 piety.
 
-**Extend Life** - Extend the life of a member of the faith by two years, in exchange for 250 piety, and a year of the Fylkir's own life.  
+**Extend Life** - Extend the life of a member of the faith by two years, in exchange for 100 piety, and a year of the Fylkir's own life.  
 
-**Inflict Gloom** - Inflict stressed or depression upon a member of the faith, in exchange for 75 piety.  
+**Inflict Gloom** - Inflict stressed or depression upon a member of the faith, in exchange for 75 piety.
 
-**Inflict Madness** - Inflict lunatic or possession upon a member of the faith, in exchange for 100 piety.  
+**Inflict Madness** - Inflict lunatic or possession upon a member of the faith, in exchange for 75 piety.
 
-**Inflict Illness** - Inflict a minor disease (-2 or -3 health) upon a member of the faith, in exchange for 100 piety.  
+**Inflict Illness** - Inflict a minor disease (-2 or -3 health) upon a member of the faith, in exchange for 75 piety.
 
-**Inflict Malady** - Inflict a major disease (-4 health and above) upon a member of the faith, in exchange for 200 piety.  
+**Inflict Malady** - Inflict a major disease (-4 health and above) upon a member of the faith, in exchange for 100 piety.
 
-**Inflict Aberration** - Inflict an aberration or deformity upon a member of the faith, in exchange for 300 piety.  
+**Inflict Aberration** - Inflict an aberration or deformity upon a member of the faith, in exchange for 200 piety.
 
-**Pass Godhood** (NYI) - Pass a trait to the current heir to the Fylkirate.
+**Pass Trait** - Transfer progressively more desirable traits to the current heir of the Fylkirate, every two years.
 
 ### Startable Event Chains by the Fylkir
 **Forge Magical Weapon** (NYI)  

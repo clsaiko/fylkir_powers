@@ -1081,7 +1081,7 @@ targeted_decisions = {
 			add_age = -2	#age target by -2 years
 
 			FROM = {
-				piety = -100	#Fylkir expends 200 piety to extend life
+				piety = -100	#Fylkir expends 100 piety to extend life
 				add_age = 1		#age self by one year
 			}
 			opinion = {
@@ -1092,11 +1092,11 @@ targeted_decisions = {
 		}#end effect block
 	}#end fp_extend_life
 
-	# EXTEND LIFE - The Fylkir may, at his discretion, extend the life of a member
-	# of the faith by two years, in exchange for 100 piety, and a year of his own life.
+	# PASS TRAIT - The Fylkir may, at his discretion, pass own of his/her own traits
+	# to the heir, in exchange for 100 piety, and the trait in question.
 	fp_pass_trait = {
-		filter = all_including_me		#Fylkir can extend own life by one year
-		ai_target_filter = self
+		filter = dynasty		#Fylkir can pass a trait to any dynasty member
+		ai_target_filter = none
 		ai_check_interval = 12 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
 		from_potential = {
 			#Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
@@ -1104,7 +1104,7 @@ targeted_decisions = {
 			ai = no								#no AI usage, yet
 			OR = {
 				is_adult = yes					#adult, no child Fylkirs
-				trait = lunatic					#not likely, but mad child god can extend life
+				trait = lunatic					#not likely, but mad child god can pass a trait
 			}
 			has_game_rule = {
 				name = supernatural_events		#require supernatural events game rule
@@ -1130,13 +1130,24 @@ targeted_decisions = {
 			#Conditions on the targeted character for the decision to appear
 			religion = norse_pagan_reformed		#must be germanic reformed pagan to even be an option for the Fylkir
 			NOT = { trait = excommunicated }	#must not be excommunicated
+			is_heir = yes
+			#has not recently been passed a trait
+			#NOT = { has_character_modifier = pass_trait_timer }
+			#Fylkir has a trait to pass
 			OR = {
+				FROM = { trait = sturdy }
+				FROM = { trait = robust }
+				FROM = { trait = shrewd }
+				FROM = { trait = quick }
+				FROM = { trait = genius }
+				FROM = { trait = strong }
+				FROM = { trait = fair }
 				AND = {
-					controls_religion = yes		#if proud, the Fylkir can game it to extend his own life,
-					trait = proud				# effectively being immortal
+					FROM = { trait = lunatic } # !!!
+					NOT = { trait = lunatic }
 				}
-				controls_religion = no			#everyone else
 			}
+
 		}#end potential block
 
 		allow = {
@@ -1176,16 +1187,285 @@ targeted_decisions = {
 
 		effect = {
 			#Commands executed when taking the decision
-			add_age = -2	#age target by -2 years
+			#chance to add one of Fylkir's traits to the target
+			random_list = {
+
+				#Mid Tier traits - sturdy, robust, shrewd
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { FROM = {trait = sturdy} } 	#Fylkir doesn't have
+							trait = sturdy						#target already has
+							trait = robust						#brawny is better
+
+						}
+					}
+					add_trait = sturdy
+					FROM = {remove_trait = sturdy}
+				}
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { FROM = {trait = robust} } 	#Fylkir doesn't have
+							trait = robust						#target already has
+						}
+					}
+					add_trait = robust
+					FROM = {remove_trait = robust}
+				}
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { FROM = {trait = shrewd} } 	#Fylkir doesn't have
+							trait = shrewd						#target already has
+						}
+					}
+					add_trait = shrewd
+					FROM = {remove_trait = shrewd}
+				}
+
+				#Top Tier traits - quick, genius, strong, fair
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { FROM = {trait = quick} } 	#Fylkir doesn't have
+							trait = quick		#target already has
+							trait = genius		#genius is better
+
+							#Fylkir still has a mid tier trait
+							AND = {
+								FROM = {trait = sturdy}	#Fylkir still has sturdy
+								NOT = {trait = sturdy}	# and heir doesn't
+								NOT = {trait = robust}	# but heir not robust
+							}
+							AND = {
+								FROM = {trait = robust}	#Fylkir still has robust
+								NOT = {trait = robust}	# and heir doesn't
+							}
+							AND = {
+								FROM = {trait = shrewd}	#Fylkir still has shrewd
+								NOT = {trait = shrewd}	# and heir doesn't
+							}
+						}
+					}
+					add_trait = quick
+					FROM = {remove_trait = quick}
+				}
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { FROM = {trait = genius} } 	#Fylkir doesn't have
+							AND = {
+								FROM = {trait = genius}	#Fylkir still has genius
+								trait = genius			#target already has
+							}
+
+							#Fylkir still has a mid tier trait
+							AND = {
+								FROM = {trait = sturdy}	#Fylkir still has sturdy
+								NOT = {trait = sturdy}	# and heir doesn't
+								NOT = {trait = robust}	# but heir not robust
+							}
+							AND = {
+								FROM = {trait = robust}	#Fylkir still has robust
+								NOT = {trait = robust}	# and heir doesn't
+							}
+							AND = {
+								FROM = {trait = shrewd}	#Fylkir still has shrewd
+								NOT = {trait = shrewd}	# and heir doesn't
+							}
+						}
+					}
+					add_trait = genius
+					FROM = {remove_trait = genius}
+				}
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { FROM = {trait = strong} } 	#Fylkir doesn't have
+							AND = {
+								FROM = {trait = strong}	#Fylkir still has strong
+								trait = strong			#target already has
+							}
+
+							#Fylkir still has a mid tier trait
+							AND = {
+								FROM = {trait = sturdy}	#Fylkir still has sturdy
+								NOT = {trait = sturdy}	# and heir doesn't
+								NOT = {trait = robust}	# but heir not robust
+							}
+							AND = {
+								FROM = {trait = robust}	#Fylkir still has robust
+								NOT = {trait = robust}	# and heir doesn't
+							}
+							AND = {
+								FROM = {trait = shrewd}	#Fylkir still has shrewd
+								NOT = {trait = shrewd}	# and heir doesn't
+							}
+						}
+					}
+					add_trait = strong
+					FROM = {remove_trait = strong}
+				}
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { FROM = {trait = fair} } 	#Fylkir doesn't have
+							AND = {
+								FROM = {trait = fair}	#Fylkir still has fair
+								trait = fair			#target already has
+							}
+
+							#Fylkir still has a mid tier trait
+							AND = {
+								FROM = {trait = sturdy}	#Fylkir still has sturdy
+								NOT = {trait = sturdy}	# and heir doesn't
+								NOT = {trait = robust}	# but heir not robust
+							}
+							AND = {
+								FROM = {trait = robust}	#Fylkir still has robust
+								NOT = {trait = robust}	# and heir doesn't
+							}
+							AND = {
+								FROM = {trait = shrewd}	#Fylkir still has shrewd
+								NOT = {trait = shrewd}	# and heir doesn't
+							}
+						}
+					}
+					add_trait = fair
+					FROM = {remove_trait = fair}
+				}
+
+				#Immortality, last in line
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { FROM = {trait = immortal} } #Fylkir doesn't have
+							AND = {
+								FROM = {trait = immortal}	#Fylkir still has immortal
+								trait = immortal			#target already has
+							}
+
+							#Fylkir still has a mid tier trait
+							AND = {
+								FROM = {trait = sturdy}	#Fylkir still has sturdy
+								NOT = {trait = sturdy}	# and heir doesn't
+								NOT = {trait = robust}	# but heir not robust
+							}
+							AND = {
+								FROM = {trait = robust}	#Fylkir still has robust
+								NOT = {trait = robust}	# and heir doesn't
+							}
+							AND = {
+								FROM = {trait = shrewd}	#Fylkir still has shrewd
+								NOT = {trait = shrewd}	# and heir doesn't
+							}
+
+							#Fylkir still has a top tier trait
+							AND = {
+								FROM = {trait = quick}	#Fylkir still has quick
+								NOT = {trait = quick}	# and heir doesn't
+								NOT = {trait = genius}	# but heir not genius
+							}
+							AND = {
+								FROM = {trait = genius}	#Fylkir still has genius
+								NOT = {trait = genius}	# and heir doesn't
+							}
+							AND = {
+								FROM = {trait = fair}	#Fylkir still has fair
+								NOT = {trait = fair}	# and heir doesn't
+							}
+							AND = {
+								FROM = {trait = strong}	#Fylkir still has strong
+								NOT = {trait = strong}	# and heir doesn't
+							}
+						}
+					}
+					add_trait = immortal
+					FROM = {remove_trait = immortal}
+				}
+
+				#lunatic, really last in line, if it's there
+				50 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { FROM = {trait = lunatic} } #Fylkir doesn't have
+							AND = {
+								FROM = {trait = lunatic}	#Fylkir still has lunatic
+								trait = lunatic			#target already has
+							}
+
+							#Fylkir still has a mid tier trait
+							AND = {
+								FROM = {trait = sturdy}	#Fylkir still has sturdy
+								NOT = {trait = sturdy}	# and heir doesn't
+								NOT = {trait = robust}	# but heir not robust
+							}
+							AND = {
+								FROM = {trait = robust}	#Fylkir still has robust
+								NOT = {trait = robust}	# and heir doesn't
+							}
+							AND = {
+								FROM = {trait = shrewd}	#Fylkir still has shrewd
+								NOT = {trait = shrewd}	# and heir doesn't
+							}
+
+							#Fylkir still has a top tier trait
+							AND = {
+								FROM = {trait = quick}	#Fylkir still has quick
+								NOT = {trait = quick}	# and heir doesn't
+								NOT = {trait = genius}	# but heir not genius
+							}
+							AND = {
+								FROM = {trait = genius}	#Fylkir still has genius
+								NOT = {trait = genius}	# and heir doesn't
+							}
+							AND = {
+								FROM = {trait = fair}	#Fylkir still has fair
+								NOT = {trait = fair}	# and heir doesn't
+							}
+							AND = {
+								FROM = {trait = strong}	#Fylkir still has strong
+								NOT = {trait = strong}	# and heir doesn't
+							}
+
+							#Fylkir still has immortal
+							AND = {
+								FROM = {trait = immortal}	#Fylkir still has immortal
+								NOT = {trait = immortal}	# and heir doesn't
+							}
+						}
+					}
+					add_trait = lunatic
+					#FROM = {remove_trait = lunatic} #lunacy loves company
+				}
+
+
+
+
+			}
 
 			FROM = {
-				piety = -100	#Fylkir expends 200 piety to extend life
-				add_age = 1		#age self by one year
+				piety = -100	#Fylkir expends 100 piety to pass trait
 			}
 			opinion = {
-				modifier = fp_gave_life
+				modifier = fp_gave_trait
 				who = FROM
 				months = 60
+			}
+			add_character_modifier = {
+				name = pass_trait_timer
+				months = 12
+				hidden = yes
 			}
 		}#end effect block
 	}#end fp_pass_trait
