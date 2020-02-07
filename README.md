@@ -33,11 +33,7 @@ Invasions and defensive religious war aid. Crime and Punishment.
 
 **Vassalize the Varangian Guard** (NYI) - If the Varangian Guard is independent, the Byzantine Empire no longer exists, the Fylkirate is held by a character with an Empire level title, and the Varangian Guard is led by a reformed Germanic, the Fylkir may vassalize the Varangian Guard. Costs 500 prestige.  
 
-**Found the Jarnhendur (Iron Hands)** (NYI) - If the Fylkirate exists, the year is after 910, and the Fylkir holds one or more of Denmark, Norway, or Sweden, the Jarnhendur, the personal bodyguard of the Fylkir, may be founded as a vassal of the Fylkirate. Costs 500 prestige and 500 piety.
-
-If tribal: 800 heavy infantry, 400 archers  
-If feudal: 600 heavy infantry, 400 archers, 200 heavy cavalry  
-If merchant republic: 400 heavy infantry, 400 archers, 400 light infantry
+**Found the Jarnhendur (Iron Hands)** - If the Fylkirate exists, the year is after 910, and the Fylkir holds one or more of Denmark, Norway, or Sweden, the Jarnhendur, the personal bodyguard of the Fylkir, may be founded as a vassal of the Fylkirate. Costs 500 prestige, 500 piety, and 500 gold.
 
 
 ## Supernatural Powers
