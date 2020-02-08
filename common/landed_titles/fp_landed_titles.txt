@@ -19,12 +19,28 @@ d_jarnhendur = {
 	religion = norse_pagan_reformed
 
     pagan_coa = {
-        data=
-        {
-            0 0 0 25 5 1 0
-        }
+		template = 0                 #default 0
+		layer = {
+			texture = 0             #default 0
+			texture_internal = 0   #default 0
+			emblem = 0              #default 0
+			color = 11                #default 11
+			color = 5                #default 5
+			color = 0                #default 0
+		}
         religion="norse_pagan_reformed"
-    }
+	}
+
+    #texture internal
+
+    # coat_of_arms=
+    # {
+    #     data=
+    #     {
+    #         0 0 0 25 5 1 0
+    #     }
+    #     religion="norse_pagan_reformed"
+    # }
 
 	culture = norse
 
