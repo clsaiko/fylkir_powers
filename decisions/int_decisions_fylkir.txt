@@ -1,7 +1,0 @@
-#################################
-#	File:	int_decisions_fylkir.txt
-#	Author:	Chris Saiko
-# 	Desc:	Fylkir Powers Decisions, Intrigue Panel
-#				moved to fp_intrigue_decisions.txt
-#
-#################################

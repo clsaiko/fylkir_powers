@@ -1,7 +1,0 @@
-#################################
-#	File:	decisions_fylkir.txt
-#	Author:	Chris Saiko
-# 	Desc:	Fylkir Powers Targeted Decisions
-#			moved to fp_targeted_decisions.txt
-#
-#################################
