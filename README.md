@@ -31,13 +31,13 @@ Invasions and defensive religious war aid. Crime and Punishment.
 ### Startable Event Chains by the Fylkir
 **Codify The Sagas** (NYI) - The Fylkir gathers vassal priests to create a grand book, which contains all scripture and knowledge within the Germanic religion. Costs 500 piety.  
 
-**Vassalize the Varangian Guard** (NYI) - If the Varangian Guard is independent, the Byzantine Empire no longer exists, the Fylkirate is held by a character with an Empire level title, and the Varangian Guard is led by a reformed Germanic, the Fylkir may vassalize the Varangian Guard. Costs 500 prestige.  
-
 **Found the Jarnhendur (Iron Hands)** - If the Fylkirate exists, the Viking Age is started, and the Fylkir holds one or more of Denmark, Norway, or Sweden, the Jarnhendur, the personal bodyguard of the Fylkir, may be founded as a vassal. Costs 500 prestige, 500 piety, and 500 gold.
+
+**Vassalize the Varangian Guard** - With the same requirements as the Jarnhendur, plus, if the Varangian Guard is independent and landless, the Byzantine Empire no longer exists, and the Fylkirate is held by a character with an Empire level title, the Fylkir may vassalize the Varangian Guard. Costs 500 prestige, 500 piety, and 250 gold.
 
 
 ## Supernatural Powers
-Below are the powers that require the Supernatural Events game rule to be active.  
+Below are the powers that require the Supernatural Events game rule to be active.
 
 ### Fylkir Self Decisions
 **Cure Illness** - Removes an illness or disease from a member of the faith, in exchange for 50 piety.  

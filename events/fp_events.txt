@@ -408,23 +408,6 @@ character_event = {
 				set_can_grant_claim = yes
 			}
 		}#end else_if
-
-		#Jarnhendur check
-		if = {
-			limit = {	#jarnhendur founded
-				has_global_flag = jarnhendur_founded
-			}
-			if = {
-				limit = {	#
-					d_jarnhendur = {
-
-					}
-				}
-			}
-		}
-
-
-
 	}#end immediate block
 
 	after = {}
@@ -448,7 +431,7 @@ character_event = {
 		d_jarnhendur = {
 			holder_scope = {
 				AND = {
-					#liege of the Jarnhender is no longer the Fylkir
+					#liege of the Jarnhendur is no longer the Fylkir
 					liege = { controls_religion = no }
 
 					#if landed, merc will still keep land and the new liege

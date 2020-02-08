@@ -20,12 +20,21 @@
 #				fp_inflict_malady
 #				fp_inflict_aberration
 #
+#			Punish Prisoners
+#				vassal_castrate_decision
+#				vassal_blinding_decision
+#
 #			Future Possibilities:
 #				Grant Immortality?
+#				Make Barren/Sterile
+#				Sap Health
 #				Crown Rulers?
 #				Sumbel/Blot for Child?
 #				Release Plague?
+#				Heal Realm
+#				Cure Realm
 #				Curse Title?
+#				Curse Dynasty?
 #				Peasant Unrest? Revolt?
 #				Death?
 #################################
@@ -2326,7 +2335,7 @@ targeted_decisions = {
 	### BLINDING AND CASTRATION ###
 
 	# Trying by replacing the in game version, first
-	# Castration
+	# Castration - Replaces Default
 	vassal_castrate_decision = {
 		only_playable = yes
 		filter = court
@@ -2488,7 +2497,7 @@ targeted_decisions = {
 		}
 	}#end vassal_castrate_decision
 
-	# Blinding
+	# Blinding - Replaces Default
 	vassal_blinding_decision = {
 		only_playable = yes
 		filter = court
