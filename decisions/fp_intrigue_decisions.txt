@@ -127,19 +127,19 @@ decisions = {
 
 
     fp_found_jarnhendur = {     # Found the Iron Hands
-        only_independent = yes
+        only_playable = yes
         is_high_prio = yes       # Will show an alert once decision is enabled
         ai_check_interval = 24  # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
 
         potential = {
 
+            #Conditions for the decision to appear
             is_playable = yes
             OR = {
                 is_female = no
                 gender_equality_trigger = yes
             }
 
-            #Conditions for the decision to appear
 			has_dlc = "Holy Fury"				#require the holy fury dlc
 			ai = no								#no AI usage
             AND = {
@@ -223,6 +223,82 @@ decisions = {
 
 
         }
+        ai_will_do = {
+            #Factors for an AI character to take the decision (1 = 100% chance)
+            factor = 0      #redundant, but AI should not do this yet
+        }
+    }
+
+
+    fp_vassal_jarnhendur = {     # Re-vassalize the Iron Hands
+        only_playable = yes
+        is_high_prio = yes       # Will show an alert once decision is enabled
+        ai_check_interval = 24  # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+
+        potential = {
+
+            is_playable = yes
+            OR = {
+                is_female = no
+                gender_equality_trigger = yes
+            }
+
+            #Conditions for the decision to appear
+			has_dlc = "Holy Fury"				#require the holy fury dlc
+			ai = no								#no AI usage
+            AND = {
+                religion = norse_pagan_reformed	#norse pagan reformed
+                controls_religion = yes				#only the Fylkir(a) can do this
+            }
+
+            #these two features together are required to gain such control
+			has_religion_feature = religion_dogmatic		#must have dogmatic
+			has_religion_feature = religion_temporal_head	#secular ruler exists, the Fylkirate
+
+            prisoner = no
+			is_adult = yes
+            is_incapable = no
+            NOT = { trait = incapable }
+
+            OR = {
+                has_landed_title = k_denmark
+                has_landed_title = k_norway
+                has_landed_title = k_sweden
+            }
+
+            has_global_flag = viking_age_started
+            has_global_flag = jarnhendur_founded
+
+            d_jarnhendur = {
+    			holder_scope = {
+                    independent = yes
+                }
+            }
+
+        }
+        allow = {
+            #Conditions for the decision to be enabled
+            controls_religion = yes     #redundant, but should be able to change at any time for now
+            AND = {
+                prestige = 1000
+                piety = 1000
+                wealth = 250
+            }
+
+        }
+        effect = {
+            #Commands executed when taking the decision
+            piety = -250
+            prestige = -250
+            wealth = -250
+
+            d_jarnhendur = {
+                holder_scope = {
+                    set_defacto_liege = ROOT
+                }
+            }
+        }
+
         ai_will_do = {
             #Factors for an AI character to take the decision (1 = 100% chance)
             factor = 0      #redundant, but AI should not do this yet
