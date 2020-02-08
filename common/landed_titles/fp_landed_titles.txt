@@ -18,6 +18,7 @@ d_jarnhendur = {
 	# Parent Religion
 	religion = norse_pagan_reformed
 
+    #norse bird, blue on black
     pagan_coa = {
 		template = 0                 #default 0
 		layer = {

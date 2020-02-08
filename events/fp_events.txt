@@ -302,8 +302,8 @@ character_event = {
 	after = {}
 }#end fp.200
 
-#MTTH version of fp.200 - Fix norse laws on winning holy war
-#  in case the player "forgets"
+#Religion cleanup - fp.201
+#	Fix norse laws on repeated title loss/gain
 character_event = {
 	id = fp.201		#event ID
 	hide_window = yes
@@ -324,6 +324,7 @@ character_event = {
 
 	immediate = {
 
+		#Laws cleanup
 		#Excommunication and Divorce
 		if = {
 			limit = {
@@ -408,11 +409,73 @@ character_event = {
 			}
 		}#end else_if
 
+		#Jarnhendur check
+		if = {
+			limit = {	#jarnhendur founded
+				has_global_flag = jarnhendur_founded
+			}
+			if = {
+				limit = {	#
+					d_jarnhendur = {
+
+					}
+				}
+			}
+		}
+
+
 
 	}#end immediate block
 
 	after = {}
 }#end fp.201
+
+#Religion cleanup - fp.202
+#	Jarnhendur goes independent if liege is not Fylkir
+character_event = {
+	id = fp.202		#event ID
+	hide_window = yes
+
+	#pre-triggers
+	only_playable = yes
+	has_global_flag = jarnhendur_founded
+	religion = norse_pagan_reformed
+	only_capable = yes
+	prisoner = no
+
+	trigger = {
+
+		d_jarnhendur = {
+			holder_scope = {
+				AND = {
+					#liege of the Jarnhender is no longer the Fylkir
+					liege = { controls_religion = no }
+
+					#if landed, merc will still keep land and the new liege
+					is_landed = false
+				}
+			}
+		}
+
+
+
+	}
+
+	is_triggered_only = no
+
+	mean_time_to_happen = {
+		months = 9
+	}
+
+	immediate = {
+
+		#Not landed, liege not the Fylkir, going independent
+		d_jarnhendur = { set_defacto_liege = THIS }
+
+	}#end immediate block
+
+	after = {}
+}#end fp.202
 
 #Ask Fylkir for Money - fp.300
 letter_event = {

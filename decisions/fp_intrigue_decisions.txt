@@ -134,7 +134,6 @@ decisions = {
         potential = {
 
             is_playable = yes
-			independent = yes
             OR = {
                 is_female = no
                 gender_equality_trigger = yes
@@ -154,6 +153,7 @@ decisions = {
 
             prisoner = no
 			is_adult = yes
+            is_incapable = no
             NOT = { trait = incapable }
 
             OR = {
@@ -162,7 +162,7 @@ decisions = {
                 has_landed_title = k_sweden
             }
 
-            #year = 910  #must be the year 910
+            has_global_flag = viking_age_started
             NOT = { has_global_flag = jarnhendur_founded }
 
         }
@@ -231,7 +231,7 @@ decisions = {
 
 
     fp_codify_sagas = {         # Codify the sagas to create a book artifact
-        is_high_prio = no       # Will not show an alert once decision is enabled
+        is_high_prio = yes       # Will not show an alert once decision is enabled
         ai_check_interval = 12  # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
         potential = {
 
@@ -299,5 +299,5 @@ decisions = {
         }
     }
 
-    
+
 }#end decisions block

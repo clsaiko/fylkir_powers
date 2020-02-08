@@ -2,7 +2,7 @@
 
 As the head of the Germanic religion, do you wish to exert your will upon the followers of the faith? Do you yearn to reward the righteous and faithful, while punishing the wicked, unworthy, and disobedient? Does the resulting tedium from answering requests for excommunications and money put your heart aflutter?
 
-If so, this Crusader Kings II mod might be for you. After the Germanic faith has been reformed, the Fylkir (or Fylkira) will have expanded powers, similar to the Catholic pope. With Supernatural Events set to On, the Fylkir has even more possibilities. Some powers require the Fylkir to be the head god of the religion. Some of these have drawn inspiration from real world Norse mythology, and some is fiction. See below for details.
+If so, this Crusader Kings II mod might be for you. After the Germanic faith has been reformed, the Fylkir (or Fylkja) will have expanded powers, similar to the Catholic pope. With Supernatural Events set to On, the Fylkir has even more possibilities. Some powers require the Fylkir to be the head god of the religion. Some of these have drawn inspiration from real world Norse mythology, and some is fiction. See below for details.
 
 ## Non-supernatural powers
 Below are the powers that do not require the Supernatural Events game rule active.  
@@ -33,7 +33,7 @@ Invasions and defensive religious war aid. Crime and Punishment.
 
 **Vassalize the Varangian Guard** (NYI) - If the Varangian Guard is independent, the Byzantine Empire no longer exists, the Fylkirate is held by a character with an Empire level title, and the Varangian Guard is led by a reformed Germanic, the Fylkir may vassalize the Varangian Guard. Costs 500 prestige.  
 
-**Found the Jarnhendur (Iron Hands)** - If the Fylkirate exists, the year is after 910, and the Fylkir holds one or more of Denmark, Norway, or Sweden, the Jarnhendur, the personal bodyguard of the Fylkir, may be founded as a vassal of the Fylkirate. Costs 500 prestige, 500 piety, and 500 gold.
+**Found the Jarnhendur (Iron Hands)** - If the Fylkirate exists, the Viking Age is started, and the Fylkir holds one or more of Denmark, Norway, or Sweden, the Jarnhendur, the personal bodyguard of the Fylkir, may be founded as a vassal. Costs 500 prestige, 500 piety, and 500 gold.
 
 
 ## Supernatural Powers
