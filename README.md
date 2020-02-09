@@ -42,7 +42,7 @@ Below are the powers that require the Supernatural Events game rule to be active
 ### Fylkir Self Decisions
 **Cure Illness** - Removes an illness or disease from a member of the faith, in exchange for 50 piety.  
 
-**Calm Mind** - Remove lunacy, possession, depression, or stressed from a member of the faith, in exchange for 50 piety. Lisp and stutter are included, as well, as maladies of the mind.   
+**Calm Mind** - Remove lunacy, possession, depression, or stressed from a member of the faith, in exchange for 50 piety. Lisp and stutter are included, as well, as complications of the mind.   
 
 **Heal Body** - Heal a wound or disfigurement from a member of the faith, in exchange for 75 piety.
 
@@ -60,14 +60,14 @@ Below are the powers that require the Supernatural Events game rule to be active
 
 **Inflict Aberration** - Inflict an aberration or deformity upon a member of the faith, in exchange for 200 piety.
 
-**Pass Trait** - Transfer progressively more desirable traits to the current heir of the Fylkirate, every two years.
+**Pass Trait** - Transfer progressively more desirable traits to the current heir of the Fylkirate, every year.
 
 ### Startable Event Chains by the Fylkir
-**Forge Magical Weapon** (NYI)  
+**Forge Magical Weapon** (NYI)
 
-**Forge Magical Item** (NYI)  
+**Forge Magical Item** (NYI)
 
 ### Fylkir Requests by members of the faith
-**Request Healing** (NYI)  
+**Request Healing** (NYI)
 
-**Request Life** (NYI)  
+**Request Life** (NYI)
