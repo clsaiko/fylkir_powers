@@ -63,7 +63,7 @@ targeted_decisions = {
 			is_adult = yes			#adult, child can never ask for money
 
 			#has not recently asked for money
-			NOT = { has_character_modifier = ask_money_timer }
+			NOT = { has_character_modifier = fp_ask_money_timer }
 
 			#these below could be redundant if the religious laws are implemented
 
@@ -120,7 +120,7 @@ targeted_decisions = {
 				letter_event = { id = fp.300 }
 			}
 			add_character_modifier = {	#two year cooldown
-				name = ask_money_timer
+				name = fp_ask_money_timer
 				months = 24
 				hidden = yes
 			}
@@ -207,25 +207,28 @@ targeted_decisions = {
 
 			additive_modifier = { # Any type of modifier can be used, but "additive" is recommended as it is the most intuitive to the end user. Works same way as MTTHs, ai_will_do, and so on
 				value = 10
+				localisation_key = "fp_ai_base"
 				always = yes
 			}
 			additive_modifier = {
 				value = -10
+				localisation_key = "fp_ai_greedy"
 				trait = greedy
 			}
 			additive_modifier = {
 				value = 10
+				localisation_key = "fp_ai_charitable"
 				trait = charitable
 			}
 			additive_modifier = {
 				value = 10
-				#localisation_key = "REASON_WEALTH"
+				localisation_key = "fp_ai_piety"
 				FROM = { piety = 200 }
 			}
 			additive_modifier = {
 				value = 10
-				#localisation_key = "REASON_WEALTH"
-				FROM = { opinion = 25 }
+				localisation_key = "fp_ai_opinion"
+				FROM = { opinion = {who = ROOT value = 25} }
 			}
 		}#end ai_acceptance block
 	}#end fp_ask_for_money
@@ -1181,7 +1184,7 @@ targeted_decisions = {
 			NOT = { trait = excommunicated }	#must not be excommunicated
 			is_heir = yes
 			#has not recently been passed a trait
-			NOT = { has_character_modifier = pass_trait_timer }
+			NOT = { has_character_modifier = fp_pass_trait_timer }
 			#Fylkir has a trait to pass
 			OR = {
 				FROM = { trait = sturdy }
@@ -1512,7 +1515,7 @@ targeted_decisions = {
 				months = 60
 			}
 			add_character_modifier = {
-				name = pass_trait_timer
+				name = fp_pass_trait_timer
 				months = 12
 				hidden = yes
 			}

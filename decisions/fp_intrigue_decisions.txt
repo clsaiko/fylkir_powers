@@ -2,7 +2,11 @@
 #	File:	fp_intrigue_decisions.txt
 #	Author:	Chris Saiko
 # 	Desc:	Fylkir Powers Decisions, Intrigue Panel
-#				Religious Doctrine Changes
+#				fp_restore_doctrines
+#               fp_found_jarnhendur
+#               fp_vassal_jarnhendur
+#               fp_codify_sagas - NYI
+#               fp_vassal_vg
 #
 #			Future:
 #
@@ -10,7 +14,7 @@
 
 decisions = {
 
-    fp_restore_doctrines = {    # Intrigue window decision for fixing religion laws after a holy war
+    fp_restore_doctrines = {    # Fixing religion laws after a holy war
         is_high_prio = no       # Will not show an alert once decision is enabled
         ai_check_interval = 12  # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
         potential = {
@@ -26,7 +30,6 @@ decisions = {
 				#religion = zun_pagan_reformed	#zunist pagan reformed
 												#other reformed religions?
 			}
-
         }
         allow = {
             #Conditions for the decision to be enabled
@@ -126,7 +129,7 @@ decisions = {
     }
 
 
-    fp_found_jarnhendur = {     # The Fylkir can found the Jarnhendur, the bodyguard of the Fylkir
+    fp_found_jarnhendur = {     # Found the Jarnhendur, the bodyguard of the Fylkir
         only_playable = yes
         is_high_prio = yes       # Will show an alert once decision is enabled
         ai_check_interval = 24  # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
@@ -230,7 +233,7 @@ decisions = {
     }
 
 
-    fp_vassal_jarnhendur = {     # Re-vassalize the Jarnhendur
+    fp_vassal_jarnhendur = {    # Re-vassalize the Jarnhendur once they break
         only_playable = yes
         is_high_prio = yes       # Will show an alert once decision is enabled
         ai_check_interval = 24  # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
@@ -415,10 +418,6 @@ decisions = {
                     set_defacto_liege = ROOT
                 }
                 religion = norse_pagan_reformed
-                coat_of_arms = {
-                    data = { 0 0 0 27 3 9 13 }
-				    religion = "norse_pagan_reformed"
-                }
             }
 
         }

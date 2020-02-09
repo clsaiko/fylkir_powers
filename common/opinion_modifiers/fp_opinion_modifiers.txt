@@ -26,6 +26,19 @@
 # 	months = 480
 # }
 
+
+#1 year cooldown to pass trait
+fp_pass_trait_timer = {
+    opinion = 0
+    months = 12
+}
+
+#2 year cooldown to ask for money
+fp_ask_money_timer = {
+    opinion = 0
+    years = 2
+}
+
 #Fylkir cured me of disease
 fp_cured_me = {
     opinion = 5

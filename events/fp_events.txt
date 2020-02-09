@@ -26,170 +26,21 @@ character_event = {
 	ai = no
 
 	trigger = {}
-	mean_time_to_happen = {}
 	immediate = {}
 
-	#can excommunicate
+	#option A
 	option = {
 		name = EVTOPTAfp.101
 		trigger = {}
-		#excommunicate command block
-		norse_pagan_reformed = {
-			set_can_excommunicate = no
-			religion_authority = {
-				modifier = fp_change_doctrine
-				years = 2
-			}
-		}
-		FROM = {		#Fylkir expends 50 to change doctrine
-			piety = -50
-		}
+		#Commands
 	}
 
-	#can grant divorce
+
+	#option B
 	option = {
 		name = EVTOPTBfp.101
-		trigger = {
-			#norse_pagan_reformed = { can_grant_divorce = no }
-		}
-		#religious head command block
-		norse_pagan_reformed = { set_can_grant_divorce = yes }
-		FROM = {		#Fylkir expends 50 change doctrine
-			piety = -50
-		}
-	}
-
-	#can grant claims
-	option = {
-		name = EVTOPTCfp.101
-		trigger = {
-			#norse_pagan_reformed = { can_grant_claim = no }
-		}
-		#grant claim command block
-		norse_pagan_reformed = { set_can_grant_claim = yes }
-		FROM = {		#Fylkir expends 50 change doctrine
-			piety = -50
-		}
-	}
-
-	#changed my mind
-	option = {
-		name = EVTOPTDfp.101
 		trigger = {}
-		#changed my mind block
-		FROM = {		#Fylkir expends 25 piety to change mind
-			piety = -25
-		}
-	}
-
-	after = {}
-}
-
-#Unused - 102
-character_event = {
-	id = fp.102		#event ID
-	hide_from = yes
-	picture = GFX_evt_pagan_reformation 	#Needs a default picture, even if it won't actually show up
-	desc = EVTDESCfp.102		#description
-
-	#Fast event triggers
-	ai = no
-	only_playable = yes
-	is_triggered_only = yes
-
-	trigger = {}
-	mean_time_to_happen = {}
-	immediate = {}
-
-	#can excommunicate
-	option = {
-		name = EVTOPTAfp.102
-		trigger = {}
-		#invasion command block
-		norse_pagan_reformed = { set_can_grant_invasion_cb = invasion }
-		FROM = {		#Fylkir expends 50 change doctrine
-			piety = -50
-		}
-	}
-
-	#religious head defended by other members of the faith
-	option = {
-		name = EVTOPTBfp.102
-		trigger = {}
-		#religious head command block
-		norse_pagan_reformed = { set_rel_head_defense = yes }
-		FROM = {		#Fylkir expends 50 change doctrine
-			piety = -50
-		}
-	}
-
-	#option C block
-	option = {
-		name = EVTOPTCfp.102
-		trigger = {}
-		#Option C command block
-	}
-
-	#option D block
-	option = {
-		name = EVTOPTDfp.102
-		trigger = {}
-		#Option D command block
-	}
-
-	after = {}
-}
-
-#Unused - 103
-character_event = {
-	id = fp.103		#event ID
-	hide_from = yes
-	picture = GFX_evt_pagan_reformation 	#Needs a default picture, even if it won't actually show up
-	desc = EVTDESCfp.103		#description
-
-	#Fast event triggers
-	ai = no
-	only_playable = yes
-	is_triggered_only = yes
-
-	trigger = {}
-	mean_time_to_happen = {}
-	immediate = {}
-
-	#can excommunicate
-	option = {
-		name = EVTOPTAfp.103
-		trigger = {}
-		#invasion command block
-		norse_pagan_reformed = { set_can_grant_invasion_cb = invasion }
-		FROM = {		#Fylkir expends 50 change doctrine
-			piety = -50
-		}
-	}
-
-	#religious head defended by other members of the faith
-	option = {
-		name = EVTOPTBfp.103
-		trigger = {}
-		#religious head command block
-		norse_pagan_reformed = { set_rel_head_defense = yes }
-		FROM = {		#Fylkir expends 50 change doctrine
-			piety = -50
-		}
-	}
-
-	#option C block
-	option = {
-		name = EVTOPTCfp.103
-		trigger = {}
-		#Option C command block
-	}
-
-	#option D block
-	option = {
-		name = EVTOPTDfp.103
-		trigger = {}
-		#Option D command block
+		#Commands
 	}
 
 	after = {}
@@ -468,18 +319,7 @@ letter_event = {
 
 	is_triggered_only = yes
 
-	immediate = {
-		hidden_effect = {
-			set_variable = { which = transfer_money value = 0 }
-			change_variable = { which = transfer_money which = price which = event_target:selling_province }
-
-			event_target:raiding_adventurer = {
-				set_variable = { which = transfer_money value = 0 }
-				change_variable = { which = transfer_money which = price which = event_target:selling_province }
-				multiply_variable = { which = transfer_money value = -1 }
-			}
-		}
-	}
+	immediate = {}
 
 	# Give Gold
     option = {
@@ -488,7 +328,9 @@ letter_event = {
 
         hidden_effect = {}
 
-        ai_chance = {}
+        ai_chance = {
+			factor = 0
+		}
 
 		#command block opt A
 		#letter_event = { id = fp.301 }
@@ -502,7 +344,9 @@ letter_event = {
 
         hidden_effect = {}
 
-        ai_chance = {}
+        ai_chance = {
+			factor = 1
+		}
 
 		#command block opt B
 		#letter_event = { id = fp.302 }
@@ -539,7 +383,6 @@ character_event = {		#event type
 	ai = no
 
 	trigger = {}
-	mean_time_to_happen = {}
 	immediate = {}
 
 	#option A block
