@@ -6,12 +6,12 @@
 #
 #################################
 
-#Fylkir passed a trait to heir
-pass_trait_timer = {
+#1 year cooldown to pass trait
+fp_pass_trait_timer = {
     icon = 1
 }
 
-#character asked for money
-ask_money_timer = {
+#2 year cooldown to ask for money
+fp_ask_money_timer = {
     icon = 1
 }

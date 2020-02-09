@@ -43,6 +43,7 @@ laws = {
 	fp_excomm_law_0 = {
 		group = fp_excomm_law
 		default = yes 			#start game with no excommunication
+		
 		allow = {
 			NOT = { has_law = fp_excomm_law_0 }	#can always return to both off
 			holder_scope = {

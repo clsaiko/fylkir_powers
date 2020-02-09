@@ -117,10 +117,10 @@ fp_gave_trait;Passed Trait;;;;;;;;;;;;;x
 fp_gave_trait_desc;Trait Passed from Fylkir;;;;;;;;;;;;;x
 
 #TIMERS
-fp_ask_money_timer;Ask Money Timer.;;;;;;;;;;;;;x
+fp_ask_money_timer;Ask for money timer;;;;;;;;;;;;;x
 fp_ask_money_timer_desc;Two year cooldown to ask for money.;;;;;;;;;;;;;x
 
-fp_pass_trait_timer;Pass Trait Timer.;;;;;;;;;;;;;x
+fp_pass_trait_timer;Pass trait timer;;;;;;;;;;;;;x
 fp_pass_trait_timer_desc;One year cooldown to pass trait.;;;;;;;;;;;;;x
 
 #additive_modifier
