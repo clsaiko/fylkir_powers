@@ -38,7 +38,7 @@ law_groups = {
 
 laws = {
 
-	# EXCOMMUNICATION AND DIVORCE
+	#DIVORCE AND EXCOMMUNICATION
 	# No divorce, No excommunication
 	fp_excomm_law_0 = {
 		group = fp_excomm_law
@@ -87,7 +87,7 @@ laws = {
 		}
 	}#end fp_excomm_law_0
 
-	# Excommunication, no Divorce allowed
+	# Divorce allowed, no Excommunication allowed
 	fp_excomm_law_1 = {
 		group = fp_excomm_law
 		allow = {
@@ -129,8 +129,8 @@ laws = {
 				revoke_law = fp_excomm_law_2
 			}
             norse_pagan_reformed = {
-				set_can_excommunicate = yes
-				set_can_grant_divorce = no
+				set_can_excommunicate = no
+				set_can_grant_divorce = yes
             }
             FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
 		}

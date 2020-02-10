@@ -59,12 +59,12 @@ fp_excomm_law_desc;Controls whether the Fylkir has the power to grant divorces b
 fp_excomm_law_0;Grant Divorce and Excommunication Disallowed;;;;;;;;;;;;;x
 fp_excomm_law_0_option;None;;;;;;;;;;;;;x
 fp_excomm_law_0_desc;The Fylkir may neither grant divorces, nor excommunicate members of the Germanic faith.;;;;;;;;;;;;;x
-fp_excomm_law_1;Excommunication Allowed;;;;;;;;;;;;;x
-fp_excomm_law_1_option;Excommu;;;;;;;;;;;;;x
-fp_excomm_law_1_desc;The Fylkir may now excommunicate members from the Germanic faith.;;;;;;;;;;;;;x
-fp_excomm_law_2;Grant Divorce Allowed;;;;;;;;;;;;;x
-fp_excomm_law_2_option;Divorce;;;;;;;;;;;;;x
-fp_excomm_law_2_desc;The Fylkir may now grant divorces to members the Germanic faith.;;;;;;;;;;;;;x
+fp_excomm_law_1;Divorce Allowed;;;;;;;;;;;;;x
+fp_excomm_law_1_option;Divorce;;;;;;;;;;;;;x
+fp_excomm_law_1_desc;The Fylkir may now grant divorces to members the Germanic faith.;;;;;;;;;;;;;x
+fp_excomm_law_2;Grant Excommunication Allowed;;;;;;;;;;;;;x
+fp_excomm_law_2_option;Excommun;;;;;;;;;;;;;x
+fp_excomm_law_2_desc;The Fylkir may now excommunicate members from the Germanic faith.;;;;;;;;;;;;;x
 
 fp_claims_law;Money and Claims;;;;;;;;;;;;;x
 fp_claims_law_desc;Controls whether the Fylkir has the power to grant claims and money to members of the Germanic faith.;;;;;;;;;;;;;x
