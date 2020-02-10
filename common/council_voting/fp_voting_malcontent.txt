@@ -1,0 +1,58 @@
+###############################################################################
+#	File:	fp_voting_malcontent.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Councillor Voting Patterns file
+#           The council may vote on various doctrine changes desired by the Fylkir.
+#			This file details how the Malcontent will vote on the changes.
+#
+###############################################################################
+
+malcontent_pattern_for = {	# Always votes against the liege
+	icon = 4
+	pattern_type = for
+
+	# DIVORCE AND EXCOMMUNICATION
+	fp_excomm_law_0 = { NOT = { liege = { character = FROM } } }
+	fp_excomm_law_1 = { NOT = { liege = { character = FROM } } }
+	fp_excomm_law_2 = { NOT = { liege = { character = FROM } } }
+
+	# INVASION AND DEFENSE
+	fp_inv_def_law_0 = { NOT = { liege = { character = FROM } } }
+	fp_inv_def_law_1 = { NOT = { liege = { character = FROM } } }
+	fp_inv_def_law_2 = { NOT = { liege = { character = FROM } } }
+
+	# MONEY AND CLAIMS
+	fp_claims_law_0 = { NOT = { liege = { character = FROM } } }
+	fp_claims_law_1 = { NOT = { liege = { character = FROM } } }
+	fp_claims_law_2 = { NOT = { liege = { character = FROM } } }
+
+	# BLINDING AND CASTRATION
+	fp_crime_punish_law_0 = { NOT = { liege = { character = FROM } } }
+	fp_crime_punish_law_1 = { NOT = { liege = { character = FROM } } }
+	fp_crime_punish_law_2 = { NOT = { liege = { character = FROM } } }
+}
+
+malcontent_pattern_against = {	#Always votes against the liege
+	icon = 4
+	pattern_type = against
+
+	# DIVORCE AND EXCOMMUNICATION
+	fp_excomm_law_0 = { liege = { character = FROM } }
+	fp_excomm_law_1 = { liege = { character = FROM } }
+	fp_excomm_law_2 = { liege = { character = FROM } }
+
+	# INVASION AND DEFENSE
+	fp_inv_def_law_0 = { liege = { character = FROM } }
+	fp_inv_def_law_1 = { liege = { character = FROM } }
+	fp_inv_def_law_2 = { liege = { character = FROM } }
+
+	# MONEY AND CLAIMS
+	fp_claims_law_0 = { liege = { character = FROM } }
+	fp_claims_law_1 = { liege = { character = FROM } }
+	fp_claims_law_2 = { liege = { character = FROM } }
+
+	# BLINDING AND CASTRATION
+	fp_crime_punish_law_0 = { liege = { character = FROM } }
+	fp_crime_punish_law_1 = { liege = { character = FROM } }
+	fp_crime_punish_law_2 = { liege = { character = FROM } }
+}

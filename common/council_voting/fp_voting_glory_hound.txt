@@ -1,0 +1,58 @@
+###############################################################################
+#	File:	fp_voting_glory_hound.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Councillor Voting Patterns file
+#           The council may vote on various doctrine changes desired by the Fylkir.
+#			This file details how the Glory Hound will vote on the changes.
+#
+###############################################################################
+
+glory_hound_pattern_for = { # Always votes in favor of war and gaining land
+	icon = 7
+	pattern_type = for
+
+	# DIVORCE AND EXCOMMUNICATION - no opinion
+	# fp_excomm_law_0 = { }
+	# fp_excomm_law_1 = { }
+	# fp_excomm_law_2 = { }
+
+	# INVASION AND DEFENSE - prefers wars
+	# fp_inv_def_law_0 = { }
+	fp_inv_def_law_1 = { liege = { has_law = fp_inv_def_law_0 }	}
+	fp_inv_def_law_2 = { always = yes }
+
+	# MONEY AND CLAIMS - money and claims are good for war
+	# fp_claims_law_0 = { }
+	fp_claims_law_1 = { liege = { has_law = fp_claims_law_0 } }
+	fp_claims_law_2 = { always = yes }
+
+	# BLINDING AND CASTRATION - no strong opinion
+	fp_crime_punish_law_0 = { trait = kind }
+	fp_crime_punish_law_1 = { trait = cruel }
+	fp_crime_punish_law_2 = { trait = cruel }
+}
+
+glory_hound_pattern_against = {	# Always votes in favor of war and gaining land
+	icon = 7
+	pattern_type = against
+
+	# DIVORCE AND EXCOMMUNICATION - no opinion
+	# fp_excomm_law_0 = { }
+	# fp_excomm_law_1 = { }
+	# fp_excomm_law_2 = { }
+
+	# INVASION AND DEFENSE - don't want to lose these
+	fp_inv_def_law_0 = { always = yes }
+	fp_inv_def_law_1 = { liege = { has_law = fp_inv_def_law_2 } }
+	# fp_inv_def_law_2 = { }
+
+	# MONEY AND CLAIMS - don't want to lose these
+	fp_claims_law_0 = { always = yes }
+	fp_claims_law_1 = { liege = { has_law = fp_claims_law_2 } }
+	# fp_claims_law_2 = { }
+
+	# BLINDING AND CASTRATION - no opinion
+	# fp_crime_punish_law_0 = { }
+	# fp_crime_punish_law_1 = { }
+	# fp_crime_punish_law_2 = { }
+}

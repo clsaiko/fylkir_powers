@@ -1,0 +1,93 @@
+###############################################################################
+#	File:	fp_voting_selfish.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Councillor Voting Patterns file
+#           The council may vote on various doctrine changes desired by the Fylkir.
+#			This file details how the selfish will vote on the changes.
+#
+###############################################################################
+
+
+selfish_pattern_for = {
+	icon = 9
+	pattern_type = for
+
+	# DIVORCE AND EXCOMMUNICATION - hates their spouse
+	# fp_excomm_law_0 = { }
+	fp_excomm_law_1 = {
+		NOT = {
+			opinion = { who = spouse value = -25 }
+		}
+	}
+	# fp_excomm_law_2 = { }
+
+	# INVASION AND DEFENSE - no selfish for opinion
+	# fp_inv_def_law_0 = { }
+	# fp_inv_def_law_1 = { }
+	# fp_inv_def_law_2 = { }
+
+	#MONEY AND CLAIMS - greedy will vote for money and claims
+	# fp_claims_law_0 = { }
+	fp_claims_law_1 = {
+		AND = {
+			trait = greedy
+			liege = { has_law = fp_claims_law_0 }
+		}
+	}
+	fp_claims_law_2 = { trait = greedy }
+
+	# BLINDING AND CASTRATION - criminal likes less punishment
+	fp_crime_punish_law_0 = { liege = { is_foe = ROOT } }
+	fp_crime_punish_law_1 = {
+		AND = {
+			liege = { has_law = fp_crime_punish_law_2 }
+			liege = { is_foe = ROOT }
+		}
+	}
+	# fp_crime_punish_law_2 = { }
+}
+
+selfish_pattern_against = {
+	icon = 10
+	pattern_type = against
+
+	# DIVORCE AND EXCOMMUNICATION - no selfish against opinion
+	# fp_excomm_law_0 = { }
+	# fp_excomm_law_1 = { }
+	fp_excomm_law_2 = {
+		liege = {
+			NOT = { opinion = { who = religion_head value = -50 } }	# Fylkir hates me!
+		}
+	}
+
+	# INVASION AND DEFENSE - craven and cynical won't want to aid religious head
+	# fp_inv_def_law_0 = { }
+	# fp_inv_def_law_1 = { }
+	fp_inv_def_law_2 = {
+		AND = {
+			trait = cynical
+			trait = craven
+		}
+	}
+
+	# MONEY AND CLAIMS - greedy doesn't want to lose access to money and claims
+	fp_claims_law_0 = { trait = greedy }
+	fp_claims_law_1 = {
+		AND = {
+			trait = greedy
+			liege = { has_law = fp_claims_law_2 }
+		}
+	}
+	# fp_claims_law_2 = { }
+
+	# BLINDING AND CASTRATION - criminal dislikes more punishment
+	# fp_crime_punish_law_0 = { }
+	fp_crime_punish_law_1 = {
+		AND = {
+			has_law = fp_crime_punish_law_0
+			liege = { is_foe = ROOT }
+		}
+	}
+	fp_crime_punish_law_2 = { liege = { is_foe = ROOT } }
+
+}

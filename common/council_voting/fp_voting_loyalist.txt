@@ -1,60 +1,58 @@
-#################################
-#	File:	fp_voting patterns.txt
+###############################################################################
+#	File:	fp_voting_loyalist.txt
 #	Author:	Chris Saiko
 # 	Desc:	Fylkir Powers Councillor Voting Patterns file
 #           The council may vote on various doctrine changes desired by the Fylkir.
-#			This file details how the different positions will vote on the changes.
+#			This file details how the Loyalist will vote on the changes.
 #
-#################################
+###############################################################################
 
-loyalist_pattern_for = {
+loyalist_pattern_for = {	# Always votes with the liege
 	icon = 3
 	pattern_type = for
 
-	#Excommunication and Divorce
+	# DIVORCE AND EXCOMMUNICATION
 	fp_excomm_law_0 = { liege = { character = FROM } }
 	fp_excomm_law_1 = { liege = { character = FROM } }
 	fp_excomm_law_2 = { liege = { character = FROM } }
 
-	#Invasion and Defense
+	# INVASION AND DEFENSE
 	fp_inv_def_law_0 = { liege = { character = FROM } }
 	fp_inv_def_law_1 = { liege = { character = FROM } }
 	fp_inv_def_law_2 = { liege = { character = FROM } }
 
-	#CLAIMS AND MONEY
+	# MONEY AND CLAIMS
 	fp_claims_law_0 = { liege = { character = FROM } }
 	fp_claims_law_1 = { liege = { character = FROM } }
 	fp_claims_law_2 = { liege = { character = FROM } }
 
-	#BLINDING AND CASTRATION
+	# BLINDING AND CASTRATION
 	fp_crime_punish_law_0 = { liege = { character = FROM } }
 	fp_crime_punish_law_1 = { liege = { character = FROM } }
 	fp_crime_punish_law_2 = { liege = { character = FROM } }
-
 }
 
-loyalist_pattern_against = {
+loyalist_pattern_against = {	#Always votes with the liege
 	icon = 3
 	pattern_type = against
 
-	#Excommunication and Divorce
+	# DIVORCE AND EXCOMMUNICATION
 	fp_excomm_law_0 = { NOT = { liege = { character = FROM } } }
 	fp_excomm_law_1 = { NOT = { liege = { character = FROM } } }
 	fp_excomm_law_2 = { NOT = { liege = { character = FROM } } }
 
-	#Invasion and Defense
+	# INVASION AND DEFENSE
 	fp_inv_def_law_0 = { NOT = { liege = { character = FROM } } }
 	fp_inv_def_law_1 = { NOT = { liege = { character = FROM } } }
 	fp_inv_def_law_2 = { NOT = { liege = { character = FROM } } }
 
-	#CLAIMS AND MONEY
+	# MONEY AND CLAIMS
 	fp_claims_law_0 = { NOT = { liege = { character = FROM } } }
 	fp_claims_law_1 = { NOT = { liege = { character = FROM } } }
 	fp_claims_law_2 = { NOT = { liege = { character = FROM } } }
 
-	#BLINDING AND CASTRATION
+	# BLINDING AND CASTRATION
 	fp_crime_punish_law_0 = { NOT = { liege = { character = FROM } } }
 	fp_crime_punish_law_1 = { NOT = { liege = { character = FROM } } }
 	fp_crime_punish_law_2 = { NOT = { liege = { character = FROM } } }
-
 }

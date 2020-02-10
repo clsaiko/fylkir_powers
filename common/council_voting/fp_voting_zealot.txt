@@ -1,0 +1,91 @@
+###############################################################################
+#	File:	fp_voting_zealot.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Councillor Voting Patterns file
+#           The council may vote on various doctrine changes desired by the Fylkir.
+#			This file details how the zealot will vote on the changes.
+#
+###############################################################################
+
+zealot_pattern_for = {
+	icon = 5
+	pattern_type = for
+
+	#Will always vote to increase the power and oversight of the Fylkir
+	#DIVORCE AND EXCOMMUNICATION
+	fp_excomm_law_1 = { liege = { has_law = fp_excomm_law_0 } }
+	fp_excomm_law_2 = { always = yes }
+
+	#INVASION AND DEFENSE
+	fp_inv_def_law_1 = { liege = { has_law = fp_inv_def_law_0 } }
+	fp_inv_def_law_2 = { always = yes }
+
+	#MONEY AND CLAIMS
+	fp_claims_law_1 = { liege = { has_law = fp_claims_law_0 } }
+	fp_claims_law_2 = { always = yes }
+
+	#BLINDING AND CASTRATION
+	#Will vote for increasing punishments if Cruel
+	#Will vote for decreasing punishments if Kind
+
+	fp_crime_punish_law_0 = { 
+		trait = kind
+	}
+	fp_crime_punish_law_1 = {
+		OR = {
+			AND = {
+				liege = { has_law = fp_crime_punish_law_0 }
+				trait = cruel
+			}
+			
+			AND = {
+				liege = { has_law = fp_crime_punish_law_2 }
+				trait = kind
+			}
+		}
+	}
+	fp_crime_punish_law_2 = {
+		trait = cruel
+	}
+}
+
+zealot_pattern_against = {
+	icon = 5
+	pattern_type = against
+
+	#Will always vote against reducing the power of the Fylkir
+	#DIVORCE AND EXCOMMUNICATION
+	fp_excomm_law_0 = { always = yes }
+	fp_excomm_law_1 = { liege = { has_law = fp_excomm_law_2 } }
+	
+	#INVASION AND DEFENSE
+	fp_inv_def_law_0 = { always = yes }
+	fp_inv_def_law_1 = { liege = { has_law = fp_inv_def_law_2 } }
+	
+	#MONEY AND CLAIMS
+	fp_claims_law_0 = { always = yes }
+	fp_claims_law_1 = { liege = { has_law = fp_claims_law_2 } }
+	
+	#BLINDING AND CASTRATION
+	#Will vote against increasing punishments if Kind
+	#Will vote against decreasing punishments if Cruel
+
+	fp_crime_punish_law_0 = {
+		trait = cruel
+	}
+	fp_crime_punish_law_1 = {
+		OR = {
+			AND = {
+				liege = { has_law = fp_crime_punish_law_0 }
+				trait = kind
+			}
+			AND = {
+				liege = { has_law = fp_crime_punish_law_2 }
+				trait = cruel
+			}
+		}
+	}
+	fp_crime_punish_law_2 = {
+		trait = kind
+	}
+}

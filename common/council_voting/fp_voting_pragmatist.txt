@@ -1,0 +1,63 @@
+###############################################################################
+#	File:	fp_voting_pragmatist.txt
+#	Author:	Chris Saiko
+# 	Desc:	Fylkir Powers Councillor Voting Patterns file
+#           The council may vote on various doctrine changes desired by the Fylkir.
+#			This file details how the Pragmatist will vote on the changes.
+#
+###############################################################################
+
+pragmatist_pattern_for = { # Votes for the safest course of action
+	icon = 6
+	pattern_type = for
+
+	# DIVORCE AND EXCOMMUNICATION - divorce sometimes necessary, excommunication too much
+	# fp_excomm_law_0 = { }
+	fp_excomm_law_1 = { always = yes }
+	# fp_excomm_law_2 = { }
+
+	# INVASION AND DEFENSE - sometimes necessary
+	# fp_inv_def_law_0 = { }
+	fp_inv_def_law_1 = { always = yes }
+	fp_inv_def_law_2 = { always = yes }
+
+	# MONEY AND CLAIMS - money is great, claims sometimes needed
+	# fp_claims_law_0 = { }
+	fp_claims_law_1 = { always = yes }
+	fp_claims_law_2 = { always = yes }
+
+	# BLINDING AND CASTRATION - blinding can take care of rivals, castration is too much
+	fp_crime_punish_law_0 = { trait = kind }
+	fp_crime_punish_law_1 = { always = yes }
+	# fp_crime_punish_law_2 = { }
+}
+
+pragmatist_pattern_against = {
+	icon = 6
+	pattern_type = against
+
+	# DIVORCE AND EXCOMMUNICATION - divorce sometimes necessary, excommunication too much
+	fp_excomm_law_0 = { always = yes }
+	# fp_excomm_law_1 = { liege = { }
+	fp_excomm_law_2 = { always = yes }
+
+	# INVASION AND DEFENSE - sometimes necessary
+	# fp_inv_def_law_0 = { }
+	# fp_inv_def_law_1 = { }
+	# fp_inv_def_law_2 = { }
+
+	# MONEY AND CLAIMS - money is great, claims sometimes needed
+	fp_claims_law_0 = { always = yes }
+	# fp_claims_law_1 = { }
+	# fp_claims_law_2 = { }
+
+	# BLINDING AND CASTRATION - blinding can take care of rivals, castration is too much
+	fp_crime_punish_law_0 = {
+		OR = {
+			liege = { has_law = fp_crime_punish_law_1 }
+			liege = { has_law = fp_crime_punish_law_2 }
+		}
+	}
+	# fp_crime_punish_law_1 = {  }
+	fp_crime_punish_law_2 = { always = yes }
+}

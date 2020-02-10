@@ -329,7 +329,7 @@ laws = {
 	}#end fp_inv_def_law_2
 
 
-	#CLAIMS AND MONEY
+	#MONEY AND CLAIMS
 	# No request money, no request claims
 	fp_claims_law_0 = {
 		group = fp_claims_law
