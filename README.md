@@ -10,11 +10,9 @@ Below are the powers that do not require the Supernatural Events game rule activ
 ### Church Doctrine
 After the Germanic reformation, the law panel will allow the Fylkir to implement various church doctrines.
 
-Excommunication and Divorce. Claims and Money.
+Excommunication and Divorce. Claims and Money. Invasions and defensive religious war aid. Crime and Punishment.
 
-Invasions and defensive religious war aid. Crime and Punishment.
-
-(NYI) - Council voting patterns to support these laws. You'll need to ask for support to get them passed.
+Council members will vote for or against these laws according to their stance.
 
 ### Fylkir Self Decisions
 **Excommunicate** - At the Fylkir's discretion, a follower of the Germanic religion may be excommunicated from the faith.
