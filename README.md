@@ -14,6 +14,8 @@ Excommunication and Divorce. Claims and Money.
 
 Invasions and defensive religious war aid. Crime and Punishment.
 
+(NYI) - Council voting patterns to support these laws. You'll need to ask for support to get them passed.
+
 ### Fylkir Self Decisions
 **Excommunicate** - At the Fylkir's discretion, a follower of the Germanic religion may be excommunicated from the faith.
 
