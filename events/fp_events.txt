@@ -332,8 +332,9 @@ letter_event = {
 			factor = 0
 		}
 
-		#command block opt A
+		#command block opt A FROMFROM is sender
 		#letter_event = { id = fp.301 }
+		transfer_scaled_wealth = { to = FROMFROM value = 0.5 }
 
 	}
 
