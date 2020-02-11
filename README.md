@@ -29,7 +29,6 @@ Council members will vote for or against these laws according to their stance.
 **Request Money** (NYI) - A member of the Germanic faith may request money from the Fylkirate, in exchange for piety.
 
 ### Startable Event Chains by the Fylkir
-**Codify The Sagas** (NYI) - The Fylkir gathers vassal priests to create a grand text, which contains all scripture and knowledge within the Germanic religion. Costs 500 piety.
 
 **Found the Jarnhendur (Iron Hands)** - If the Fylkirate exists, the Viking Age is started, and the Fylkir holds one or more of Denmark, Norway, or Sweden, the Jarnhendur, the personal bodyguard of the Fylkir, may be founded as a vassal. Costs 500 prestige, 500 piety, and 500 gold.
 
@@ -39,15 +38,15 @@ Council members will vote for or against these laws according to their stance.
 Below are the powers that require the Supernatural Events game rule to be active.
 
 ### Fylkir Self Decisions
-**Cure Illness** - Removes an illness or disease from a member of the faith, in exchange for 50 piety.  
+**Cure Illness** - Removes an illness or disease from a member of the faith, in exchange for 50 piety.
 
-**Calm Mind** - Remove lunacy, possession, depression, or stressed from a member of the faith, in exchange for 50 piety. Lisp and stutter are included, as well, as complications of the mind.   
+**Calm Mind** - Remove lunacy, possession, depression, or stressed from a member of the faith, in exchange for 50 piety. Lisp and stutter are included, as well, as complications of the mind.
 
 **Heal Body** - Heal a wound or disfigurement from a member of the faith, in exchange for 75 piety.
 
 **Heal Defect** - Remove a defect or aberration trait from a member of the faith, in exchange for 100 piety.
 
-**Extend Life** - Extend the life of a member of the faith by two years, in exchange for 100 piety, and a year of the Fylkir's own life.  
+**Extend Life** - Extend the life of a member of the faith by two years, in exchange for 100 piety, and a year of the Fylkir's own life.
 
 **Inflict Gloom** - Inflict stressed or depression upon a member of the faith, in exchange for 75 piety.
 
@@ -60,16 +59,3 @@ Below are the powers that require the Supernatural Events game rule to be active
 **Inflict Aberration** - Inflict an aberration or deformity upon a member of the faith, in exchange for 200 piety.
 
 **Pass Trait** - Transfer progressively more desirable traits to the current heir of the Fylkirate, every year.
-
-### Startable Event Chains by the Fylkir
-**Forge Magical Weapon** (NYI)
-
-**Forge Magical Item** (NYI)
-
-### Fylkir Requests by members of the faith
-**Request Healing** (NYI)
-
-**Request Life** (NYI)
-
-## Society - The Valinn
-(NYI) The Valinn are a society of Germanic priests which venerate the Fylkir above all else. Even if the Fylkir chooses not the be a part of The Valinn, its members are utterly devoted to the Fylkir and are fanatical in carrying out his will upon the world. The society is small, and might be split out to another mod.
