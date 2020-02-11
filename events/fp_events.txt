@@ -78,8 +78,8 @@ character_event = {
 				FROM = { has_law = fp_excomm_law_1 }
 			}
 			norse_pagan_reformed = {
-				set_can_excommunicate = yes
-				set_can_grant_divorce = no
+				set_can_excommunicate = no
+				set_can_grant_divorce = yes
 			}
 		}#end else_if
 		else_if = {
