@@ -29,12 +29,11 @@ Council members will vote for or against these laws according to their stance.
 **Request Money** (NYI) - A member of the Germanic faith may request money from the Fylkirate, in exchange for piety.
 
 ### Startable Event Chains by the Fylkir
-**Codify The Sagas** (NYI) - The Fylkir gathers vassal priests to create a grand book, which contains all scripture and knowledge within the Germanic religion. Costs 500 piety.  
+**Codify The Sagas** (NYI) - The Fylkir gathers vassal priests to create a grand text, which contains all scripture and knowledge within the Germanic religion. Costs 500 piety.
 
 **Found the Jarnhendur (Iron Hands)** - If the Fylkirate exists, the Viking Age is started, and the Fylkir holds one or more of Denmark, Norway, or Sweden, the Jarnhendur, the personal bodyguard of the Fylkir, may be founded as a vassal. Costs 500 prestige, 500 piety, and 500 gold.
 
 **Vassalize the Varangian Guard** - With the same requirements as the Jarnhendur, plus, if the Varangian Guard is independent and landless, the Byzantine Empire no longer exists, and the Fylkirate is held by a character with an Empire level title, the Fylkir may vassalize the Varangian Guard. Costs 500 prestige, 500 piety, and 250 gold.
-
 
 ## Supernatural Powers
 Below are the powers that require the Supernatural Events game rule to be active.
@@ -71,3 +70,6 @@ Below are the powers that require the Supernatural Events game rule to be active
 **Request Healing** (NYI)
 
 **Request Life** (NYI)
+
+## Society - The Valinn
+(NYI) The Valinn are a society of Germanic priests which venerate the Fylkir above all else. Even if the Fylkir chooses not the be a part of The Valinn, its members are utterly devoted to the Fylkir and are fanatical in carrying out his will upon the world. The society is small, and might be split out to another mod.
