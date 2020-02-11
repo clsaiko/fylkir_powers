@@ -717,6 +717,7 @@ targeted_decisions = {
 				trait = infirm
 				trait = maimed
 				trait = wounded
+				trait = blinded
 			}
 		}#end potential block
 
@@ -803,6 +804,13 @@ targeted_decisions = {
 						NOT = { trait = one_eyed }
 					}
 					remove_trait = one_eyed
+				}
+				3 = {
+					modifier = {
+						factor = 0			#skip if not blinded
+						NOT = { trait = blinded }
+					}
+					remove_trait = blinded
 				}
 				3 = {
 					modifier = {
