@@ -134,6 +134,7 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
 		}
+		vassal_limit = 1
 	}#end fp_excomm_law_1
 
 	# Divorce allowed, excommunication allowed
@@ -181,6 +182,8 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
+		vassal_limit = 1
+		demesne_size = 1
 	}#end fp_excomm_law_2
 
 
@@ -280,6 +283,7 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
 		}
+		vassal_limit = 1
 	}#end fp_inv_def_law_1
 
 	# sanction invasion, religious Head defense
@@ -324,8 +328,10 @@ laws = {
 				set_can_grant_invasion_cb = invasion
 				set_rel_head_defense = yes
             }
-            FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
+			FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
+		vassal_limit = 1
+		demesne_size = 1
 	}#end fp_inv_def_law_2
 
 
@@ -425,6 +431,7 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 to change doctrine
 		}
+		vassal_limit = 1
 	}#end fp_claims_law_1
 
 	# Can request money, can request claims
@@ -471,6 +478,8 @@ laws = {
             }
             FROM = { piety = -50 }	#Fylkir expends 50 piety to change doctrine
 		}
+		vassal_limit = 1
+		demesne_size = 1
 	}#end fp_claims_law_2
 
 
