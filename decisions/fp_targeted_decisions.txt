@@ -135,18 +135,19 @@ targeted_decisions = {
 				who = FROM
 				months = 480
 			}
-			piety = -105
-
+			FROM = {
+				piety = -105
+			}
 		}#end effect block
 
 		ai_will_do = {
 			#Factors for an AI character to take the decision (1 = 100% chance every month - for each allowed target!)
-			factor = 50
+			factor = 0.9
 
-			#wealthy characters will not ask
+			# characters with funds will not ask
 			modifier = {
 				factor = 0
-				FROM = { wealth = 180 }
+				FROM = { wealth = 100 }
 			}
 
 			#shy, content, or proud less likely
