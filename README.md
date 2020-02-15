@@ -14,6 +14,10 @@ Excommunication and Divorce. Claims and Money. Invasions and defensive religious
 
 Council members will vote for or against these laws according to their stance.
 
+### Buildings
+
+**Fort Temple** - An upgradable building which can be built within the Fort holding, to see to the spiritual needs of the garrison soldiers.
+
 ### Fylkir Self Decisions
 **Excommunicate** - At the Fylkir's discretion, a follower of the Germanic religion may be excommunicated from the faith.
 

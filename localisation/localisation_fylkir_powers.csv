@@ -160,3 +160,18 @@ EVTOPTBfp.999;fylkir_powers Option B;;;;;;;;;;;;;x
 #TITLES
 d_jarnhendur;Jarnhendur;;;;;;;;;;;;;x
 d_jarnhendur_adj;Handhæg;;;;;;;;;;;;;x
+
+#BUILDINGS
+fp_ftchapel_1;Priest Hut;;;;;;;;;;;;;x
+fp_ftchapel_1_desc;A small thatched roof building from which a local priest may minister to the garrison soldiers.;;;;;;;;;;;;;x
+fp_ftchapel_2;Chapel;;;;;;;;;;;;;x
+fp_ftchapel_2_desc;A slightly larger wooden building, allowing the priest to hold prayers and services.;;;;;;;;;;;;;x
+fp_ftchapel_3;Church;;;;;;;;;;;;;x
+fp_ftchapel_3_desc;This building and its priests are fully capable of satisfying the spiritual needs of the garrison soldiers..;;;;;;;;;;;;;x
+fp_ftchapel_4;Fort Temple;;;;;;;;;;;;;x
+fp_ftchapel_4_desc;This larger building offers additional defensive capabilities to the fort in which it resides.;;;;;;;;;;;;;x
+
+fp_ftmarket_1;Market Stall;;;;;;;;;;;;;x
+fp_ftmarket_1_desc;A small structure in which a merchant has set up shop to sell various sundries to the garrison soldiers.;;;;;;;;;;;;;x
+fp_ftmarket_2;Marketplace;;;;;;;;;;;;;x
+fp_ftmarket_2_desc;Several merchants have located here to sell goods to the garrison soldiers.;;;;;;;;;;;;;x
