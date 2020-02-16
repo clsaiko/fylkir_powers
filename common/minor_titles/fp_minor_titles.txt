@@ -1,0 +1,102 @@
+########################################################
+# MINOR TITLES
+# Characters can have any number of these
+########################################################
+#	grant_limit: Max number of holders.
+#	realm_in_name: Append the name of the country after the title (Queen [of Sweden])
+#	allowed_to_hold: conditions for the character to hold the title
+#	allowed_to_grant: conditions for a ruler to grant the title
+#	regent: This is the title for regents (not really "minor")
+#	gain_effect: fires when the title is granted
+#	lose_effect: fires when a title is lost if dismissal_trigger evaluates to false
+#	message: should fire a message to the its owner when set
+#	The other fields are all character modifiers.
+
+fp_title_will = {
+ 	is_voter = yes
+# 	attribute = learning	#used in minor titles?
+ 	dignity = 0.33
+ 	opinion_effect = 10
+	monthly_salary = 0.12
+	monthly_prestige = 0.8
+
+	grant_limit = 1
+	
+	allowed_to_grant = {
+		has_dlc = "Zeus"
+		higher_tier_than = DUKE
+		#primary_title = { has_law = law_voting_power_1 }
+		controls_religion = yes
+		religion = norse_pagan_reformed
+	}
+	
+	allowed_to_hold = {
+		OR = {
+			primary_title = { temporary = no }
+			NOT = {
+				primary_title = {
+					always = yes
+				}
+			}
+		}
+		can_be_councilmember_king_trigger = yes
+	}
+
+	revoke_trigger = {
+		FROM = {
+			primary_title = {
+				NOT = { 
+					AND = {
+						has_law = succession_voting_power_1
+						ROOT = { is_powerful_vassal = yes }
+					}
+				}
+			}
+		}
+	}
+	gain_effect = {
+	}
+	lose_effect = {
+		opinion = { who = FROM modifier = opinion_fired_from_council }
+		opinion = { who = FROM modifier = opinion_recently_fired }
+	}
+	retire_effect = {
+		if = {
+			limit = {
+				NOT = {
+					age = 65
+				}
+				health = 3
+				NOT = {
+					is_sick_or_injured_trigger = yes
+				}
+				can_be_councilmember_king_trigger = yes
+			}
+			
+			FROM = { 
+				opinion = { who = ROOT modifier = opinion_resigned_from_council }
+			}
+		}
+	}
+
+	#actions, duplicated from other councilors, this might not have any meaning for minor titles
+
+	#spymaster actions
+	# action = action_uncover_plots
+	# action = action_uncover_plots_offmap	# Replaces action_uncover_plots if mystics is activated.
+	# action = action_organize_spies
+	# action = action_organize_spies_mystics
+
+	#steward actions
+	# action = action_oversee_construction
+
+	#chancellor actions
+	# action = action_fabricate_claims
+
+	#seer actions
+	action = action_hunt_heretics	
+
+	lift_fow = yes
+
+	message = yes
+}

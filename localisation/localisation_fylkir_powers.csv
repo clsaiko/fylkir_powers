@@ -161,6 +161,14 @@ EVTOPTBfp.999;fylkir_powers Option B;;;;;;;;;;;;;x
 d_jarnhendur;Jarnhendur;;;;;;;;;;;;;x
 d_jarnhendur_adj;Handhæg;;;;;;;;;;;;;x
 
+#JOB TITLES
+fp_job_next;Næsti;;;;;;;;;;;;;x
+fp_job_next_desc;The Næsti, or next, is the heir to the Fylkir, who will one day ascend to power and control The Fylkirate.;;;;;;;;;;;;;x
+
+#MINOR TITLES
+fp_title_will;Viljinn;;;;;;;;;;;;;x
+fp_title_will;The Viljinn, or Will, is a prestigious councillor post which carries out commands of behalf of the Fylkir.;;;;;;;;;;;;;x
+
 #BUILDINGS
 fp_ftchapel_1;Priest Hut;;;;;;;;;;;;;x
 fp_ftchapel_1_desc;A small thatched roof building from which a local priest may minister to the garrison soldiers.;;;;;;;;;;;;;x
