@@ -124,9 +124,9 @@ targeted_decisions = {
 				letter_event = { id = fp.300 }
 			}
 			FROM = {
-				add_character_modifier = {	#three year cooldown
+				add_character_modifier = {	#five year cooldown
 					name = fp_ask_money_timer
-					months = 36
+					months = 60
 					hidden = yes
 				}
 			}
@@ -142,12 +142,12 @@ targeted_decisions = {
 
 		ai_will_do = {
 			#Factors for an AI character to take the decision (1 = 100% chance every month - for each allowed target!)
-			factor = 0.9
+			factor = 0.5
 
-			# characters with funds will not ask
+			# characters with some funds will not ask
 			modifier = {
 				factor = 0
-				FROM = { wealth = 100 }
+				FROM = { wealth = 80 }
 			}
 
 			#shy, content, or proud less likely

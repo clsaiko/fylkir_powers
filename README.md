@@ -34,7 +34,7 @@ Council members will vote for or against these laws according to their stance.
 
 **Request Invasion** - Followers of the Germanic religion may request from the Fylkir that an invasion be permitted on another member of the faith.
 
-**Request Money** - A member of the Germanic faith may request money from the Fylkirate, in exchange for piety, every three years.
+**Request Money** - A member of the Germanic faith may request money from the Fylkirate, in exchange for piety, every five years.
 
 ### Startable Event Chains by the Fylkir
 
